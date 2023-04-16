@@ -1,0 +1,176 @@
+*{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.5em;
+    color: #222831;
+}
+body{
+    background-color: #fdfffc;
+
+}
+
+.navigation-bar{
+    grid-area: nav;
+    background-color: #222831;
+    z-index: 1;
+    position: sticky;
+    top: 0;
+
+}
+
+.menu-content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.logo{
+    width: 90px;
+    padding: 8px 0 0 0;
+}
+
+.menu-burger{ 
+    position: absolute;
+    left: 0;
+    top: 5px;
+    padding: 25px 35px 0 20px;
+    color: #ECECEC;
+    cursor: pointer;
+}
+
+.menulist{
+    display: none;
+   
+}
+
+a:link { text-decoration: none; }
+
+
+a:visited { text-decoration: none; }
+
+
+a:hover { text-decoration: none; }
+
+
+a:active { text-decoration: none; }
+
+a{
+    text-decoration: none;
+    color: #ECECEC;
+}
+
+ul{
+    list-style: none;
+}
+/* side-bar  */
+.menu-sidebar{
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    z-index: 11;
+    background: #222831;
+    overflow: hidden;
+    transform: translate(-100%);
+    transition: 0.5s ease-in-out;
+}
+
+.side-bar-icon{
+    color: #ECECEC;
+}
+
+.side-menubar{
+    display: flex;
+    padding: 0px;
+    height: 80%;
+}
+
+.menu-list{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 90px;
+    gap: 2em;
+   
+}
+
+.menu-sidebar .close-menu{
+    position: absolute;
+    right: 30px;
+    margin-top: 20px;
+}
+.side-bar-icon{
+    width: 40px;
+}
+
+.side-menu-items a{
+    display: block;
+    padding: 10px 0 10px 20px;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+.side-menu-items a:visited{
+    color: #ECECEC;
+}
+
+h2{
+    font-size: 3em;
+    font-weight: 900;
+}
+.side-menu-items a:hover{
+    color: #ECECEC;
+    background-color: #fbac7e8a;
+background-image: linear-gradient(62deg, #fbac7e8d 0%, #f7cf6886 100%);
+
+    
+}
+
+
+
+@media screen and (min-width: 1280px){
+
+
+.logo{
+    width: 150px;
+    padding: 15px 30px 0 0;
+
+}
+.navigation-bar{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.menu-content{
+    width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.menulist{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 50px;
+    gap: 2em;
+}
+.menu-burger{ 
+display: none;
+}
+.menu-sidebar{
+    display: none;
+}
+
+}

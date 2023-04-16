@@ -1,0 +1,34 @@
+/* table  */
+.table{
+    font-size: 1.3em;
+    margin-bottom: 50px !important;
+    letter-spacing: 0.05em;
+   
+
+}
+
+.table-responsive{
+    overflow-x: auto;
+    scrollbar-color: #283345;
+}
+.table-striped{
+background-color: #6573f21a;
+}
+
+th{
+    background-color: #212731;
+    color: #ECECEC;
+    position: sticky;
+    top: 0;
+}
+td {
+    min-width: 100px;
+    white-space: normal !important; 
+    word-wrap: break-word;  
+  
+  }
+
+tr:hover {
+    background-color: #6573f228 !important;
+    transition: 0.5s;
+}

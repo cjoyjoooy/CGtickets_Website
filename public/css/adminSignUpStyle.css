@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+
+body{
+    background-image: url(/resource/banner_image.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(4px) grayscale(60%);
+
+}
+.container{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content-container{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+form{
+    width: 400px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 2em;
+    border-radius: 10px;
+    background-color: #222831;
+    margin: 30px 0 30px 0;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    
+}
+
+h1{
+    text-align: center;
+    padding-top:30px;
+    color:#F2A365 ;
+}
+
+.input-box{
+    max-width: 320px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 20px 0 20px;
+}
+
+.input-box > *{
+    width: 100%;
+    height: 30px;
+    font-size: 1.3em;
+    letter-spacing: 1px;
+}
+
+label{
+    font-weight: 600;
+    color: #ECECEC;
+    padding-bottom: 5px;
+}
+.txtbox{
+    border: none;
+    color: #222831;
+    font-weight: 400;
+    padding: 0 0 0 5px;
+    background-color: #ECECEC;
+}
+.txtbox:hover{
+    background-color: #cfcfcf;
+}
+
+.txtbox:focus{
+    outline: none;
+    border: 3px solid #F2A365;
+    content: " ";
+}
+
+.btn{
+    width: 200px;
+    height: 40px;
+    padding: 7px 0 15px 0;
+    font-weight: 700;
+    color: #ECECEC;
+    background-color: #F2A365;
+    transition: 0.1s linear;
+    margin-bottom: 50px;
+}
+
+.btn:hover{
+    background-color: #ec934f;
+    transform: scale(1.1);
+}
+
+
+.txtbox, .btn{
+    border: none;
+    border-radius: 10px
+}

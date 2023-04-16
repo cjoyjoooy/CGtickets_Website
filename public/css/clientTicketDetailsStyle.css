@@ -1,0 +1,129 @@
+.body-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: #222831;
+}
+
+.content-container{
+    width: 80%;
+
+}
+
+/* movie list details  */
+
+.movie-img{
+    width: 200px;
+    height: 300px;
+    padding-bottom: 20px;
+}
+
+.movielist-details-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 30px;
+    
+}
+.movielist-details {
+    padding: 0 10px 15px 10px;
+  }
+
+.movielist-info{
+    min-width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+span{
+    width: 100%;
+    padding: 5px 5px 5px 0;
+    font-size: 1.2em;
+    text-align: left;
+
+}
+
+/* ticket details  */
+
+
+.ticket-details-container{
+    border: 2px solid #222831;
+    margin: 20px 0 50px 0;
+    font-size: 1.2em;
+}
+.ticket-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    gap: 2em;
+
+}
+
+.ticket-info{
+    width: 100%;
+    text-align: center;
+}
+.ticket-info > *{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.ticket-details:last-child{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 0;
+
+}
+
+.ticket-details:last-child .ticket-info{
+    display: flex;
+}
+.ticket-details:last-child .ticket-info :first-child{
+    font-weight: 600;
+}
+
+
+
+@media screen and (min-width: 800px){
+    .movielist-details-container{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 0px 20px 10px 20px;
+        padding-top: 30px;
+        text-align: left;
+    }
+    
+    .movielist-details {
+        padding: 0 25px 15px 25px;
+    }
+    
+    .movielist-info{
+        min-width: 400px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .ticket-info{
+        width: 120px;
+        text-align: center;
+    }
+    .ticket-info > *{
+        width: 100%;
+    }
+    .ticket-details:last-child .ticket-info{
+        width:50%;
+    }
+  
+    .action-button-container{
+        justify-content: flex-end;
+    }
+}
+
+
+@media screen and (min-width: 1280px){
+   
+}

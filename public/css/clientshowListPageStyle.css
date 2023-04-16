@@ -1,0 +1,149 @@
+
+
+/* movie details  */
+
+.movie-img{
+    width: 200px;
+    height: 300px;
+    padding-bottom: 20px;
+}
+
+.movie-details-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 30px;
+}
+
+h3{
+    margin-top: 0;
+    font-weight: bold;
+}
+.movie-details-content{
+    width: 80%;
+}
+
+.movie-details {
+    padding: 10px 10px 15px 10px;
+
+  }
+.movie-details p{
+    max-width: 700px;
+    padding: 10px 0 10px 0;
+    text-align: justify;
+}
+
+span{
+    padding-top: 10px;
+    
+}
+
+span, p {
+    font-size: 1.2em;
+    color: #222831d0;
+}
+
+h2{
+    text-align: center;
+    padding: 25px 0 35px 0;
+    font-weight: 600;
+    color: #222831;
+}
+.section-divider{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.divider{
+    width: 80%;
+    height: 2px;
+    background-color: #222831;
+}
+
+/* show times sections */
+
+.showtimes-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  
+}
+
+.showtimes-content{
+    width: 80%;
+}
+
+.show-container{ 
+    border: 3px #222831 solid;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+.showtimes-content .show-container:last-child{ 
+    margin-bottom: 80px;
+
+}
+
+.show-info{
+    color: #222831;
+    margin-bottom: 30px;
+    font-size: 1.4em;
+}
+
+.show-info :last-child{
+    color: #222831d1;
+
+ 
+}
+
+
+.show-times{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em 1.5em;
+    
+}
+
+
+.time-btn{
+    padding: 10px 20px 10px 20px;
+    background-color: #222831;
+    color: #ECECEC;
+    font-weight: 900;
+    letter-spacing: 2px;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    transition: 0.2s ease-in;
+}
+
+.time-btn:hover{
+    background-color: #f09855;
+}
+
+@media screen and (min-width: 800px){
+
+    .movie-details {
+        padding: 0 25px 15px 25px;
+      }
+
+      .movie-details-content{
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 10px 20px 10px 20px;
+        padding-top: 30px;
+        text-align: left;
+    }
+
+}
+
+
+
+@media screen and (min-width: 1280px){
+
+}
