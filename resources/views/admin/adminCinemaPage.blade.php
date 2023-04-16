@@ -34,9 +34,12 @@
                                         <th> </th>
                                     </tr>
                                 </thead>
+                                {{-- loop through each row in location table into the database --}}
+                                @foreach ($locations as $location )                                         
                                 <tbody>
                                     <tr>
-                                        <td>Abreeza</td>
+                                        {{-- display the data from the location database --}}
+                                        <td>{{$location->location_name}}</td>
                                         <td>
                                             <div class="action-btn-container">
                                                 <button type="button" class="action-btn edit-btn locEdit" data-toggle="modal" data-target='#editLocation'><i class="fa-solid fa-pen action-btn"></i></button>
@@ -45,6 +48,7 @@
                                         </td>
                                     </tr>                                 
                                 </tbody>
+                                @endforeach
                             </table>
                         </div>
                         <div class="inputbox">

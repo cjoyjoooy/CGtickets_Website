@@ -12,8 +12,10 @@ class adminCinemaPageController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        return view('admin.adminCinemaPage');
+    {  
+        // display location data into the table  
+        $locations = Location::all();
+        return view('admin.adminCinemaPage',compact('locations'));
     }
     
     
