@@ -17,6 +17,8 @@ return new class extends Migration
             $table->text('MovieDescription');
             $table->string('Genre', 50);
             $table->text('MoviePoster');
+            $table->timestamps();
+
         });
     }
 

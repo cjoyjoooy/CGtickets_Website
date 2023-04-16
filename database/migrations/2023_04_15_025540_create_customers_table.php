@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('customer_email',50);
             $table->string('customer_phonenumber',255);
             $table->timestamps();
+            
         });
     }
 

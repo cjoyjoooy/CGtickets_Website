@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Location;
+use Illuminate\Console\View\Components\Task;
 use Illuminate\Http\Request;
 
 class adminCinemaPageController extends Controller
@@ -13,52 +15,20 @@ class adminCinemaPageController extends Controller
     {
         return view('admin.adminCinemaPage');
     }
+    
+    
+    public function addLocation(Request $request){
+        // any variable = new Modelname 
+        $locationdata = new Location;
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        //variable->table comlumn name = $request-> name sa input box
+        $locationdata->location_name=$request->location_name;
+       
+        // save() -- insert data into the database 
+        $locationdata->save();
+        // return siya balik sa page 
+        return redirect()-> back();
+      
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
+  
 }

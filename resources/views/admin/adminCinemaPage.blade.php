@@ -43,32 +43,16 @@
                                                 <button type="button" class="action-btn del-btn"><i class="fa-solid fa-trash action-btn"></i></button>
                                             </div>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gmall</td>
-                                        <td>
-                                            <div class="action-btn-container">
-                                                <button type="button" class="action-btn edit-btn locEdit" data-toggle="modal" data-target='#editLocation'><i class="fa-solid fa-pen action-btn"></i></button>
-                                                <button type="button" class="action-btn del-btn"><i class="fa-solid fa-trash action-btn"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sm Ecoland</td>
-                                        <td>
-                                            <div class="action-btn-container">
-                                                <button type="button" class="action-btn edit-btn locEdit" data-toggle="modal" data-target='#editLocation'><i class="fa-solid fa-pen action-btn"></i></button>
-                                                <button type="button" class="action-btn del-btn"><i class="fa-solid fa-trash action-btn"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    </tr>                                 
                                 </tbody>
                             </table>
                         </div>
                         <div class="inputbox">
-                            <form action="">
+                            {{-- call add location route  --}}
+                            <form action="{{route('addLocation')}}" method="POST">
+                                @csrf
                                 <label for="location">Location</label>
-                                <input type="text" name="location" id="location">
+                                <input type="text" name="location_name" id="location">
                                 <input type="submit" value="Add" class="btn">
                             </form>
                         </div>

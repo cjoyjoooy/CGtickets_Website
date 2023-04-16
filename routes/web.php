@@ -39,3 +39,7 @@ Route::resource('Homepage', HomepageController::class);
 Route::resource('ShowTimes', ShowTimesController::class);
 Route::resource('TicketDetails', TicketDetailsController::class);
 Route::resource('Payment', PaymentController::class);
+
+
+//add location route
+Route::post('/add-location',[AdminCinemaPageController::class,'addLocation'])->name('addLocation');

@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('cinema_number',50);
             $table->integer('seat_number');
+            $table->timestamps();
+
         });
     }
 

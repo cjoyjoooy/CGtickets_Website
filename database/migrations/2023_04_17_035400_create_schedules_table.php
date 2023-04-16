@@ -29,6 +29,8 @@ return new class extends Migration
             $table->time('time_end');
             $table->date('date_schedule');
             $table->double('price');
+            $table->timestamps();
+
              
         });
     }
