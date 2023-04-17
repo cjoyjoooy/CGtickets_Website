@@ -17,8 +17,8 @@ class adminCinemaPageController extends Controller
         $locations = Location::all();
         return view('admin.adminCinemaPage',compact('locations'));
     }
-    
-    
+     
+
     
     public function addLocation(Request $request){
         // any variable = new Modelname 
