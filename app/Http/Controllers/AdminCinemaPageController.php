@@ -19,6 +19,7 @@ class adminCinemaPageController extends Controller
     }
     
     
+    
     public function addLocation(Request $request){
         // any variable = new Modelname 
         $locationdata = new Location;
