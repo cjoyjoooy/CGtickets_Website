@@ -36,7 +36,7 @@
                  </div>
                  <div class="input-box">
                     <p class= "sign-up" for="">Don't have an account?</p>
-                    <p><a href="adminSignUP.php" >Create account</a></p>
+                    <p><a href="{{ route('products.index')}}" >Create account</a></p>
                  </div>
             </form>
         </div>
