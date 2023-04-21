@@ -1,42 +1,43 @@
-.body-container{
+.body-container {
     width: 100%;
     display: flex;
     justify-content: center;
-    color: #222831;
+    color: #0B132B;
 }
 
-.content-container{
+.content-container {
     width: 80%;
 
 }
 
 /* movie list details  */
 
-.movie-img{
+.movie-img {
     width: 200px;
     height: 300px;
     padding-bottom: 20px;
 }
 
-.movielist-details-container{
+.movielist-details-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding-top: 30px;
-    
+
 }
+
 .movielist-details {
     padding: 0 10px 15px 10px;
-  }
+}
 
-.movielist-info{
+.movielist-info {
     min-width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-span{
+span {
     width: 100%;
     padding: 5px 5px 5px 0;
     font-size: 1.2em;
@@ -47,12 +48,13 @@ span{
 /* ticket details  */
 
 
-.ticket-details-container{
-    border: 2px solid #222831;
+.ticket-details-container {
+    border: 2px solid #0B132B;
     margin: 20px 0 50px 0;
     font-size: 1.2em;
 }
-.ticket-details{
+
+.ticket-details {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -61,16 +63,19 @@ span{
 
 }
 
-.ticket-info{
+.ticket-info {
     width: 100%;
     text-align: center;
 }
-.ticket-info > *{
+
+.ticket-info>* {
     text-align: center;
     margin-top: 20px;
 }
 
-.ticket-details:last-child{
+
+
+.ticket-details:last-child {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -79,17 +84,156 @@ span{
 
 }
 
-.ticket-details:last-child .ticket-info{
+.ticket-details:last-child .ticket-info {
     display: flex;
 }
-.ticket-details:last-child .ticket-info :first-child{
+
+.ticket-details:last-child .ticket-info :first-child {
     font-weight: 600;
 }
 
+.ctrl {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 1.2em;
+    justify-content: center;
+}
 
+.ctrl__counter {
+    position: relative;
+    width: 60px;
+    color: #333C48;
+    text-align: center;
+    overflow: hidden;
+}
 
-@media screen and (min-width: 800px){
-    .movielist-details-container{
+.ctrl__counter.is-input .ctrl__counter-num {
+    /* visability: hidden; */
+    opacity: 0;
+    transition: opacity 100ms ease-in;
+}
+
+.ctrl__counter.is-input .ctrl__counter-input {
+    /* visability: visible; */
+    opacity: 1;
+    transition: opacity 100ms ease-in;
+}
+
+.ctrl__counter-input {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+    box-shadow: none;
+    outline: none;
+    border: none;
+    color: #0B132B;
+    font-size: 30px;
+    text-align: center;
+    /* visability: hidden; */
+    opacity: 0;
+    transition: opacity 100ms ease-in;
+}
+
+.ctrl__counter-num {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    line-height: 38px;
+    /* visability: visible; */
+    opacity: 1;
+    transition: opacity 1000ms ease-in;
+}
+
+.ctrl__counter-num.is-increment-hide {
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: increment-prev 100ms ease-in;
+}
+
+.ctrl__counter-num.is-increment-visible {
+    opacity: 1;
+    transform: translateY(0);
+    animation: increment-next 100ms ease-out;
+}
+
+.ctrl__counter-num.is-decrement-hide {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: decrement-prev 100ms ease-in;
+}
+
+.ctrl__counter-num.is-decrement-visible {
+    opacity: 1;
+    transform: translateY(0);
+    animation: decrement-next 100ms ease-out;
+}
+
+.ctrl__button {
+    width: 25px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    background-color: #0B132B;
+    transition: background-color 100ms ease-in;
+}
+
+.ctrl__button:hover {
+    background-color: #1C2541;
+    transition: background-color 100ms ease-in;
+}
+
+.ctrl__button:active {
+    background-color: #3A506B;
+    transition: background-color 100ms ease-in;
+}
+
+.ctrl__button--decrement {
+    border-radius: 5px 0 0 5px;
+}
+
+.ctrl__button--increment {
+    border-radius: 0 5px 5px 0;
+}
+
+@keyframes decrement-prev {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes decrement-next {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+}
+
+@keyframes increment-prev {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes increment-next {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .movielist-details-container {
         display: flex;
         flex-direction: row;
         align-items: flex-start;
@@ -97,33 +241,34 @@ span{
         padding-top: 30px;
         text-align: left;
     }
-    
+
     .movielist-details {
         padding: 0 25px 15px 25px;
     }
-    
-    .movielist-info{
+
+    .movielist-info {
         min-width: 400px;
         display: flex;
         justify-content: space-between;
     }
-    .ticket-info{
+
+    .ticket-info {
         width: 120px;
         text-align: center;
     }
-    .ticket-info > *{
+
+    .ticket-info>* {
         width: 100%;
     }
-    .ticket-details:last-child .ticket-info{
-        width:50%;
+
+    .ticket-details:last-child .ticket-info {
+        width: 50%;
     }
-  
-    .action-button-container{
+
+    .action-button-container {
         justify-content: flex-end;
     }
 }
 
 
-@media screen and (min-width: 1280px){
-   
-}
+@media screen and (min-width: 1280px) {}

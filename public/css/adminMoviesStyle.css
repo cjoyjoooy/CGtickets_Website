@@ -31,6 +31,7 @@
 .search-container{
     width: 100%;
     display: flex;
+    gap: 5px;
   
 }
 .searchbox-input{
@@ -38,15 +39,25 @@
     padding: 0 10px 0 10px;
     border-radius: 5px;
     outline: none;
-    border: 2px solid #222831;
+    border: 2px solid #0B132B;
     font-size: 1.3em;
     font-weight: 400;
 }
+.searchbox-input:focus{
+    border: 3px solid #0B132B;
+}
 .searchbtn{
-    background-color: #222831;
+    background-color: #0B132B;
     padding: 0 10px 0 10px;
     border-radius: 5px;
-
+    outline: none;
+    
+}
+.searchbtn:hover{
+    background-color: #1C2541;
+}
+.searchbtn:active{
+    background-color: #3A506B;
 }
 .fa-solid{
     color: #ECECEC !important;
@@ -57,17 +68,17 @@
     border-radius: 5px;
     outline: none;
     border: none;
-    background-color: #222831;
+    background-color: #0B132B;
     color: #ECECEC;
     font-weight: 600;
 }
 
 .add-btn:hover{
-    background-color: #F2A365;
+    background-color: #1C2541;
 }
 
 .add-btn:active{
-    background-color: #b47546;
+    background-color: #3A506B;
 }
 
 .action-btn-container{
@@ -84,18 +95,18 @@
 }
 
 .edit-btn{
-    background-color: #222831;
+    background-color: #0B132B;
 }
 
 .edit-btn:hover{
-    background-color: #3f4a5c;
+    background-color: #1C2541;
 }
 
 .edit-btn:active{
-    background-color: #283345;
+    background-color: #3A506B;
 }
 .del-btn{
-    background-color: #FF6768;
+    background-color: #f71735;
 }
 .del-btn:hover{
     background-color: #e43d3d;
@@ -145,16 +156,16 @@ h3{
 .input-box input[type="text"]{
     outline: none;
     border-radius: 5px;
-    border: 3px solid #222831;
+    border: 3px solid #0B132B;
     margin-bottom: 10px;
     padding-left: 5px;
 }
 
-.input-box input[type="text"]:hover{
+.input-box input:hover{
     background-color: #3f4a5c14;
 }
 
-.input-box input[type="text"]:focus{
+.input-box input:focus{
     background-color: #3f4a5c37;
 }
 
@@ -162,36 +173,36 @@ h3{
     padding: 5px 40px 5px 40px;
     border-radius: 5px;
     outline: none;
-    border: 2px solid #222831;
+    border: 2px solid #0B132B;
     font-weight: 600;
 }
 
 .btn-cancel{
     background-color: transparent;
-    color: #222831;
+    color: #0B132B;
 }
 
 .btn-cancel:hover{
-    background-color: #222831;
+    background-color: #1C2541;
     color: #ECECEC;
 }
 
 .btn-add{
-    background-color: #222831;
+    background-color: #0B132B;
     color: #ECECEC;
 }
 
 .btn-add:hover{
-    background-color: #F2A365;
+    background-color: #1C2541;
     color: #ECECEC;
-    border: 2px solid #F2A365;
+    border: 2px solid #1C2541;
 }
 
 .desctextarea{
     height: 100px !important;
     outline: none;
     border-radius: 5px;
-    border: 3px solid #222831;
+    border: 3px solid #0B132B;
     padding: 10px 20px 10px 10px;
 }
 

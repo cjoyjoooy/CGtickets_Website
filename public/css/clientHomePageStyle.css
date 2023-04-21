@@ -1,31 +1,18 @@
-
-
 /* section 1- banner */
-
 .banner-container{
-    width: 100%;    
-    min-height: 300px;
-    background-image: url(/resource/banner_image.png);
-    background-repeat: no-repeat;
-    background-size:100% 100%;
-    z-index: -1;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+}
+/* carousel  */
+.carousel-img{
+    width: 100vw;
+    min-height: 200px;
+    max-height: calc(100vh - 60px);
+    object-fit:cover;
 }
 
-.banner-content{
-    width: 70%;
-    color: #ececece8;
-    text-align: center;
-    padding: 15px 20px 15px 20px;
-    text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(13, 13, 60, 0.51);
-}
 
-.banner-header{
-    font-size: 1.4em;
-    line-height: 2em;
-}
 /* section 2- main content  */
 .main-content{
     width: 100%; 
@@ -33,26 +20,17 @@
 
 .content-header{
     text-align: center;
-    padding: 20px;
-    font-size: 2em;
+    padding: 35px 20px 20px 20px;
+    font-size: 1.5em;
     font-weight: 900;
-    color: #222831;
+    color: #0B132B;
 }
-
-/* .searchbox-container{
-    width: 100%;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-   
-} */
-
 
 .search-btn{ 
     position: absolute;
     right: 0;
     top: 0;
-    padding: 10px 35px 0 20px;
+    padding: 12px 15px 0 20px;
     color: #ECECEC;
     cursor: pointer;
     
@@ -73,14 +51,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #222831;
+    background-color: #0B132B;
     z-index: 1;
     transition: 1s linear;
 
 
 }
 .search-input{
-    border: 3px solid #222831;
+    border: 3px solid #0B132B;
     outline: none;
     height: 30px;
     min-width: 300px;
@@ -91,7 +69,7 @@
 
 .grid-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 150px));
+    grid-template-columns: repeat(2, minmax(100px, 180px ));
     gap: 2em 1em;
     padding: 30px 20px 100px 20px;
     justify-content: center;
@@ -102,7 +80,7 @@
 }
 
 .grid-item:hover > p{
-    color: #F2A365;
+    color: #5BC0BE;
 }
 
 .grid-item:active > .movie-img{
@@ -112,14 +90,14 @@
 
 .movie-img{
     width: 100%;
-    height: 200px;
+    height: auto;
     border-radius: 5px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     transition: 0.2s linear;
 }
 .movie-title{
-    color: #222831;
-    font-size: 1.2em;
+    color: #0B132B;
+    font-size:clamp(1rem, 1.2vw, 1.6rem);
     font-weight: 600;
     margin-top: 20px;
 }
@@ -132,8 +110,20 @@
     display: flex;
     justify-content: center;
 }
-
+@media screen and (min-width: 600px){
+    .grid-container{
+        grid-template-columns: repeat(3, 180px);
+        gap: 2em 1em;
+    }
+    .content-header{
+        font-size: 2em;
+    }
+}
 @media screen and (min-width: 800px){
+    .grid-container{
+        grid-template-columns: repeat(4, 180px);
+        gap: 2em 1em;
+    }
     .banner-header{
         font-size: 2.1em;
         line-height: 2em;
@@ -151,7 +141,7 @@
         }
 
         .search-input{
-            border: 3px solid #222831;
+            border: 3px solid #0B132B;
             outline: none;
             height: 30px;
             width: 70%;
@@ -166,6 +156,10 @@
 
 }
 @media screen and (min-width: 1280px){
+    .grid-container{
+        grid-template-columns: repeat(6, minmax(180px, 200px));
+        gap: 2em 1.5em;
+    }
     .banner-container{ 
         min-height: calc(100vh - 60px);
         background-position: center;
@@ -176,12 +170,10 @@
         font-size: 3.2em;
         line-height: 2em;
     }
-
-  
-    .grid-container{
-        grid-template-columns: repeat(auto-fit, minmax(180px, 200px));
-        gap: 3em 2em;
+    .content-header{
+        font-size: 2.5em;
     }
+  
     .movie-img{
         height: 300px;
     }

@@ -9,14 +9,14 @@
 
 .table-responsive{
     overflow-x: auto;
-    scrollbar-color: #283345;
+    scrollbar-color: #0B132B;
 }
 .table-striped{
-background-color: #6573f21a;
+background-color: #3a506b19;
 }
 
 th{
-    background-color: #212731;
+    background-color: #0B132B;
     color: #ECECEC;
     position: sticky;
     top: 0;
@@ -29,6 +29,6 @@ td {
   }
 
 tr:hover {
-    background-color: #6573f228 !important;
+    background-color: #5bc0be7d !important;
     transition: 0.5s;
 }

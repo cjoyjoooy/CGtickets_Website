@@ -22,10 +22,10 @@ body{
     top: 0;
     width: 100%;
     min-height: 60px;
-    background-color: #222831;
+    background-color: #0B132B;
     display: flex;
     justify-content: center;
-    z-index: 1;
+    z-index: 10;
 
 }
 
@@ -41,7 +41,7 @@ body{
     position: absolute;
     left: 0;
     top: 0;
-    padding: 10px 35px 0 20px;
+    padding: 10px 35px 0 10px;
     color: #ECECEC;
     cursor: pointer;
 
@@ -59,6 +59,7 @@ a{
 ul{
     list-style: none;
     margin-bottom: 0;
+    padding: 0;
 }
 
 a:link { text-decoration: none; }
@@ -82,12 +83,12 @@ a:active { text-decoration: none; }
 }
 
 .menu-items a:hover{
-    color: #F2A365;
+    color: #5BC0BE;
 
 }
 
 .menu-active a{
-    color: #F2A365!important;
+    color: #5BC0BE!important;
 }
 .menu-sidebar{
     display: block;
@@ -97,7 +98,7 @@ a:active { text-decoration: none; }
     width: 250px;
     height: 100vh;
     z-index: 11;
-    background: #222831;
+    background: #0B132B;
     overflow: hidden;
     transform: translate(-100%);
     transition: 0.4s ease-in-out;
@@ -124,11 +125,12 @@ a:active { text-decoration: none; }
     right: 30px;
     margin-top: 20px;
     color: #ECECEC;
+    cursor: pointer;
 
 }
 .side-menu-items a{
     display: block;
-    padding: 10px 0 10px 20px;
+    padding: 10px 0 10px 35px;
     font-size: 1.2em;
     color: #ECECEC;
     font-weight: 600;
@@ -139,10 +141,9 @@ a:active { text-decoration: none; }
 
 
 .side-menu-items a:hover{
-    color: #ECECEC;
-    background-color: #fbac7e8a;
-    background-image: linear-gradient(62deg, #fbac7e8d 0%, #f7cf6886 100%);
-    
+    color: #5BC0BE;
+    background-color: #1C2541;
+  
 }
 
 /* footer  */
@@ -151,8 +152,7 @@ footer{
     position: sticky;
     top: 100%;
     width: 100%;
-    background-color: #222831;
-    color: #ECECEC;
+    background-color: #0B132B;
     height: 200px;
     display: flex;
     justify-content: center;
@@ -161,8 +161,10 @@ footer{
 
 .footer-content{
     text-align: center;
-    font-size: 0.5em;
-    
+    font-size: 0.5em; 
+}
+.footer-content p{
+    color: #ECECEC !important;
 }
 
 .footer-image{
@@ -179,13 +181,9 @@ footer{
 
 @media screen and (min-width: 800px){
     .navigation-bar{
-        width: 100%;
-        min-height: 60px;
-        background-color: #222831;
-        display: flex;
         justify-content: space-between;
-       
     }
+    
     .logo-container{
         padding-left: 20px;
     }
@@ -226,22 +224,22 @@ footer{
 
 .btn-cancel{
     background-color: transparent;
-    color: #222831;
-    border: 2px solid #222831;
+    color: #0B132B;
+    border: 2px solid #0B132B;
 }
 
 .btn-checkout{
-    background-color: #222831;
+    background-color: #0B132B;
     color: #ECECEC;
 }
 
 .btn-cancel:hover{
-    background-color: #222831;
+    background-color: #1C2541;
     color: #ECECEC;
-    border: 2px solid #222831;
+    border: 2px solid #1C2541;
 }
 
 .btn-checkout:hover{
-    background-color: #f69e5b;
+    background-color: #1C2541;
     color: #ECECEC;
 }

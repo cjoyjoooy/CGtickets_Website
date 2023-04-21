@@ -5,7 +5,7 @@
 }
 
 body{
-    background-color: #fdfffc;
+    background-color: #FDFFFC;
 
 }
 nav{
@@ -32,14 +32,14 @@ nav{
 }
 
 form{
-    width: 400px;
+    width: 350px;
     display: flex;
     height: max-content;
     flex-direction: column;
     align-items: center;
     gap: 2em;
-    border-radius: 10px;
-    background-color: #222831;
+    border-radius: 8px;
+    background-color: #0B132B;
     margin: 10px 0 30px 0;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     
@@ -48,21 +48,19 @@ form{
 h1{
     text-align: center;
     padding-top:30px;
-    color:#F2A365 ;
+    color:#F4F9E9 ;
 }
 
 .input-box{
-    max-width: 320px;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 20px 0 20px;
+    width: 80%;
 }
 
 .input-box > *{
-    width: 100%;
-    height: 30px;
-    font-size: 1.2em;
+ 
+    height: 35px;
+    font-size: 1.1em;
     letter-spacing: 1px;
+    transition: ease-in 0.2s;
 }
 
 .input-box:last-child{
@@ -72,62 +70,60 @@ h1{
 
 .sign-up{
     font-size: 1em;
-    color: #fdfffccd;
+    color: #F4F9E9;
 }
 
 a:link {
-    color: #F2A365;
+    color: #5BC0BE;
     text-decoration: none;
     font-weight: 600;
-    font-size: 1em;
+    font-size: 0.9em;
   }
 a:visited {
-    color: #F2A365;
+    color: #5BC0BE;
 }
 a:hover{
-    color: #ec934f;
+    color: #5bc8c6c4;
 }
-label{
-    font-weight: 600;
-    color: #ECECEC;
-    padding-bottom: 5px;
-}
+
 .txtbox{
+    width: calc(100% - 10px);
     border: none;
-    color: #222831;
-    font-weight: 400;
-    padding: 0 0 0 5px;
-    background-color: #ECECEC;
+    color: #0B132B;
+    font-weight: 500;
+    padding: 0 0 0 10px;
+    background-color: #F4F9E9;
+    outline: none;
+
 }
 .txtbox:hover{
     background-color: #cfcfcf;
 }
 
 .txtbox:focus{
-    outline: none;
-    border: 3px solid #F2A365;
-    content: " ";
+    border: 3px solid #5BC0BE;
+    content: "  ";
 }
 
 .btn{
-    width: 200px;
-    height: 40px;
-    padding: 7px 0 20px 0;
+    width: 100%;
     font-weight: 700;
     color: #ECECEC;
-    background-color: #F2A365;
+    background-color: #5BC0BE;
     transition: 0.1s linear;
+    padding: 0 10px 0 10px;
+
 }
 
 .btn:hover{
-    background-color: #ec934f;
+    background-color: #5bc8c6c4;
     transform: scale(1.1);
 }
 
 
 .txtbox, .btn{
     border: none;
-    border-radius: 10px
+    border-radius: 5px
 }
 
 .image-container{
@@ -157,8 +153,8 @@ label{
     }
 
     .img{
-        width: 530px;
-        padding-right: 40px;
+        width: 500px;
+        padding-right: 10px;
     }
     .content-container{
         align-items: center;
@@ -168,9 +164,9 @@ label{
         margin: 0px 0 30px 0;
     }
     h2{
-        font-size: 2.5em;
+        font-size: 2.1em;
         text-align: center;
-        color: #222831;
+        color: #0B132B;
         padding: 30px;
     }
 }

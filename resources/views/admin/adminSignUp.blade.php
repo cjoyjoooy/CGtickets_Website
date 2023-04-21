@@ -13,22 +13,18 @@
     <div class="container">
         <div class="content-container">
             <form action="">
-                <h1>Sign Up</h1>
+                <h1>SIGN UP</h1>
                 <div class="input-box">
-                    <label for="name">Name:</label>
-                    <input class="txtbox" type="text" id="name" name="name">
+                    <input class="txtbox" type="text" id="name" name="name" placeholder="Name">
                 </div>
                 <div class="input-box">
-                    <label for="username">Username</label>
-                    <input class="txtbox" type="text" id="username" name="username">
+                    <input class="txtbox" type="text" id="username" name="username" placeholder="Username">
                 </div>
                 <div class="input-box">
-                    <label for="password">Password</label>
-                    <input class="txtbox" type="password" id="password" name="password">
+                    <input class="txtbox" type="password" id="password" name="password" placeholder="Password">
                 </div>
                 <div class="input-box">
-                    <label for="confirm-password">Confirm Password</label>
-                    <input class="txtbox" type="password" id="confirm-password" name="confirm-password">
+                    <input class="txtbox" type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password">
                 </div>
                 <div class="input-box">
                     <button type="submit" class="btn">Sign Up</button>

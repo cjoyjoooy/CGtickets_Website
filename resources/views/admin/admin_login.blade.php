@@ -24,19 +24,19 @@
                 @csrf
                  <h1>LOGIN</h1>
                  <div class="input-box">
-                    <label for="username">Username</label>
-                    <input class="txtbox" type="text" id="username" name="username">
+                    
+                    <input class="txtbox" type="text" id="username" name="username" placeholder="Username">
                  </div>
                  <div class="input-box">
-                    <label for="password">Password</label>
-                    <input class="txtbox" type="password" id="password" name="password">
+                    
+                    <input class="txtbox" type="password" id="password" name="password" placeholder="Password">
                  </div>
                  <div class="input-box">
                     <button type="submit" class="btn">LOGIN</button>
                  </div>
                  <div class="input-box">
                     <p class= "sign-up" for="">Don't have an account?</p>
-                    <p><a href="{{ route('products.index')}}" >Create account</a></p>
+                    <p><a href="" >Create account</a></p>
                  </div>
             </form>
         </div>

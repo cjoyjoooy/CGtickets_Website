@@ -43,14 +43,14 @@ span{
 
 span, p {
     font-size: 1.2em;
-    color: #222831d0;
+    color: #0B132B;
 }
 
 h2{
     text-align: center;
     padding: 25px 0 35px 0;
-    font-weight: 600;
-    color: #222831;
+    font-weight: 900;
+    color: #0B132B;
 }
 .section-divider{
     width: 100%;
@@ -61,7 +61,7 @@ h2{
 .divider{
     width: 80%;
     height: 2px;
-    background-color: #222831;
+    background-color: #0B132B;
 }
 
 /* show times sections */
@@ -78,7 +78,7 @@ h2{
 }
 
 .show-container{ 
-    border: 3px #222831 solid;
+    border: 3px #0B132B solid;
     padding: 20px;
     margin-bottom: 25px;
 }
@@ -88,13 +88,13 @@ h2{
 }
 
 .show-info{
-    color: #222831;
+    color: #0B132B;
     margin-bottom: 30px;
     font-size: 1.4em;
 }
 
 .show-info :last-child{
-    color: #222831d1;
+    color: #0B132B;
 
  
 }
@@ -110,7 +110,7 @@ h2{
 
 .time-btn{
     padding: 10px 20px 10px 20px;
-    background-color: #222831;
+    background-color: #0B132B;
     color: #ECECEC;
     font-weight: 900;
     letter-spacing: 2px;
@@ -121,7 +121,14 @@ h2{
 }
 
 .time-btn:hover{
-    background-color: #f09855;
+    background-color: #1C2541;
+    transform: scale(1.1);
+    transition: 0.2s linear;
+}
+.time-btn:active{
+    background-color: #1C2541;
+    transform: scale(1);
+    transition: 0.1s linear;
 }
 
 @media screen and (min-width: 800px){

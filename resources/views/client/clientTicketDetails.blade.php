@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="css/component.css">
     <link rel="stylesheet" href="css/clientTicketDetailsStyle.css">
     <title>Ticket Details</title>
@@ -52,7 +55,14 @@
                     </div>
                     <div class="ticket-info">
                         <h3>Quantity</h3>
-                        <input type="number" name="quantity" id="quantity" min="1" value="1">
+                        <div class="ctrl">
+                            <div class="ctrl__button ctrl__button--decrement">&ndash;</div>
+                            <div class="ctrl__counter">
+                              <input class="ctrl__counter-input" maxlength="10" type="number" value="1">
+                              <div class="ctrl__counter-num">1</div>
+                            </div>
+                            <div class="ctrl__button ctrl__button--increment">+</div>
+                          </div>
                     </div>
                     <div class="ticket-info">
                         <h3>Subtotal</h3>
@@ -79,6 +89,102 @@
     </main>
     @include('components.footer')
     <script src='jsfile/homepage.js'></script>
+    <script>
+        (function() {
+  'use strict';
+
+  function ctrls() {
+    var _this = this;
+
+    this.counter = 1;
+    this.els = {
+      decrement: document.querySelector('.ctrl__button--decrement'),
+      counter: {
+        container: document.querySelector('.ctrl__counter'),
+        num: document.querySelector('.ctrl__counter-num'),
+        input: document.querySelector('.ctrl__counter-input')
+      },
+      increment: document.querySelector('.ctrl__button--increment')
+    };
+
+    this.decrement = function() {
+      var counter = _this.getCounter();
+      var nextCounter = (_this.counter > 0) ? --counter : counter;
+      _this.setCounter(nextCounter);
+    };
+
+    this.increment = function() {
+      var counter = _this.getCounter();
+      var nextCounter = (counter < 9999999999) ? ++counter : counter;
+      _this.setCounter(nextCounter);
+    };
+
+    this.getCounter = function() {
+      return _this.counter;
+    };
+
+    this.setCounter = function(nextCounter) {
+      _this.counter = nextCounter;
+    };
+
+    this.debounce = function(callback) {
+      setTimeout(callback, 100);
+    };
+
+    this.render = function(hideClassName, visibleClassName) {
+      _this.els.counter.num.classList.add(hideClassName);
+
+      setTimeout(function() {
+        _this.els.counter.num.innerText = _this.getCounter();
+        _this.els.counter.input.value = _this.getCounter();
+        _this.els.counter.num.classList.add(visibleClassName);
+      }, 100);
+
+      setTimeout(function() {
+        _this.els.counter.num.classList.remove(hideClassName);
+        _this.els.counter.num.classList.remove(visibleClassName);
+      }, 1100);
+    };
+
+    this.ready = function() {
+      _this.els.decrement.addEventListener('click', function() {
+        _this.debounce(function() {
+          _this.decrement();
+          _this.render('is-decrement-hide', 'is-decrement-visible');
+        });
+      });
+
+      _this.els.increment.addEventListener('click', function() {
+        _this.debounce(function() {
+          _this.increment();
+          _this.render('is-increment-hide', 'is-increment-visible');
+        });
+      });
+
+      _this.els.counter.input.addEventListener('input', function(e) {
+        var parseValue = parseInt(e.target.value);
+        if (!isNaN(parseValue) && parseValue >= 0) {
+          _this.setCounter(parseValue);
+          _this.render();
+        }
+      });
+
+      _this.els.counter.input.addEventListener('focus', function(e) {
+        _this.els.counter.container.classList.add('is-input');
+      });
+
+      _this.els.counter.input.addEventListener('blur', function(e) {
+        _this.els.counter.container.classList.remove('is-input');
+        _this.render();
+      });
+    };
+  };
+
+  // init
+  var controls = new ctrls();
+  document.addEventListener('DOMContentLoaded', controls.ready);
+})();
+    </script>
 </body>
 
 </html>
