@@ -35,8 +35,8 @@
                                     </tr>
                                 </thead>
                                 {{-- loop through each row in location table into the database --}}
-                                @foreach ($locations as $location )                                         
                                 <tbody>
+                                    @foreach ($locations as $location )                                         
                                     <tr>
                                         {{-- display the data from the location database --}}
                                         <td>{{$location->location_name}}</td>
@@ -47,8 +47,8 @@
                                             </div>
                                         </td>
                                     </tr>                                 
+                                    @endforeach
                                 </tbody>
-                                @endforeach
                             </table>
                         </div>
                         <div class="inputbox">

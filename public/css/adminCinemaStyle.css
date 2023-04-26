@@ -1,39 +1,40 @@
-.cinema-table-container{
+.cinema-table-container {
     width: 100%;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap:2em;
+    gap: 2em;
     margin-bottom: 50px;
 }
 
 
 /* table  */
-.table{
+.table {
     font-size: 1.3em;
     margin-bottom: 50px !important;
     letter-spacing: 0.05em;
 }
 
-.inputbox{
+.inputbox {
     width: 100%;
 }
 
-form{
+form {
     width: 100%;
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     width: 100%;
     justify-content: flex-end;
 }
-form > :not(:last-child){   
+
+form> :not(:last-child) {
     width: 100%;
     height: 30px;
     font-size: 1.3em;
     margin-bottom: 1em;
 }
 
-.inputbox input[type="text"]{
+.inputbox input[type="text"] {
     outline: none;
     border-radius: 5px;
     border: 3px solid #0B132B;
@@ -42,65 +43,69 @@ form > :not(:last-child){
     background-color: transparent;
 }
 
-#location:hover, #Cinema:hover{
+#location:hover,
+#Cinema:hover {
     background-color: #3f4a5c14;
 }
 
-#location:focus, #Cinema:focus{
+#location:focus,
+#Cinema:focus {
     background-color: #3f4a5c37;
 }
 
 
-.btn{
+.btn {
     background-color: #0B132B;
     color: #ECECEC;
     outline: none;
 
 }
 
-.btn:hover{
+.btn:hover {
     background-color: #1C2541;
     color: #ECECEC;
 
 }
-.table-responsive{  
+
+.table-responsive {
     overflow-x: auto !important;
     height: 300px;
     scrollbar-color: #0B132B;
     margin: 30px 0 50px 0;
-    
+
 }
-.btn-cancel{
+
+.btn-cancel {
     background-color: transparent;
     color: #0B132B;
 }
 
-.btn-cancel:hover{
+.btn-cancel:hover {
     background-color: #1C2541;
     color: #ECECEC;
 }
 
-.table-striped{
+.table-striped {
     background-color: #6573f21a;
-    }
-    
-    th{
-        background-color: #0B132B;
-        color: #ECECEC;
-        position: sticky;
-        top: 0;
-        white-space: normal !important; 
-        word-wrap: break-word;  
-    }
-    td {
-        
-        white-space: normal !important; 
-        word-wrap: break-word;  
-      
-      }
-    
-    tr:hover {
-        background-color: #5bc0be7d !important;
-        transition: 0.5s;
-    }
-    
+}
+
+th {
+    background-color: #0B132B;
+    color: #ECECEC;
+    position: sticky;
+    top: 0;
+    white-space: normal !important;
+    word-wrap: break-word;
+}
+
+td {
+
+    white-space: normal !important;
+    word-wrap: break-word;
+
+}
+
+tr:hover {
+    background-color: #5bc0be7d !important;
+    transition: 0.5s ease-in;
+}
