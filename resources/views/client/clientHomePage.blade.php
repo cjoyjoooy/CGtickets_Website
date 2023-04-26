@@ -73,7 +73,13 @@
         </main>
         @include('components.footer')
     </div>
+    {{-- <span class="loader"></span> --}}
     <script src='jsfile/homepage.js'></script>
+    {{-- <script>
+        window.addEventListener("load",()=> {
+            document.querySelector(".loader")
+        });
+    </script> --}}
 </body>
 
 </html>

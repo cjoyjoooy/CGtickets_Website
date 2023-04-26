@@ -1,9 +1,4 @@
-/* section 1- banner */
-.banner-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+/* section 1-*/
 /* carousel  */
 .carousel-img{
     width: 100vw;
@@ -61,7 +56,8 @@
     border: 3px solid #0B132B;
     outline: none;
     height: 30px;
-    min-width: 300px;
+    width: 80%;
+    min-width: 250px;
     padding-left: 10px;
     border-radius: 5px;
     
@@ -143,10 +139,14 @@
         .search-input{
             border: 3px solid #0B132B;
             outline: none;
-            height: 30px;
+            height: 40px;
             width: 70%;
+            min-width: 200px;
             padding-left: 10px;
             border-radius: 5px;
+            color: #0B132B;
+            font-weight: 600;
+            font-size: 1.2em;
             
         }
     .search-box{

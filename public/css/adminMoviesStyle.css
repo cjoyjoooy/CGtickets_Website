@@ -31,13 +31,14 @@
 .search-container{
     width: 100%;
     display: flex;
-    gap: 5px;
+  
   
 }
 .searchbox-input{
     width: 50%;
+    min-width: 95px;
     padding: 0 10px 0 10px;
-    border-radius: 5px;
+    border-radius: 5px 0 0 5px ;
     outline: none;
     border: 2px solid #0B132B;
     font-size: 1.3em;
@@ -49,7 +50,8 @@
 .searchbtn{
     background-color: #0B132B;
     padding: 0 10px 0 10px;
-    border-radius: 5px;
+    border-radius: 0 5px 5px 0 ;
+    border: 2px solid #0B132B;
     outline: none;
     
 }
@@ -64,7 +66,9 @@
 }
 
 .add-btn{
-    padding: 5px 40px 5px 40px;
+    width: 120px;
+    min-width: 50px;
+    padding: 5px 0 5px 0;
     border-radius: 5px;
     outline: none;
     border: none;
