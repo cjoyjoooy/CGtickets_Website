@@ -41,5 +41,29 @@ Route::resource('TicketDetails', TicketDetailsController::class);
 Route::resource('Payment', PaymentController::class);
 
 
+
+//dashboard
+Route::get('/admindashboard',[AdminDashboardController::class,'admindashboard'])->name('admindashboard');
 //add location route
 Route::post('/add-location',[AdminCinemaPageController::class,'addLocation'])->name('addLocation');
+
+//login & sign up route
+Route::get('/login', [AdminLoginController::class,'login'])->name('login');
+Route::post('login-user',[AdminLoginController::class,'loginuser'])->name('login-user');
+Route::get('/signup', [AdminSignUpController::class, 'signup']);
+Route::post ('/signup-user', [AdminSignUpController::class, 'signupUser'])->name('signupUser');
+
+//location
+Route::post('/add-location',[AdminCinemaPageController::class,'addLocation'])->name('addLocation');
+Route::post('/add-location',[AdminCinemaPageController::class,'addLocation'])->name('addLocation');
+Route::get('/delete/{id}',[AdminCinemaPageController::class,'deleteLocation']);
+Route::post('/update-location',[AdminCinemaPageController::class,'updateLocation'])->name('updateLocation');;
+
+
+//Cinema
+Route::post('/add-cinema',[AdminCinemaPageController::class,'addCinema'])->name('addCinema');
+Route::get('/deletecinema/{id}',[AdminCinemaPageController::class,'deleteCinema']);
+
+//Movie
+Route::post('/add-movie',[AdminMoviePageController::class,'addMovie'])->name('addMovie');
+Route::get('/deletemovie/{id}',[AdminMoviePageController::class,'deleteMovie']);
