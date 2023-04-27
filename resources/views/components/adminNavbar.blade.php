@@ -3,11 +3,11 @@
            <i class="fa-solid fa-bars fa-2xl menu-burger"></i>
             <div class="logo-container"><a href="AdminDashboard"><img class="logo" src="/resource/logo_version2.png" alt="logo"></a></div>
             <ul class="menulist">
-                <li class="side-menu-items"><a href="admindashboard"><i class="fa-solid fa-table-cells-large side-bar-icon"></i>Dashboard</a></li>
-                    <li class="side-menu-items"><a href="AdminMovie"><i class="fa-solid fa-film side-bar-icon"></i>Movies</a></li>
-                    <li class="side-menu-items"><a href="AdminShowSchedule"><i class="fa-solid fa-tv side-bar-icon"></i>Shows</a></li>  
-                    <li class="side-menu-items"><a href="AdminCinema"><i class="fa-solid fa-ticket side-bar-icon"></i>Cinemas</a></li>   
-                    <li class="side-menu-items"><a href="AdminTransaction"><i class="fa-solid fa-money-bill-transfer side-bar-icon"></i>Transaction</a></li> 
+                <li class="side-menu-items"><a href="{{url('AdminDashboard')}}"><i class="fa-solid fa-table-cells-large side-bar-icon"></i>Dashboard</a></li>
+                <li class="side-menu-items"><a href="{{url('AdminMovie')}}"><i class="fa-solid fa-film side-bar-icon"></i>Movies</a></li>
+                <li class="side-menu-items"><a href="{{url('AdminShowSchedule')}}"><i class="fa-solid fa-tv side-bar-icon"></i>Shows</a></li>  
+                <li class="side-menu-items"><a href="{{url('AdminCinema')}}"><i class="fa-solid fa-ticket side-bar-icon"></i>Cinemas</a></li>   
+                <li class="side-menu-items"><a href="{{url('AdminTransaction')}}"><i class="fa-solid fa-money-bill-transfer side-bar-icon"></i>Transaction</a></li> 
             </ul>
            </div>
         </nav>

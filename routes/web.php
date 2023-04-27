@@ -43,6 +43,7 @@ Route::resource('Payment', PaymentController::class);
 //dashboard
 Route::get('/admindashboard',[AdminDashboardController::class,'admindashboard'])->name('admindashboard');
 
+
 //login & sign up route
 Route::get('/login', [AdminLoginController::class,'login'])->name('login');
 Route::post('login-user',[AdminLoginController::class,'loginuser'])->name('login-user');
@@ -50,7 +51,8 @@ Route::get('/signup', [AdminSignUpController::class, 'signup']);
 Route::post ('/signup-user', [AdminSignUpController::class, 'signupUser'])->name('signupUser');
 
 
-//add location route
+//location
+Route::post('/add-location',[AdminCinemaPageController::class,'addLocation'])->name('addLocation');
 Route::post('/add-location',[AdminCinemaPageController::class,'addLocation'])->name('addLocation');
 Route::get('/delete/{id}',[AdminCinemaPageController::class,'deleteLocation']);
 Route::post('/update-location',[AdminCinemaPageController::class,'updateLocation'])->name('updateLocation');
