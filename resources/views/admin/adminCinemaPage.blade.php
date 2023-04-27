@@ -42,8 +42,8 @@
                                         <td>{{$location->location_name}}</td>
                                         <td>
                                             <div class="action-btn-container">
-                                                <button type="button" class="action-btn edit-btn locEdit" data-toggle="modal" data-target='#editLocation'><i class="fa-solid fa-pen action-btn"></i></button>
-                                                <button type="button" class="action-btn del-btn"><i class="fa-solid fa-trash action-btn"></i></button>
+                                                <button type="button" class="action-btn edit-btn locEdit" data-target='#editLocation'><i class="fa-solid fa-pen action-btn"></i></button>
+                                                <a href="{{url('delete',$location->id)}}"><button type="button" class="action-btn del-btn"><i class="fa-solid fa-trash action-btn"></i></button></a>
                                             </div>
                                         </td>
                                     </tr>                                 
@@ -73,43 +73,28 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($cinemas as $cinema )           
                                     <tr>
-                                        <td>Cinema 1</td>
-                                        <td>112</td>
+                                        <td>{{$cinema->cinema_number}}</td>
+                                        <td>{{$cinema->seat_number}}</td>
                                         <td>
                                             <div class="action-btn-container">
-                                                <button type="button" class="action-btn edit-btn cinemaEdit" data-toggle="modal" data-target='#editcinema'><i class="fa-solid fa-pen action-btn"></i></button>
-                                                <button type="button" class="action-btn del-btn"><i class="fa-solid fa-trash action-btn"></i></button>
+                                                <button type="button" class="action-btn edit-btn cinemaEdit"    data-target='#editcinema'><i class="fa-solid fa-pen action-btn"></i></button>
+                                                <a href="{{url('deletecinema',$cinema->id)}}"><button type="button" class="action-btn del-btn"><i class="fa-solid fa-trash action-btn"></i></button></a>
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>Cinema 2</td>
-                                        <td>95</td>
-                                        <td>
-                                            <div class="action-btn-container">
-                                                <button type="button" class="action-btn edit-btn cinemaEdit" data-toggle="modal" data-target='#editcinema'><i class="fa-solid fa-pen action-btn"></i></button>
-                                                <button type="button" class="action-btn del-btn"><i class="fa-solid fa-trash action-btn"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cinema 3</td>
-                                        <td>80</td>
-                                        <td>
-                                            <div class="action-btn-container">
-                                                <button type="button" class="action-btn edit-btn cinemaEdit" data-toggle="modal" data-target='#editcinema'><i class="fa-solid fa-pen action-btn"></i></button>
-                                                <button type="button" class="action-btn del-btn"><i class="fa-solid fa-trash action-btn"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
                         <div class="inputbox">
-                            <form action="">
+                            <form action="{{route('addCinema')}}" method="POST">
+                                @csrf
                                 <label for="Cinema">Cinema</label>
-                                <input type="text" name="Cinema" id="Cinema">
+                                <input type="text" name="cinema_num" id="Cinema">
+                                <label for="Seat">Seat Number</label>
+                                <input type="text" name="seat_num" id="Seat">
                                 <input type="submit" value="Add" class="btn">
                             </form>
                         </div>
@@ -125,9 +110,9 @@
     if (window.history.replaceState) {
       window.history.replaceState(null, null, window.location.href);
     }
-  </script>
+  </script>--}} 
 <!-- javascript for location schedule  -->
-<script>
+ <script>
     $(document).ready(function(){
       $('.locEdit').on('click',function(){
         
@@ -144,7 +129,7 @@
       });
     });
   </script>
-  <!-- javascript for location schedule  -->
+  <!-- javascript for location schedule  --> 
 <script>
     $(document).ready(function(){
       $('.cinemaEdit').on('click',function(){
@@ -162,7 +147,7 @@
           $('#numSeats').val(data[1]);
       });
     });
-  </script> --}}
+  </script>
 
 </body>
 
