@@ -52,3 +52,13 @@ Route::post ('/signup-user', [AdminSignUpController::class, 'signupUser'])->name
 
 //add location route
 Route::post('/add-location',[AdminCinemaPageController::class,'addLocation'])->name('addLocation');
+Route::get('/delete/{id}',[AdminCinemaPageController::class,'deleteLocation']);
+Route::post('/update-location',[AdminCinemaPageController::class,'updateLocation'])->name('updateLocation');
+
+//Cinema
+Route::post('/add-cinema',[AdminCinemaPageController::class,'addCinema'])->name('addCinema');
+Route::get('/deletecinema/{id}',[AdminCinemaPageController::class,'deleteCinema']);
+
+//Movie
+Route::post('/add-movie',[AdminMoviePageController::class,'addMovie'])->name('addMovie');
+Route::get('/deletemovie/{id}',[AdminMoviePageController::class,'deleteMovie']);
