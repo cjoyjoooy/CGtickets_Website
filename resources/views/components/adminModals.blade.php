@@ -242,7 +242,7 @@
                     {{method_field('PUT')}}
                     <div class="input-box">
                         <label for="locationedit">Location </label>
-                        <input type="text" id="locationedit" name="locationedit" value="">
+                        <input type="text" id="locationedit" name="locationedit" value = "" value="">
                     </div>
              </form>
              <div class="modal-footer">
