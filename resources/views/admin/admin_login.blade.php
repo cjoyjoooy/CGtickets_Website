@@ -20,23 +20,30 @@
                 <img class="img" src="/resource/cinema.png" alt="">
                 <h2>Sign in to your account</h2>
             </div>
-            <form action="">
+            <form action="{{route('login-user')}}" method="POST">
+            @if(Session::has('success'))
+                <div class="alert alert-success">{{Session::get('success')}}</div>
+                @endif
+                @if(Session::has('fail'))
+                <div class="alert alert-danger">{{Session::get('fail')}}</div>
+                @endif
                 @csrf
                  <h1>LOGIN</h1>
                  <div class="input-box">
                     
-                    <input class="txtbox" type="text" id="username" name="username" placeholder="Username">
+                    <input class="txtbox" type="text" id="username" name="username" placeholder="Username" 
+                    value="" required>
                  </div>
                  <div class="input-box">
                     
-                    <input class="txtbox" type="password" id="password" name="password" placeholder="Password">
+                    <input class="txtbox" type="password" id="password" name="password" placeholder="Password" required>
                  </div>
                  <div class="input-box">
                     <button type="submit" class="btn">LOGIN</button>
                  </div>
                  <div class="input-box">
                     <p class= "sign-up" for="">Don't have an account?</p>
-                    <p><a href="" >Create account</a></p>
+                    <p><a href="signup">Create account</a></p>
                  </div>
             </form>
         </div>

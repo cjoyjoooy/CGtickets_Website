@@ -30,7 +30,7 @@ Route::get('/', function () {
 });
 Route::resource('login', AdminLoginController::class);
 Route::resource('signup', AdminSignUpController::class);
-Route::resource('AdminDashboard', AdminDashboardController::class);
+//Route::resource('AdminDashboard', AdminDashboardController::class);
 Route::resource('AdminMovie', AdminMoviePageController::class);
 Route::resource('AdminShowSchedule', AdminShowScheduleController::class);
 Route::resource('AdminCinema', AdminCinemaPageController::class);
@@ -41,16 +41,5 @@ Route::resource('TicketDetails', TicketDetailsController::class);
 Route::resource('Payment', PaymentController::class);
 
 
-//location
+//add location route
 Route::post('/add-location',[AdminCinemaPageController::class,'addLocation'])->name('addLocation');
-Route::get('/delete/{id}',[AdminCinemaPageController::class,'deleteLocation']);
-Route::post('/update-location',[AdminCinemaPageController::class,'updateLocation'])->name('updateLocation');;
-
-
-//Cinema
-Route::post('/add-cinema',[AdminCinemaPageController::class,'addCinema'])->name('addCinema');
-Route::get('/deletecinema/{id}',[AdminCinemaPageController::class,'deleteCinema']);
-
-//Movie
-Route::post('/add-movie',[AdminMoviePageController::class,'addMovie'])->name('addMovie');
-Route::get('/deletemovie/{id}',[AdminMoviePageController::class,'deleteMovie']);
