@@ -20,7 +20,7 @@
                 <img class="img" src="/resource/cinema.png" alt="">
                 <h2>Sign in to your account</h2>
             </div>
-            <form action="{{route('loginUser')}}" method="POST">
+            <form action="{{route('login-user')}}" method="POST">
             @if(Session::has('success'))
                 <div class="alert alert-success">{{Session::get('success')}}</div>
                 @endif

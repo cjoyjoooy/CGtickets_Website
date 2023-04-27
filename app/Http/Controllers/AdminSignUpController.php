@@ -23,9 +23,10 @@ class adminSignUpController extends Controller
         $admin->name = $request -> name;
         $admin->username = $request -> username;
         $admin->password = $request -> password;
-        $res = $admin->save();
-        if($res){
-            return back()-> with('success', 'Added new admin successfully');
+        
+        if($admin){
+            $admin->save();
+            return redirect(route('login')) -> with('success', 'Added new admin successfully');
 //return view("admin.admin_login");
         }else{
             return back()->with('fail', 'Error in Signing Up');

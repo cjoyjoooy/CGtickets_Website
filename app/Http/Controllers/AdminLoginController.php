@@ -13,20 +13,19 @@ class adminLoginController extends Controller
     {
         return view ("admin.admin_login");
     }
-    public function loginUser(Request $request)
+    public function loginuser(Request $request)
     {
         $request->validate([
-            'username' => 'required|unique:admins',
-            'password' => 'required|min:5|max:12',
+            'username' => 'required',
+            'password' => 'required',
         ]);
         $admin = Admin::where('username','=',$request->username)->first();
         if($admin){
-            if(check($request->password, $admin->password)){
-                
-                return redirect('AdminDashboard');
-            }
-            else{
-                return back()->with('fail','Password do not match!');
+            if ($request->password == $admin->password) {
+                $request->session()->put('id', $admin->id);
+                return redirect(route('admindashboard'));
+            } else {
+                return back()->with('fail', 'Password do not match!');
             }
 
         }else {
