@@ -3,62 +3,34 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use  App\Models\Admin;
+use Hash;
+use Session;
 
 class adminLoginController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function login()
     {
-        return view('admin.admin_login');
+        return view ("admin.admin_login");
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function loginUser(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'username' => 'required|unique:admins',
+            'password' => 'required|min:5|max:12',
+        ]);
+        $admin = Admin::where('username','=',$request->username)->first();
+        if($admin){
+            if(check($request->password, $admin->password)){
+                
+                return redirect('AdminDashboard');
+            }
+            else{
+                return back()->with('fail','Password do not match!');
+            }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        }else {
+            return back()->with('fail','Admin is not registered');
+        }
     }
 }

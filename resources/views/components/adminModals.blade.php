@@ -240,7 +240,7 @@
 
                  <div class="input-box">
                      <label for="locationedit">Location </label>
-                     <input type="text" id="locationedit" name="locationedit">
+                     <input type="text" id="locationedit" name="locationedit" value = "{{$location->location_name}}">
                  </div>
              </div>
              <div class="modal-footer">
