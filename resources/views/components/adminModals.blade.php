@@ -11,7 +11,7 @@
                  <h3 class="modal-title">Add Movie</h3>
              </div>
 
-             <form action="<?php $_PHP_SELF ?>" method="POST" enctype="multipart/form-data">
+             <form action="{{route('addMovie')}}" method="POST" enctype="multipart/form-data">
                  <div class="modal-body">
                      <div class="input-box">
                          <label for="movieTitle">Movie Title</label>
@@ -236,13 +236,15 @@
                  <button type="button" class="close" data-dismiss="modal">&times;</button>
                  <h3 class="modal-title">Edit Location</h3>
              </div>
-             <div class="modal-body">
-
-                 <div class="input-box">
-                     <label for="locationedit">Location </label>
-                     <input type="text" id="locationedit" name="locationedit">
-                 </div>
-             </div>
+             <form class="modal-body" action="{{route('updateLocation')}}" method="POST" id="EditForm">
+             {{-- <form class="modal-body" action="" method="POST"> --}}
+                    @csrf  
+                    {{method_field('PUT')}}
+                    <div class="input-box">
+                        <label for="locationedit">Location </label>
+                        <input type="text" id="locationedit" name="locationedit" value="">
+                    </div>
+             </form>
              <div class="modal-footer">
                  <button type="button" class="btn btn-cancel" data-dismiss="modal">Cancel</button>
                  <button type="submit" name="editLocation" class="btn btn-add" data-dismiss="modal">Edit</button>

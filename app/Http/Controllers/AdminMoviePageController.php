@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Movie;
 use Illuminate\Http\Request;
 
 class adminMoviePageController extends Controller
@@ -14,51 +15,29 @@ class adminMoviePageController extends Controller
         return view('admin.adminMoviesPage');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function addMovie(Request $request)
     {
-        //
+        // any variable = new Modelname 
+        $moviedata = new Movie;
+
+        //variable->table comlumn name = $request-> name sa input box
+        $moviedata->MovieTitle = $request->movieTitle;
+        $moviedata->MovieDescription = $request->description;
+        $moviedata->Genre = $request->genre;
+  
+
+        // save() -- insert data into the database 
+        $moviedata->save();
+        // return siya balik sa page 
+        return redirect()->back();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+    public function deleteLocation($id)
+    {   $deletemovie = new Movie;
+        //  variable = model/table name::find($id); 
+        $deletemovie = Movie::find($id);
+        $deletemovie->delete();
+        return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }
