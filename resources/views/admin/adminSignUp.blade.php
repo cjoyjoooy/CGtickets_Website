@@ -41,6 +41,10 @@
                 <div class="input-box">
                     <button type="submit" class="btn">Sign Up</button>
                 </div>
+                <div class="input-box">
+                    <span class= "sign-up" for="">Already have an account?</span>
+                    <span><a href="{{route('login')}}">Sign in</a></span>
+                 </div>
 
             </form>
         </div>

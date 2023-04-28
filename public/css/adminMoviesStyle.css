@@ -37,6 +37,7 @@
 .searchbox-input{
     width: 50%;
     min-width: 95px;
+    max-width: 300px;
     padding: 0 10px 0 10px;
     border-radius: 5px 0 0 5px ;
     outline: none;
@@ -61,13 +62,10 @@
 .searchbtn:active{
     background-color: #3A506B;
 }
-.fa-solid{
-    color: #ECECEC !important;
-}
+
 
 .add-btn{
-    width: 120px;
-    min-width: 50px;
+    width: 40px;
     padding: 5px 0 5px 0;
     border-radius: 5px;
     outline: none;

@@ -30,7 +30,7 @@
             <div class="info-content">
                 <h2>Movies</h2>
                 @include('components.adminsearch')
-                <button type="button" class="add-btn" data-toggle="modal" data-target="#addmovie">ADD</button>
+                <button type="button" class="add-btn" data-toggle="modal" data-target="#addmovie"><i class="fa-solid fa-plus side-bar-icon"></i></button>
             </div>
             <div class="table-responsive">
                 <table class="table table-striped table-hover">
