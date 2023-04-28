@@ -33,7 +33,7 @@ form{
     align-items: center;
     gap: 2em;
     border-radius: 8px;
-    background-color: #0B132B;
+    background-color: #1a202c;
     margin: 30px 0 30px 0;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     
@@ -64,10 +64,15 @@ label{
 .txtbox{
     width: calc(100% - 10px);
     border: none;
-    color: #0B132B;
+    color: #1a202c;
     font-weight: 400;
     padding: 0 0 0 10px;
     background-color: #F4F9E9;
+    margin-bottom: 5px;
+}
+
+.text-danger{
+    color: #888ec5
 }
 .txtbox:hover{
     background-color: #cfcfcf;
@@ -83,13 +88,13 @@ label{
     height: 32px;
     font-weight: 700;
     color: #ECECEC;
-    background-color: #5BC0BE;
+    background-color: #4d5499;
     transition: 0.1s linear;
     margin: 10px 0 40px 0;
 }
 
 .btn:hover{
-    background-color: #5bc8c6c4;
+    background-color: #3c4178;
     transform: scale(1.1);
 }
 

@@ -4,7 +4,7 @@
     scroll-behavior: smooth;
     font-family: 'IBM Plex Sans', sans-serif;
     line-height: 1.5em;
-    color: #0B132B;
+    color: #1a202c;
 }
 body{
   
@@ -15,7 +15,7 @@ body{
 
 .navigation-bar{
     grid-area: nav;
-    background-color: #0B132B;
+    background-color: #1a202c;
     z-index: 1;
     position: sticky;
     top: 0;
@@ -59,7 +59,7 @@ a:active { text-decoration: none; }
 
 a{
     text-decoration: none;
-    color: #ECECEC;
+    color: #97a5bb;
 }
 
 ul{
@@ -74,14 +74,14 @@ ul{
     width: 250px;
     height: 100vh;
     z-index: 11;
-    background: #0B132B;
+    background: #1a202c;
     overflow: hidden;
     transform: translate(-100%);
     transition: 0.5s ease-in-out;
 }
 
 .side-bar-icon{
-    color: #F4F9E9;
+    color: #97a5bb;
 }
 
 .side-menubar{
@@ -117,7 +117,7 @@ ul{
     font-weight: 600;
 }
 .side-menu-items a:visited{
-    color: #ECECEC;
+    color: #97a5bb;
 }
 
 h2{
@@ -125,8 +125,9 @@ h2{
     font-weight: 900;
 }
 .side-menu-items a:hover{
-    color: #ECECEC;
-    background-color: #1C2541;
+    color: #97a5bb;
+    background-color: #171923;
+    /* edit  */
 }
 
 
@@ -162,9 +163,14 @@ h2{
 .menulist{
     display: flex;
     width: 100%;
+    height: calc(100% - 78px);
     flex-direction: column;
     margin-top: 50px;
     gap: 2em;
+}
+.logout{
+  
+   
 }
 .menu-burger{ 
 display: none;

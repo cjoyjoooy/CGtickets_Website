@@ -24,8 +24,11 @@ class adminMoviePageController extends Controller
         $moviedata->MovieTitle = $request->movieTitle;
         $moviedata->MovieDescription = $request->description;
         $moviedata->Genre = $request->genre;
+        $image=$request->moviePoster;
+        $imagename=time().'.'.$image->getClientOriginalExtension();
+        $request->moviePoster->move('uploads',$imagename);
+        $moviedata->MoviePoster =$imagename;
   
-
         // save() -- insert data into the database 
         $moviedata->save();
         // return siya balik sa page 

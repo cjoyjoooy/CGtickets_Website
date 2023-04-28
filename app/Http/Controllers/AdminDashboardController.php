@@ -14,8 +14,8 @@ class AdminDashboardController extends Controller
         return view('admin.adminDashboard');
     }
 
-    public function admindashboard()
-    {
-        return view('admin.adminDashboard');
-    }
+    // public function admindashboard()
+    // {
+    //     return view('admin.adminDashboard');
+    // }
 }

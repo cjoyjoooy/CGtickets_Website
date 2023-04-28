@@ -3,23 +3,23 @@
     font-size: 1.3em;
     margin-bottom: 50px !important;
     letter-spacing: 0.05em;
+    
    
 
 }
 
 .table-responsive{
     overflow-x: auto;
-    scrollbar-color: #0B132B;
+    scrollbar-color: #1a202c;
+    border-radius: 7px;
 }
 .table-striped{
-background-color: #3a506b19;
+background-color: #4d559916;
 }
-.table-striped{
-    background-color: #3a506b19;
-    }
+
 
 th{
-    background-color: #0B132B;
+    background-color: #1a202c;
     color: #ECECEC;
     position: sticky;
     top: 0;
@@ -32,6 +32,6 @@ td {
   }
 
 tr:hover {
-    background-color: #5bc0be6a !important;
+    background-color: #888ec54b !important;
     transition: 0.5s ease-in;
 }

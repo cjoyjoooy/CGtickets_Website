@@ -39,7 +39,7 @@ form{
     align-items: center;
     gap: 2em;
     border-radius: 8px;
-    background-color: #0B132B;
+    background-color: #1a202c;
     margin: 10px 0 30px 0;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     
@@ -74,22 +74,22 @@ h1{
 }
 
 a:link {
-    color: #5BC0BE;
+    color: #4d5499;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.9em;
   }
 a:visited {
-    color: #5BC0BE;
+    color: #4d5499;
 }
 a:hover{
-    color: #5bc8c6c4;
+    color: #3c4178;
 }
 
 .txtbox{
     width: calc(100% - 10px);
     border: none;
-    color: #0B132B;
+    color: #1a202c;
     font-weight: 500;
     padding: 0 0 0 10px;
     background-color: #F4F9E9;
@@ -109,14 +109,14 @@ a:hover{
     width: 100%;
     font-weight: 700;
     color: #ECECEC;
-    background-color: #5BC0BE;
+    background-color: #4d5499;
     transition: 0.1s linear;
     padding: 0 10px 0 10px;
 
 }
 
 .btn:hover{
-    background-color: #5bc8c6c4;
+    background-color: #3c4178;
     transform: scale(1.1);
 }
 
@@ -166,7 +166,7 @@ a:hover{
     h2{
         font-size: 2.1em;
         text-align: center;
-        color: #0B132B;
+        color: #1a202c;
         padding: 30px;
     }
 }

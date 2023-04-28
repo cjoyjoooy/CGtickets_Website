@@ -40,18 +40,18 @@
     padding: 0 10px 0 10px;
     border-radius: 5px 0 0 5px ;
     outline: none;
-    border: 2px solid #0B132B;
+    border: 2px solid #1a202c;
     font-size: 1.3em;
     font-weight: 400;
 }
 .searchbox-input:focus{
-    border: 3px solid #0B132B;
+    border: 3px solid #1a202c;
 }
 .searchbtn{
-    background-color: #0B132B;
+    background-color: #1a202c;
     padding: 0 10px 0 10px;
     border-radius: 0 5px 5px 0 ;
-    border: 2px solid #0B132B;
+    border: 2px solid #1a202c;
     outline: none;
     
 }
@@ -72,7 +72,7 @@
     border-radius: 5px;
     outline: none;
     border: none;
-    background-color: #0B132B;
+    background-color: #1a202c;
     color: #ECECEC;
     font-weight: 600;
 }
@@ -99,7 +99,7 @@
 }
 
 .edit-btn{
-    background-color: #0B132B;
+    background-color: #1a202c;
 }
 
 .edit-btn:hover{
@@ -160,7 +160,7 @@ h3{
 .input-box input[type="text"]{
     outline: none;
     border-radius: 5px;
-    border: 3px solid #0B132B;
+    border: 3px solid #1a202c;
     margin-bottom: 10px;
     padding-left: 5px;
 }
@@ -177,13 +177,13 @@ h3{
     padding: 5px 40px 5px 40px;
     border-radius: 5px;
     outline: none;
-    border: 2px solid #0B132B;
+    border: 2px solid #1a202c;
     font-weight: 600;
 }
 
 .btn-cancel{
     background-color: transparent;
-    color: #0B132B;
+    color: #1a202c;
 }
 
 .btn-cancel:hover{
@@ -192,7 +192,7 @@ h3{
 }
 
 .btn-add{
-    background-color: #0B132B;
+    background-color: #1a202c;
     color: #ECECEC;
 }
 
@@ -206,7 +206,7 @@ h3{
     height: 100px !important;
     outline: none;
     border-radius: 5px;
-    border: 3px solid #0B132B;
+    border: 3px solid #1a202c;
     padding: 10px 20px 10px 10px;
 }
 

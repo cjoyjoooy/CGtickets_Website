@@ -23,7 +23,7 @@ class adminLoginController extends Controller
         if($admin){
             if ($request->password == $admin->password) {
                 $request->session()->put('id', $admin->id);
-                return redirect(route('admindashboard'));
+                return redirect('AdminDashboard');
             } else {
                 return back()->with('fail', 'Password do not match!');
             }

@@ -72,6 +72,7 @@ form> :not(:last-child) {
     height: 280px;
     scrollbar-color: #0B132B;
     margin: 30px 0 50px 0;
+    border-radius: 7px;
 
 }
 
@@ -86,7 +87,7 @@ form> :not(:last-child) {
 }
 
 .table-striped {
-    background-color: #6573f21a;
+    background-color: #3a506b0a;
 }
 
 th {
