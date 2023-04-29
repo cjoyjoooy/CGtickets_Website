@@ -14,51 +14,21 @@ class adminShowScheduleController extends Controller
         return view('admin.adminShowSchedule');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+    public function addSchedule(){
+        return view('admin.ScheduleAdd');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+    public function insertSchedule(){
+        // insert code sa add/insert diri hihi 
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
+
+    public function editSchedule(){
+        return view('admin.ScheduleEdit');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
+    public function updateSchedule(){
+         // insert code sa edit/update diri hihi 
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }

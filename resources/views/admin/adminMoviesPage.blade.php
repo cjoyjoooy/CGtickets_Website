@@ -30,7 +30,7 @@
             <div class="info-content">
                 <h2>Movies</h2>
                 @include('components.adminsearch')
-                <button type="button" class="add-btn" data-toggle="modal" data-target="#addmovie"><i class="fa-solid fa-plus side-bar-icon"></i></button>
+                <a href="{{url('addMovie')}}"><button type="button" class="add-btn"><i class="fa-solid fa-plus side-bar-icon" style=" color: #ECECEC "></i></button></a>
             </div>
             <div class="table-responsive">
                 <table class="table table-striped table-hover">
@@ -45,28 +45,29 @@
                         </tr>
                     </thead>
                     <tbody class="movielist">
+                      @foreach ($movies as $movie)
                         <tr class="movielist-item">
-
-                            <td data-cell='Movie ID'>21</td>
-                            <td data-cell='Movie Poster'>image</td>
-                            <td data-cell='Title'>Avatar</td>
-                            <td data-cell='Genre'>Sci-Fi</td>
-                            <td data-cell='Description'>Blue People</td>
-                            <td>
-                                <div class='action-btn-container'>
-                                    <button type='button' class='action-btn edit-btn' data-toggle="modal"
-                                        data-target='#editmovie'><i class='fa-solid fa-pen action-btn'></i></button>
-                                    <button type='button' class='action-btn del-btn'><i
-                                            class='fa-solid fa-trash action-btn'></i></button>
-                                </div>
+                                
+                          <td data-cell='Movie ID'>{{$movie->id}}</td>
+                          <td data-cell='Movie Poster'><img src="{{ asset('/uploads/'.$movie->MoviePoster) }}" class="poster" alt="Movie Poster"></td>
+                          <td data-cell='Title'>{{$movie->MovieTitle}}</td>
+                          <td data-cell='Genre'>{{$movie->Genre}}</td>
+                          <td data-cell='Description'>{{$movie->MovieDescription}}</td>
+                          <td>
+                            <div class='action-btn-container'>
+                              <a href="{{url('editMovie')}}"><button type='button' class='action-btn edit-btn'><i class='fa-solid fa-pen action-btn'></i></button></a>
+                              <a href="{{url('deleteLocation', $movie->id)}}"><button type='button' class='action-btn del-btn'><i
+                                class='fa-solid fa-trash action-btn'></i></button></a>
+                              </div>
                             </td>
-                        </tr>
+                          </tr>
+                          @endforeach
                     </tbody>
                 </table>
             </div>
     </div>
     <!-- add and edit modal  -->
-    @include('components.adminModals')
+    {{-- @include('components.adminModals') --}}
 
     </section>
     </div>

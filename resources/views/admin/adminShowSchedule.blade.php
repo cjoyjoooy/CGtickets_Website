@@ -32,7 +32,7 @@
             <div class="info-content">
                 <h2>Show Schedule</h2>
                 @include('components.adminsearch')
-                <button type="button" class="add-btn" data-toggle="modal" data-target="#addsched"><i class="fa-solid fa-plus side-bar-icon"></i></button>
+                <a href="{{route('addSchedule')}}"><button type="button" class="add-btn"><i class="fa-solid fa-plus side-bar-icon" style=" color: #ECECEC "></i></button></a>
             </div>
 
             <div class="table-responsive">
@@ -62,10 +62,10 @@
                             <td data-cell='Price'>139</td>
                             <td>
                                 <div class="action-btn-container">
-                                    <button type="button" class="action-btn edit-btn" data-toggle="modal" data-target='#editsched'><i
-                                            class="fa-solid fa-pen action-btn"></i></button>
-                                    <button type="button" class="action-btn del-btn"><i
-                                            class="fa-solid fa-trash action-btn"></i></button>
+                                    <a href="{{route('editSchedule')}}"><button type="button" class="action-btn edit-btn"><i
+                                        class="fa-solid fa-pen action-btn"></i></button></a>
+                                    <a href=""><button type="button" class="action-btn del-btn"><i
+                                        class="fa-solid fa-trash action-btn"></i></button></a>
                                 </div>
                             </td>
                         </tr>
@@ -79,14 +79,13 @@
                             <td data-cell='Price'>139</td>
                             <td>
                                 <div class="action-btn-container">
-                                    <button type="button" class="action-btn edit-btn" data-toggle="modal" data-target='#editsched'><i
-                                            class="fa-solid fa-pen action-btn"></i></button>
-                                    <button type="button" class="action-btn del-btn"><i
-                                            class="fa-solid fa-trash action-btn"></i></button>
+                                    <a href="{{route('editSchedule')}}"><button type="button" class="action-btn edit-btn"><i
+                                        class="fa-solid fa-pen action-btn"></i></button></a>
+                                    <a href=""><button type="button" class="action-btn del-btn"><i
+                                        class="fa-solid fa-trash action-btn"></i></button></a>
                                 </div>
                             </td>
-                        </tr>
-                        <tr>
+                        </tr><tr>
                             <td data-cell='Location'>SM</td>
                             <td data-cell='Cinema'>Cinema 1</td>
                             <td data-cell='Movie'>Avatar</td>
@@ -96,14 +95,13 @@
                             <td data-cell='Price'>139</td>
                             <td>
                                 <div class="action-btn-container">
-                                    <button type="button" class="action-btn edit-btn" data-target='#editsched'><i
-                                            class="fa-solid fa-pen action-btn"></i></button>
-                                    <button type="button" class="action-btn del-btn"><i
-                                            class="fa-solid fa-trash action-btn"></i></button>
+                                    <a href="{{route('editSchedule')}}"><button type="button" class="action-btn edit-btn"><i
+                                        class="fa-solid fa-pen action-btn"></i></button></a>
+                                    <a href=""><button type="button" class="action-btn del-btn"><i
+                                        class="fa-solid fa-trash action-btn"></i></button></a>
                                 </div>
                             </td>
-                        </tr>
-                        <tr>
+                        </tr><tr>
                             <td data-cell='Location'>SM</td>
                             <td data-cell='Cinema'>Cinema 1</td>
                             <td data-cell='Movie'>Avatar</td>
@@ -113,14 +111,13 @@
                             <td data-cell='Price'>139</td>
                             <td>
                                 <div class="action-btn-container">
-                                    <button type="button" class="action-btn edit-btn" data-target='#editsched'><i
-                                            class="fa-solid fa-pen action-btn"></i></button>
-                                    <button type="button" class="action-btn del-btn"><i
-                                            class="fa-solid fa-trash action-btn"></i></button>
+                                    <a href="{{route('editSchedule')}}"><button type="button" class="action-btn edit-btn"><i
+                                        class="fa-solid fa-pen action-btn"></i></button></a>
+                                    <a href=""><button type="button" class="action-btn del-btn"><i
+                                        class="fa-solid fa-trash action-btn"></i></button></a>
                                 </div>
                             </td>
-                        </tr>
-                        <tr>
+                        </tr><tr>
                             <td data-cell='Location'>SM</td>
                             <td data-cell='Cinema'>Cinema 1</td>
                             <td data-cell='Movie'>Avatar</td>
@@ -130,14 +127,13 @@
                             <td data-cell='Price'>139</td>
                             <td>
                                 <div class="action-btn-container">
-                                    <button type="button" class="action-btn edit-btn" data-target='#editsched'><i
-                                            class="fa-solid fa-pen action-btn"></i></button>
-                                    <button type="button" class="action-btn del-btn"><i
-                                            class="fa-solid fa-trash action-btn"></i></button>
+                                    <a href="{{route('editSchedule')}}"><button type="button" class="action-btn edit-btn"><i
+                                        class="fa-solid fa-pen action-btn"></i></button></a>
+                                    <a href=""><button type="button" class="action-btn del-btn"><i
+                                        class="fa-solid fa-trash action-btn"></i></button></a>
                                 </div>
                             </td>
-                        </tr>
-                        <tr>
+                        </tr><tr>
                             <td data-cell='Location'>SM</td>
                             <td data-cell='Cinema'>Cinema 1</td>
                             <td data-cell='Movie'>Avatar</td>
@@ -147,14 +143,13 @@
                             <td data-cell='Price'>139</td>
                             <td>
                                 <div class="action-btn-container">
-                                    <button type="button" class="action-btn edit-btn" data-target='#editsched'><i
-                                            class="fa-solid fa-pen action-btn"></i></button>
-                                    <button type="button" class="action-btn del-btn"><i
-                                            class="fa-solid fa-trash action-btn"></i></button>
+                                    <a href="{{route('editSchedule')}}"><button type="button" class="action-btn edit-btn"><i
+                                        class="fa-solid fa-pen action-btn"></i></button></a>
+                                    <a href=""><button type="button" class="action-btn del-btn"><i
+                                        class="fa-solid fa-trash action-btn"></i></button></a>
                                 </div>
                             </td>
-                        </tr>
-                        <tr>
+                        </tr><tr>
                             <td data-cell='Location'>SM</td>
                             <td data-cell='Cinema'>Cinema 1</td>
                             <td data-cell='Movie'>Avatar</td>
@@ -164,14 +159,13 @@
                             <td data-cell='Price'>139</td>
                             <td>
                                 <div class="action-btn-container">
-                                    <button type="button" class="action-btn edit-btn" data-target='#editsched'><i
-                                            class="fa-solid fa-pen action-btn"></i></button>
-                                    <button type="button" class="action-btn del-btn"><i
-                                            class="fa-solid fa-trash action-btn"></i></button>
+                                    <a href="{{route('editSchedule')}}"><button type="button" class="action-btn edit-btn"><i
+                                        class="fa-solid fa-pen action-btn"></i></button></a>
+                                    <a href=""><button type="button" class="action-btn del-btn"><i
+                                        class="fa-solid fa-trash action-btn"></i></button></a>
                                 </div>
                             </td>
-                        </tr>
-                        <tr>
+                        </tr><tr>
                             <td data-cell='Location'>SM</td>
                             <td data-cell='Cinema'>Cinema 1</td>
                             <td data-cell='Movie'>Avatar</td>
@@ -181,14 +175,13 @@
                             <td data-cell='Price'>139</td>
                             <td>
                                 <div class="action-btn-container">
-                                    <button type="button" class="action-btn edit-btn" data-target='#editsched'><i
-                                            class="fa-solid fa-pen action-btn"></i></button>
-                                    <button type="button" class="action-btn del-btn"><i
-                                            class="fa-solid fa-trash action-btn"></i></button>
+                                    <a href="{{route('editSchedule')}}"><button type="button" class="action-btn edit-btn"><i
+                                        class="fa-solid fa-pen action-btn"></i></button></a>
+                                    <a href=""><button type="button" class="action-btn del-btn"><i
+                                        class="fa-solid fa-trash action-btn"></i></button></a>
                                 </div>
                             </td>
-                        </tr>
-                        <tr>
+                        </tr><tr>
                             <td data-cell='Location'>SM</td>
                             <td data-cell='Cinema'>Cinema 1</td>
                             <td data-cell='Movie'>Avatar</td>
@@ -198,14 +191,13 @@
                             <td data-cell='Price'>139</td>
                             <td>
                                 <div class="action-btn-container">
-                                    <button type="button" class="action-btn edit-btn" data-target='#editsched'><i
-                                            class="fa-solid fa-pen action-btn"></i></button>
-                                    <button type="button" class="action-btn del-btn"><i
-                                            class="fa-solid fa-trash action-btn"></i></button>
+                                    <a href="{{route('editSchedule')}}"><button type="button" class="action-btn edit-btn"><i
+                                        class="fa-solid fa-pen action-btn"></i></button></a>
+                                    <a href=""><button type="button" class="action-btn del-btn"><i
+                                        class="fa-solid fa-trash action-btn"></i></button></a>
                                 </div>
                             </td>
-                        </tr>
-                        <tr>
+                        </tr><tr>
                             <td data-cell='Location'>SM</td>
                             <td data-cell='Cinema'>Cinema 1</td>
                             <td data-cell='Movie'>Avatar</td>
@@ -215,14 +207,13 @@
                             <td data-cell='Price'>139</td>
                             <td>
                                 <div class="action-btn-container">
-                                    <button type="button" class="action-btn edit-btn" data-target='#editsched'><i
-                                            class="fa-solid fa-pen action-btn"></i></button>
-                                    <button type="button" class="action-btn del-btn"><i
-                                            class="fa-solid fa-trash action-btn"></i></button>
+                                    <a href="{{route('editSchedule')}}"><button type="button" class="action-btn edit-btn"><i
+                                        class="fa-solid fa-pen action-btn"></i></button></a>
+                                    <a href=""><button type="button" class="action-btn del-btn"><i
+                                        class="fa-solid fa-trash action-btn"></i></button></a>
                                 </div>
                             </td>
-                        </tr>
-                        <tr>
+                        </tr><tr>
                             <td data-cell='Location'>SM</td>
                             <td data-cell='Cinema'>Cinema 1</td>
                             <td data-cell='Movie'>Avatar</td>
@@ -232,10 +223,26 @@
                             <td data-cell='Price'>139</td>
                             <td>
                                 <div class="action-btn-container">
-                                    <button type="button" class="action-btn edit-btn" data-target='#editsched'><i
-                                            class="fa-solid fa-pen action-btn"></i></button>
-                                    <button type="button" class="action-btn del-btn"><i
-                                            class="fa-solid fa-trash action-btn"></i></button>
+                                    <a href="{{route('editSchedule')}}"><button type="button" class="action-btn edit-btn"><i
+                                        class="fa-solid fa-pen action-btn"></i></button></a>
+                                    <a href=""><button type="button" class="action-btn del-btn"><i
+                                        class="fa-solid fa-trash action-btn"></i></button></a>
+                                </div>
+                            </td>
+                        </tr><tr>
+                            <td data-cell='Location'>SM</td>
+                            <td data-cell='Cinema'>Cinema 1</td>
+                            <td data-cell='Movie'>Avatar</td>
+                            <td data-cell='Time Start'>3:00</td>
+                            <td data-cell='Time End'>5:00</td>
+                            <td data-cell='Date'>3/23/23</td>
+                            <td data-cell='Price'>139</td>
+                            <td>
+                                <div class="action-btn-container">
+                                    <a href="{{route('editSchedule')}}"><button type="button" class="action-btn edit-btn"><i
+                                        class="fa-solid fa-pen action-btn"></i></button></a>
+                                    <a href=""><button type="button" class="action-btn del-btn"><i
+                                        class="fa-solid fa-trash action-btn"></i></button></a>
                                 </div>
                             </td>
                         </tr>
@@ -246,7 +253,7 @@
                 </table>
             </div>
     </div>
-    @include('components.adminModals')
+    {{-- @include('components.adminModals') --}}
     </section>
     </div>
     <script src='jsfile/homepage.js'></script>

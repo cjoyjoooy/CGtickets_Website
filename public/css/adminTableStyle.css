@@ -11,9 +11,10 @@
     scrollbar-color: #1a202c;
     border-radius: 7px;
     max-height: 75vh;
+    margin-bottom: 30px;
 }
 .table-striped{
-background-color: #4d55990c;
+background-color: #4d559912;
 }
 
 
@@ -32,7 +33,7 @@ td {
 
 tr:hover {
     background-color: #888ec54b !important;
-    transition: 0.5s ease-in;
+    transition: 0.4s ease-in;
 }
 @media screen and (max-width: 1280px){
     .table-responsive{

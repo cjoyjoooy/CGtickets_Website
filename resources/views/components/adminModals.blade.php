@@ -28,13 +28,11 @@
                      <div class="input-box">
                          <label for="moviePoster">Movie Poster</label>
                          <input type="file" id="moviePoster" name="moviePoster">
-
                      </div>
                  </div>
                  <div class="modal-footer">
                      <button type="button" class="btn btn-cancel" data-dismiss="modal">Cancel</button>
                      <input type="submit" name="submit" value="Add" class="btn btn-add">
-
                  </div>
              </form>
 

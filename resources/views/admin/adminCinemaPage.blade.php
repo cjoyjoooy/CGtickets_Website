@@ -42,7 +42,7 @@
                                         <td>{{$location->location_name}}</td>
                                         <td>
                                             <div class="action-btn-container">
-                                                <button type="button" class="action-btn edit-btn locEdit" data-target='#editLocation'><i class="fa-solid fa-pen action-btn"></i></button>
+                                                <a href="{{url('editLocation', $location->id)}}"><button type="button" class="action-btn edit-btn locEdit"><i class="fa-solid fa-pen action-btn"></i></button></a>
                                                 <a href="{{url('delete',$location->id)}}"><button type="button" class="action-btn del-btn"><i class="fa-solid fa-trash action-btn"></i></button></a>
                                             </div>
                                         </td>
@@ -79,8 +79,8 @@
                                         <td>{{$cinema->seat_number}}</td>
                                         <td>
                                             <div class="action-btn-container">
-                                                <button type="button" class="action-btn edit-btn cinemaEdit"    data-target='#editcinema'><i class="fa-solid fa-pen action-btn"></i></button>
-                                                <a href="{{url('deletecinema',$cinema->id)}}"><button type="button" class="action-btn del-btn"><i class="fa-solid fa-trash action-btn"></i></button></a>
+                                                <a href="{{url('editCinema', $cinema->id)}}"><button type="button" class="action-btn edit-btn cinemaEdit"><i class="fa-solid fa-pen action-btn"></i></button></a>
+                                                <a href="{{url('deleteCinema',$cinema->id)}}"><button type="button" class="action-btn del-btn"><i class="fa-solid fa-trash action-btn"></i></button></a>
                                             </div>
                                         </td>
                                     </tr>
@@ -93,7 +93,7 @@
                                 @csrf
                                 <label for="Cinema">Cinema</label>
                                 <input type="text" name="cinema_num" id="Cinema">
-                                <label for="Seat">Seat Number</label>
+                                <label for="Seat">Number of Seat</label>
                                 <input type="text" name="seat_num" id="Seat">
                                 <input type="submit" value="Add" class="btn">
                             </form>
@@ -101,7 +101,6 @@
                     </div>
                 </div>
             </div>
-            @include('components.adminModals')
         </section>
     </div>
   <script src='jsfile/homepage.js'></script>
@@ -112,7 +111,7 @@
     }
   </script>--}} 
 <!-- javascript for location schedule  -->
- <script>
+ {{-- <script>
     $(document).ready(function(){
       $('.locEdit').on('click',function(){
         
@@ -147,7 +146,7 @@
           $('#numSeats').val(data[1]);
       });
     });
-  </script>
+  </script> --}}
 
 </body>
 

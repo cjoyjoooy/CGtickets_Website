@@ -18,11 +18,9 @@ class adminCinemaPageController extends Controller
         $locations = Location::all();
         $cinemas = Cinema::all();
         return view('admin.adminCinemaPage', compact(['locations', 'cinemas']));
-
-       
     }
 
-
+    // LOCATION --------------------
 
     public function addLocation(Request $request)
     {
@@ -45,22 +43,23 @@ class adminCinemaPageController extends Controller
         $deletelocation->delete();
         return redirect()->back();
     }
-    // public function update($id)
-    // {
-    //     //  variable = model/table name::find($id); 
-    //     $locationdata = Location::find($id);
-    //     // return view('page name',compact('$variable name'));
-    //     return view('editLocation', compact('locationdata'));
 
-
-    // }
+    public function editLocation($id)
+    {   
+        // redirect sa edit page with id 
+        $locationdata = Location::find($id);
+        return view('admin.LocationEdit', compact('locationdata'));
+    }
 
     public function updateLocation(Request $request, $id){
         $locationdata = Location::find($id);
-        $locationdata->location_name=$request->locationedit;
+        $locationdata->location_name=$request->location_name;
         $locationdata->save();
-        return redirect()-> back();
+        return redirect('AdminCinema');
     }
+
+    // CINEMA -------------------
+
     public function addCinema(Request $request)
     {
         $cinemadata = new Cinema;
@@ -70,11 +69,28 @@ class adminCinemaPageController extends Controller
         return redirect()->back();
     }
 
+    public function editCinema($id)
+    {
+        $cinemadata = Cinema::find($id);
+        return view('admin.CinemaEdit',compact('cinemadata'));
+
+    }
+
+    public function updateCinema(Request $request, $id){
+        $cinemadata = Cinema::find($id);
+        $cinemadata->cinema_number = $request->cinema_num;
+        $cinemadata->seat_number = $request->seat_num;
+        $cinemadata->save();
+        return redirect('AdminCinema');
+    }
+
     public function deleteCinema($id)
     {   $cinemadata = new Cinema;
         $cinemadata = Cinema::find($id);
         $cinemadata->delete();
         return redirect()->back();
     }
+
+    
 
 }

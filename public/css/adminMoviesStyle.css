@@ -54,6 +54,7 @@
     border-radius: 0 5px 5px 0 ;
     border: 2px solid #1a202c;
     outline: none;
+    color: #ECECEC !important;
     
 }
 .searchbtn:hover{

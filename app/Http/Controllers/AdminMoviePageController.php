@@ -12,27 +12,42 @@ class adminMoviePageController extends Controller
      */
     public function index()
     {
-        return view('admin.adminMoviesPage');
+        $movies = Movie::all();
+        
+        return view('admin.adminMoviesPage', compact('movies'));
+
     }
 
-    public function addMovie(Request $request)
+    public function addMovie()
     {
-        // any variable = new Modelname 
+        return view('admin.MovieAdd');
+    }
+
+    public function insertMovie(Request $request){
+            // any variable = new Modelname 
         $moviedata = new Movie;
 
         //variable->table comlumn name = $request-> name sa input box
-        $moviedata->MovieTitle = $request->movieTitle;
-        $moviedata->MovieDescription = $request->description;
-        $moviedata->Genre = $request->genre;
-        $image=$request->moviePoster;
-        $imagename=time().'.'.$image->getClientOriginalExtension();
-        $request->moviePoster->move('uploads',$imagename);
+        $moviedata-> MovieTitle = $request->title;
+        $moviedata-> MovieDescription = $request->description;
+        $moviedata-> Genre = $request->genre;
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        $imagename=time().'.'.$request->image->extension();
+        $request->image->move('uploads',$imagename);
         $moviedata->MoviePoster =$imagename;
-  
-        // save() -- insert data into the database 
         $moviedata->save();
-        // return siya balik sa page 
-        return redirect()->back();
+        return redirect('AdminMovie');
+    }
+
+    public function editMovie()
+    {
+        return view('admin.MovieEdit');
+    }
+
+    public function updateMovie(Request $request){
+         // insert code sa edit/update diri hihi 
     }
 
     public function deleteLocation($id)

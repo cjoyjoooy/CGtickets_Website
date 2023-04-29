@@ -34,11 +34,15 @@ Route::resource('AdminDashboard', AdminDashboardController::class);
 Route::resource('AdminMovie', AdminMoviePageController::class);
 Route::resource('AdminShowSchedule', AdminShowScheduleController::class);
 Route::resource('AdminCinema', AdminCinemaPageController::class);
+// Route::resource('LocationEdit', AdminCinemaPageController::class);
 Route::resource('AdminTransaction', AdminTransactionPageController::class);
 Route::resource('Homepage', HomepageController::class);
 Route::resource('ShowTimes', ShowTimesController::class);
 Route::resource('TicketDetails', TicketDetailsController::class);
 Route::resource('Payment', PaymentController::class);
+
+
+// ---------------  FUNCTIONS --------------------------------
 
 //dashboard
 Route::get('/admindashboard',[AdminDashboardController::class,'admindashboard'])->name('admindashboard');
@@ -51,16 +55,30 @@ Route::get('/signup', [AdminSignUpController::class, 'signup']);
 Route::post ('/signup-user', [AdminSignUpController::class, 'signupUser'])->name('signupUser');
 
 
-//location
-Route::post('/add-location',[AdminCinemaPageController::class,'addLocation'])->name('addLocation');
-Route::post('/add-location',[AdminCinemaPageController::class,'addLocation'])->name('addLocation');
+//location~
+Route::post('/addLocation',[AdminCinemaPageController::class,'addLocation'])->name('addLocation');
 Route::get('/delete/{id}',[AdminCinemaPageController::class,'deleteLocation']);
-Route::post('/update-location',[AdminCinemaPageController::class,'updateLocation'])->name('updateLocation');
+Route::get('/editLocation/{id}',[AdminCinemaPageController::class,'editLocation']);
+Route::post('/updateLocation/{id}',[AdminCinemaPageController::class,'updateLocation']);
 
 //Cinema
-Route::post('/add-cinema',[AdminCinemaPageController::class,'addCinema'])->name('addCinema');
-Route::get('/deletecinema/{id}',[AdminCinemaPageController::class,'deleteCinema']);
+Route::post('/addCinema',[AdminCinemaPageController::class,'addCinema'])->name('addCinema');
+Route::get('/deleteCinema/{id}',[AdminCinemaPageController::class,'deleteCinema']);
+Route::get('/editCinema/{id}',[AdminCinemaPageController::class,'editCinema']);
+Route::post('/updateCinema/{id}',[AdminCinemaPageController::class,'updateCinema']);
+
 
 //Movie
-Route::post('/add-movie',[AdminMoviePageController::class,'addMovie'])->name('addMovie');
-Route::get('/deletemovie/{id}',[AdminMoviePageController::class,'deleteMovie']);
+Route::get('/addMovie',[AdminMoviePageController::class,'addMovie']);
+Route::post('/insertMovie',[AdminMoviePageController::class,'insertMovie']);
+Route::get('/editMovie',[AdminMoviePageController::class,'editMovie']);
+Route::post('/updateMovie',[AdminMoviePageController::class,'updateMovie']);
+// Route::get('/deletemovie/{id}',[AdminMoviePageController::class,'deleteMovie']);
+
+// Schedule 
+Route::get('/addSchedule',[AdminShowScheduleController::class,'addSchedule']);
+Route::post('/insertSchedule',[AdminShowScheduleController::class,'insertSchedule']);
+Route::get('/editSchedule',[AdminShowScheduleController::class,'editSchedule']);
+Route::post('/updateSchedule',[AdminShowScheduleController::class,'updateSchedule']);
+
+

@@ -1,0 +1,38 @@
+
+.input-box input[type="text"]{
+    background-color: transparent;
+    height: 20px;
+    outline: none;
+    border: 1px solid #97A5BB;
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+    
+}
+
+.input-box input[type="text"]:hover{
+    background-color: #4a556889;
+
+}
+.input-box input[type="text"]:focus, .input-box input[type="text"]:active{
+    background-color: #4a556849;
+    border: 2px solid #888EC5;
+
+}
+.input-box textarea{
+    background-color: transparent;
+    outline: none;
+    border: 1px solid #97A5BB;
+    border-radius: 5px;
+    height: 100px;
+    padding: 5px 10px 5px 10px;
+    
+}
+
+.input-box textarea:hover{
+    background-color: #4a556889;
+
+}
+.input-box textarea:focus, .input-box textarea:active{
+    background-color: #4a556849;
+    border: 2px solid #888EC5;
+}
