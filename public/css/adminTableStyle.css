@@ -10,7 +10,7 @@
     overflow-y: auto;
     scrollbar-color: #1a202c;
     border-radius: 7px;
-    max-height: 50vh;
+    max-height: 75vh;
 }
 .table-striped{
 background-color: #4d55990c;
@@ -34,7 +34,11 @@ tr:hover {
     background-color: #888ec54b !important;
     transition: 0.5s ease-in;
 }
-
+@media screen and (max-width: 1280px){
+    .table-responsive{
+        max-height: 60vh;
+    }
+}
 
 @media screen and (max-width: 820px){
     th{
@@ -60,6 +64,8 @@ tr:hover {
         font-weight: 700;
         text-transform: capitalize;
     }
-
+    .table-responsive{
+        max-height: 53vh;
+    }
     
 }

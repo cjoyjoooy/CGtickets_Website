@@ -154,6 +154,91 @@
                                 </div>
                             </td>
                         </tr>
+                        <tr>
+                            <td data-cell='Location'>SM</td>
+                            <td data-cell='Cinema'>Cinema 1</td>
+                            <td data-cell='Movie'>Avatar</td>
+                            <td data-cell='Time Start'>3:00</td>
+                            <td data-cell='Time End'>5:00</td>
+                            <td data-cell='Date'>3/23/23</td>
+                            <td data-cell='Price'>139</td>
+                            <td>
+                                <div class="action-btn-container">
+                                    <button type="button" class="action-btn edit-btn" data-target='#editsched'><i
+                                            class="fa-solid fa-pen action-btn"></i></button>
+                                    <button type="button" class="action-btn del-btn"><i
+                                            class="fa-solid fa-trash action-btn"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td data-cell='Location'>SM</td>
+                            <td data-cell='Cinema'>Cinema 1</td>
+                            <td data-cell='Movie'>Avatar</td>
+                            <td data-cell='Time Start'>3:00</td>
+                            <td data-cell='Time End'>5:00</td>
+                            <td data-cell='Date'>3/23/23</td>
+                            <td data-cell='Price'>139</td>
+                            <td>
+                                <div class="action-btn-container">
+                                    <button type="button" class="action-btn edit-btn" data-target='#editsched'><i
+                                            class="fa-solid fa-pen action-btn"></i></button>
+                                    <button type="button" class="action-btn del-btn"><i
+                                            class="fa-solid fa-trash action-btn"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td data-cell='Location'>SM</td>
+                            <td data-cell='Cinema'>Cinema 1</td>
+                            <td data-cell='Movie'>Avatar</td>
+                            <td data-cell='Time Start'>3:00</td>
+                            <td data-cell='Time End'>5:00</td>
+                            <td data-cell='Date'>3/23/23</td>
+                            <td data-cell='Price'>139</td>
+                            <td>
+                                <div class="action-btn-container">
+                                    <button type="button" class="action-btn edit-btn" data-target='#editsched'><i
+                                            class="fa-solid fa-pen action-btn"></i></button>
+                                    <button type="button" class="action-btn del-btn"><i
+                                            class="fa-solid fa-trash action-btn"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td data-cell='Location'>SM</td>
+                            <td data-cell='Cinema'>Cinema 1</td>
+                            <td data-cell='Movie'>Avatar</td>
+                            <td data-cell='Time Start'>3:00</td>
+                            <td data-cell='Time End'>5:00</td>
+                            <td data-cell='Date'>3/23/23</td>
+                            <td data-cell='Price'>139</td>
+                            <td>
+                                <div class="action-btn-container">
+                                    <button type="button" class="action-btn edit-btn" data-target='#editsched'><i
+                                            class="fa-solid fa-pen action-btn"></i></button>
+                                    <button type="button" class="action-btn del-btn"><i
+                                            class="fa-solid fa-trash action-btn"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td data-cell='Location'>SM</td>
+                            <td data-cell='Cinema'>Cinema 1</td>
+                            <td data-cell='Movie'>Avatar</td>
+                            <td data-cell='Time Start'>3:00</td>
+                            <td data-cell='Time End'>5:00</td>
+                            <td data-cell='Date'>3/23/23</td>
+                            <td data-cell='Price'>139</td>
+                            <td>
+                                <div class="action-btn-container">
+                                    <button type="button" class="action-btn edit-btn" data-target='#editsched'><i
+                                            class="fa-solid fa-pen action-btn"></i></button>
+                                    <button type="button" class="action-btn del-btn"><i
+                                            class="fa-solid fa-trash action-btn"></i></button>
+                                </div>
+                            </td>
+                        </tr>
 
 
 
