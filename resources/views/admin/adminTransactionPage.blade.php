@@ -45,49 +45,49 @@
                         <tbody>
 
                             <tr>
-                                <td>001</td>
-                                <td>12/22/23</td>
-                                <td>C001</td>
-                                <td>Avatar</td>
-                                <td>5</td>
-                                <td>P01</td>
-                                <td>299</td>
+                                <td data-cell='Transaction ID'>001</td>
+                                <td data-cell='Date'>12/22/23</td>
+                                <td data-cell='Customer ID'>C001</td>
+                                <td data-cell='Movie'>Avatar</td>
+                                <td data-cell='Quantity'>5</td>
+                                <td data-cell='Payment ID'>P01</td>
+                                <td data-cell='Total'>299</td>
                             </tr>
                             <tr>
-                                <td>001</td>
-                                <td>12/22/23</td>
-                                <td>C001</td>
-                                <td>Avatar</td>
-                                <td>5</td>
-                                <td>P01</td>
-                                <td>299</td>
+                                <td data-cell='Transaction ID'>001</td>
+                                <td data-cell='Date'>12/22/23</td>
+                                <td data-cell='Customer ID'>C001</td>
+                                <td data-cell='Movie'>Avatar</td>
+                                <td data-cell='Quantity'>5</td>
+                                <td data-cell='Payment ID'>P01</td>
+                                <td data-cell='Total'>299</td>
                             </tr>
                             <tr>
-                                <td>001</td>
-                                <td>12/22/23</td>
-                                <td>C001</td>
-                                <td>Avatar</td>
-                                <td>5</td>
-                                <td>P01</td>
-                                <td>299</td>
+                                <td data-cell='Transaction ID'>001</td>
+                                <td data-cell='Date'>12/22/23</td>
+                                <td data-cell='Customer ID'>C001</td>
+                                <td data-cell='Movie'>Avatar</td>
+                                <td data-cell='Quantity'>5</td>
+                                <td data-cell='Payment ID'>P01</td>
+                                <td data-cell='Total'>299</td>
                             </tr>
                             <tr>
-                                <td>001</td>
-                                <td>12/22/23</td>
-                                <td>C001</td>
-                                <td>Avatar</td>
-                                <td>5</td>
-                                <td>P01</td>
-                                <td>299</td>
+                                <td data-cell='Transaction ID'>001</td>
+                                <td data-cell='Date'>12/22/23</td>
+                                <td data-cell='Customer ID'>C001</td>
+                                <td data-cell='Movie'>Avatar</td>
+                                <td data-cell='Quantity'>5</td>
+                                <td data-cell='Payment ID'>P01</td>
+                                <td data-cell='Total'>299</td>
                             </tr>
                             <tr>
-                                <td>001</td>
-                                <td>12/22/23</td>
-                                <td>C001</td>
-                                <td>Avatar</td>
-                                <td>5</td>
-                                <td>P01</td>
-                                <td>299</td>
+                                <td data-cell='Transaction ID'>001</td>
+                                <td data-cell='Date'>12/22/23</td>
+                                <td data-cell='Customer ID'>C001</td>
+                                <td data-cell='Movie'>Avatar</td>
+                                <td data-cell='Quantity'>5</td>
+                                <td data-cell='Payment ID'>P01</td>
+                                <td data-cell='Total'>299</td>
                             </tr>     
                         </tbody>
                     </table>

@@ -86,7 +86,7 @@
 .action-btn-container{
     display: flex;
     gap: 0.5em;
-   justify-content: center;
+   
 }
 .action-btn{
     color: #ECECEC !important;

@@ -47,11 +47,11 @@
                     <tbody class="movielist">
                         <tr class="movielist-item">
 
-                            <td>21</td>
-                            <td>image</td>
-                            <td>Avatar</td>
-                            <td>Sci-Fi</td>
-                            <td>Blue People</td>
+                            <td data-cell='Movie ID'>21</td>
+                            <td data-cell='Movie Poster'>image</td>
+                            <td data-cell='Title'>Avatar</td>
+                            <td data-cell='Genre'>Sci-Fi</td>
+                            <td data-cell='Description'>Blue People</td>
                             <td>
                                 <div class='action-btn-container'>
                                     <button type='button' class='action-btn edit-btn' data-toggle="modal"

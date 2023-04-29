@@ -53,13 +53,13 @@
                     <tbody>
 
                         <tr>
-                            <td>SM</td>
-                            <td>Cinema 1</td>
-                            <td>Avatar</td>
-                            <td>3:00</td>
-                            <td>5:00</td>
-                            <td>3/23/23</td>
-                            <td>139</td>
+                            <td data-cell='Location'>SM</td>
+                            <td data-cell='Cinema'>Cinema 1</td>
+                            <td data-cell='Movie'>Avatar</td>
+                            <td data-cell='Time Start'>3:00</td>
+                            <td data-cell='Time End'>5:00</td>
+                            <td data-cell='Date'>3/23/23</td>
+                            <td data-cell='Price'>139</td>
                             <td>
                                 <div class="action-btn-container">
                                     <button type="button" class="action-btn edit-btn" data-toggle="modal" data-target='#editsched'><i
@@ -70,13 +70,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Gmall</td>
-                            <td>Cinema 2</td>
-                            <td>John Wick</td>
-                            <td>3:00</td>
-                            <td>5:00</td>
-                            <td>3/23/23</td>
-                            <td>299</td>
+                            <td data-cell='Location'>SM</td>
+                            <td data-cell='Cinema'>Cinema 1</td>
+                            <td data-cell='Movie'>Avatar</td>
+                            <td data-cell='Time Start'>3:00</td>
+                            <td data-cell='Time End'>5:00</td>
+                            <td data-cell='Date'>3/23/23</td>
+                            <td data-cell='Price'>139</td>
                             <td>
                                 <div class="action-btn-container">
                                     <button type="button" class="action-btn edit-btn" data-toggle="modal" data-target='#editsched'><i
@@ -87,13 +87,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Abreeza</td>
-                            <td>Cinema 3</td>
-                            <td>hello</td>
-                            <td>3:00</td>
-                            <td>5:00</td>
-                            <td>3/23/23</td>
-                            <td>200</td>
+                            <td data-cell='Location'>SM</td>
+                            <td data-cell='Cinema'>Cinema 1</td>
+                            <td data-cell='Movie'>Avatar</td>
+                            <td data-cell='Time Start'>3:00</td>
+                            <td data-cell='Time End'>5:00</td>
+                            <td data-cell='Date'>3/23/23</td>
+                            <td data-cell='Price'>139</td>
                             <td>
                                 <div class="action-btn-container">
                                     <button type="button" class="action-btn edit-btn" data-target='#editsched'><i
@@ -104,13 +104,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>SM</td>
-                            <td>Cinema 4</td>
-                            <td>Avatar</td>
-                            <td>3:00</td>
-                            <td>5:00</td>
-                            <td>3/23/23</td>
-                            <td>299</td>
+                            <td data-cell='Location'>SM</td>
+                            <td data-cell='Cinema'>Cinema 1</td>
+                            <td data-cell='Movie'>Avatar</td>
+                            <td data-cell='Time Start'>3:00</td>
+                            <td data-cell='Time End'>5:00</td>
+                            <td data-cell='Date'>3/23/23</td>
+                            <td data-cell='Price'>139</td>
                             <td>
                                 <div class="action-btn-container">
                                     <button type="button" class="action-btn edit-btn" data-target='#editsched'><i
@@ -121,13 +121,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>SM</td>
-                            <td>Cinema 5</td>
-                            <td>Avatar</td>
-                            <td>3:00</td>
-                            <td>5:00</td>
-                            <td>3/23/23</td>
-                            <td>299</td>
+                            <td data-cell='Location'>SM</td>
+                            <td data-cell='Cinema'>Cinema 1</td>
+                            <td data-cell='Movie'>Avatar</td>
+                            <td data-cell='Time Start'>3:00</td>
+                            <td data-cell='Time End'>5:00</td>
+                            <td data-cell='Date'>3/23/23</td>
+                            <td data-cell='Price'>139</td>
                             <td>
                                 <div class="action-btn-container">
                                     <button type="button" class="action-btn edit-btn" data-target='#editsched'><i
@@ -138,13 +138,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Gmall</td>
-                            <td>Cinema 6</td>
-                            <td>Avatar</td>
-                            <td>3:00</td>
-                            <td>5:00</td>
-                            <td>3/23/23</td>
-                            <td>299</td>
+                            <td data-cell='Location'>SM</td>
+                            <td data-cell='Cinema'>Cinema 1</td>
+                            <td data-cell='Movie'>Avatar</td>
+                            <td data-cell='Time Start'>3:00</td>
+                            <td data-cell='Time End'>5:00</td>
+                            <td data-cell='Date'>3/23/23</td>
+                            <td data-cell='Price'>139</td>
                             <td>
                                 <div class="action-btn-container">
                                     <button type="button" class="action-btn edit-btn" data-target='#editsched'><i

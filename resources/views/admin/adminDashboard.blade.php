@@ -66,88 +66,88 @@
             </thead>
             <tbody>
               <tr>
-                <td>Avatar</td>
-                <td>Abreeza</td>
-                <td>Cinema</td>
-                <td>Time</td>
-                <td>March 24, 2023</td>
+                <td data-cell='Movie Title'>Avatar</td>
+                <td data-cell='Location'>Abreeza</td>
+                <td data-cell='Cinema'>Cinema</td>
+                <td data-cell='Time'>Time</td>
+                <td data-cell='Date'>March 24, 2023</td>
               </tr>
               <tr>
-                <td>Avatar</td>
-                <td>Abreeza</td>
-                <td>Cinema</td>
-                <td>Time</td>
-                <td>March 24, 2023</td>
+                <td data-cell='Movie Title'>Avatar</td>
+                <td data-cell='Location'>Abreeza</td>
+                <td data-cell='Cinema'>Cinema</td>
+                <td data-cell='Time'>Time</td>
+                <td data-cell='Date'>March 24, 2023</td>
               </tr>
               <tr>
-                <td>Avatar</td>
-                <td>Abreeza</td>
-                <td>Cinema</td>
-                <td>Time</td>
-                <td>March 24, 2023</td>
+                <td data-cell='Movie Title'>Avatar</td>
+                <td data-cell='Location'>Abreeza</td>
+                <td data-cell='Cinema'>Cinema</td>
+                <td data-cell='Time'>Time</td>
+                <td data-cell='Date'>March 24, 2023</td>
               </tr>
               <tr>
-                <td>Avatar</td>
-                <td>Abreeza</td>
-                <td>Cinema</td>
-                <td>Time</td>
-                <td>March 24, 2023</td>
+                <td data-cell='Movie Title'>Avatar</td>
+                <td data-cell='Location'>Abreeza</td>
+                <td data-cell='Cinema'>Cinema</td>
+                <td data-cell='Time'>Time</td>
+                <td data-cell='Date'>March 24, 2023</td>
               </tr>
               <tr>
-                <td>Avatar</td>
-                <td>Abreeza</td>
-                <td>Cinema</td>
-                <td>Time</td>
-                <td>March 24, 2023</td>
+                <td data-cell='Movie Title'>Avatar</td>
+                <td data-cell='Location'>Abreeza</td>
+                <td data-cell='Cinema'>Cinema</td>
+                <td data-cell='Time'>Time</td>
+                <td data-cell='Date'>March 24, 2023</td>
               </tr>
               <tr>
-                <td>Avatar</td>
-                <td>Abreeza</td>
-                <td>Cinema</td>
-                <td>Time</td>
-                <td>March 24, 2023</td>
+                <td data-cell='Movie Title'>Avatar</td>
+                <td data-cell='Location'>Abreeza</td>
+                <td data-cell='Cinema'>Cinema</td>
+                <td data-cell='Time'>Time</td>
+                <td data-cell='Date'>March 24, 2023</td>
               </tr>
               <tr>
-                <td>Avatar</td>
-                <td>Abreeza</td>
-                <td>Cinema</td>
-                <td>Time</td>
-                <td>March 24, 2023</td>
+                <td data-cell='Movie Title'>Avatar</td>
+                <td data-cell='Location'>Abreeza</td>
+                <td data-cell='Cinema'>Cinema</td>
+                <td data-cell='Time'>Time</td>
+                <td data-cell='Date'>March 24, 2023</td>
               </tr>
               <tr>
-                <td>Avatar</td>
-                <td>Abreeza</td>
-                <td>Cinema</td>
-                <td>Time</td>
-                <td>March 24, 2023</td>
+                <td data-cell='Movie Title'>Avatar</td>
+                <td data-cell='Location'>Abreeza</td>
+                <td data-cell='Cinema'>Cinema</td>
+                <td data-cell='Time'>Time</td>
+                <td data-cell='Date'>March 24, 2023</td>
               </tr>
               <tr>
-                <td>Avatar</td>
-                <td>Abreeza</td>
-                <td>Cinema</td>
-                <td>Time</td>
-                <td>March 24, 2023</td>
+                <td data-cell='Movie Title'>Avatar</td>
+                <td data-cell='Location'>Abreeza</td>
+                <td data-cell='Cinema'>Cinema</td>
+                <td data-cell='Time'>Time</td>
+                <td data-cell='Date'>March 24, 2023</td>
               </tr>
               <tr>
-                <td>Avatar</td>
-                <td>Abreeza</td>
-                <td>Cinema</td>
-                <td>Time</td>
-                <td>March 24, 2023</td>
+                <td data-cell='Movie Title'>Avatar</td>
+                <td data-cell='Location'>Abreeza</td>
+                <td data-cell='Cinema'>Cinema</td>
+                <td data-cell='Time'>Time</td>
+                <td data-cell='Date'>March 24, 2023</td>
               </tr>
               <tr>
-                <td>Avatar</td>
-                <td>Abreeza</td>
-                <td>Cinema</td>
-                <td>Time</td>
-                <td>March 24, 2023</td>
+                <td data-cell='Movie Title'>Avatar</td>
+                <td data-cell='Location'>Abreeza</td>
+                <td data-cell='Cinema'>Cinema</td>
+                <td data-cell='Time'>Time</td>
+                <td data-cell='Date'>March 24, 2023</td>
               </tr>
               <tr>
-                <td>Avatar</td>
-                <td>Abreeza</td>
-                <td>Cinema</td>
-                <td>Time</td>
-                <td>March 24, 2023</td>
+                <td data-cell='Movie Title'>Avatar</td>
+                <td data-cell='Location'>Abreeza</td>
+                <td data-cell='Cinema'>Cinema</td>
+                <td data-cell='Time'>Time</td>
+                <td data-cell='Date'>March 24, 2023</td>
               </tr>
               
             </tbody>
@@ -167,88 +167,88 @@
             </thead>
             <tbody>
               <tr>
-                <td>Avatar</td>
-                <td>Abreeza</td>
-                <td>Cinema</td>
-                <td>Time</td>
-                <td>March 24, 2023</td>
+                <td data-cell='Movie Title'>Avatar</td>
+                <td data-cell='Location'>Abreeza</td>
+                <td data-cell='Cinema'>Cinema</td>
+                <td data-cell='Time'>Time</td>
+                <td data-cell='Date'>March 24, 2023</td>
               </tr>
               <tr>
-                <td>Avatar</td>
-                <td>Abreeza</td>
-                <td>Cinema</td>
-                <td>Time</td>
-                <td>March 24, 2023</td>
+                <td data-cell='Movie Title'>Avatar</td>
+                <td data-cell='Location'>Abreeza</td>
+                <td data-cell='Cinema'>Cinema</td>
+                <td data-cell='Time'>Time</td>
+                <td data-cell='Date'>March 24, 2023</td>
               </tr>
               <tr>
-                <td>Avatar</td>
-                <td>Abreeza</td>
-                <td>Cinema</td>
-                <td>Time</td>
-                <td>March 24, 2023</td>
+                <td data-cell='Movie Title'>Avatar</td>
+                <td data-cell='Location'>Abreeza</td>
+                <td data-cell='Cinema'>Cinema</td>
+                <td data-cell='Time'>Time</td>
+                <td data-cell='Date'>March 24, 2023</td>
               </tr>
               <tr>
-                <td>Avatar</td>
-                <td>Abreeza</td>
-                <td>Cinema</td>
-                <td>Time</td>
-                <td>March 24, 2023</td>
+                <td data-cell='Movie Title'>Avatar</td>
+                <td data-cell='Location'>Abreeza</td>
+                <td data-cell='Cinema'>Cinema</td>
+                <td data-cell='Time'>Time</td>
+                <td data-cell='Date'>March 24, 2023</td>
               </tr>
               <tr>
-                <td>Avatar</td>
-                <td>Abreeza</td>
-                <td>Cinema</td>
-                <td>Time</td>
-                <td>March 24, 2023</td>
+                <td data-cell='Movie Title'>Avatar</td>
+                <td data-cell='Location'>Abreeza</td>
+                <td data-cell='Cinema'>Cinema</td>
+                <td data-cell='Time'>Time</td>
+                <td data-cell='Date'>March 24, 2023</td>
               </tr>
               <tr>
-                <td>Avatar</td>
-                <td>Abreeza</td>
-                <td>Cinema</td>
-                <td>Time</td>
-                <td>March 24, 2023</td>
+                <td data-cell='Movie Title'>Avatar</td>
+                <td data-cell='Location'>Abreeza</td>
+                <td data-cell='Cinema'>Cinema</td>
+                <td data-cell='Time'>Time</td>
+                <td data-cell='Date'>March 24, 2023</td>
               </tr>
               <tr>
-                <td>Avatar</td>
-                <td>Abreeza</td>
-                <td>Cinema</td>
-                <td>Time</td>
-                <td>March 24, 2023</td>
+                <td data-cell='Movie Title'>Avatar</td>
+                <td data-cell='Location'>Abreeza</td>
+                <td data-cell='Cinema'>Cinema</td>
+                <td data-cell='Time'>Time</td>
+                <td data-cell='Date'>March 24, 2023</td>
               </tr>
               <tr>
-                <td>Avatar</td>
-                <td>Abreeza</td>
-                <td>Cinema</td>
-                <td>Time</td>
-                <td>March 24, 2023</td>
+                <td data-cell='Movie Title'>Avatar</td>
+                <td data-cell='Location'>Abreeza</td>
+                <td data-cell='Cinema'>Cinema</td>
+                <td data-cell='Time'>Time</td>
+                <td data-cell='Date'>March 24, 2023</td>
               </tr>
               <tr>
-                <td>Avatar</td>
-                <td>Abreeza</td>
-                <td>Cinema</td>
-                <td>Time</td>
-                <td>March 24, 2023</td>
+                <td data-cell='Movie Title'>Avatar</td>
+                <td data-cell='Location'>Abreeza</td>
+                <td data-cell='Cinema'>Cinema</td>
+                <td data-cell='Time'>Time</td>
+                <td data-cell='Date'>March 24, 2023</td>
               </tr>
               <tr>
-                <td>Avatar</td>
-                <td>Abreeza</td>
-                <td>Cinema</td>
-                <td>Time</td>
-                <td>March 24, 2023</td>
+                <td data-cell='Movie Title'>Avatar</td>
+                <td data-cell='Location'>Abreeza</td>
+                <td data-cell='Cinema'>Cinema</td>
+                <td data-cell='Time'>Time</td>
+                <td data-cell='Date'>March 24, 2023</td>
               </tr>
               <tr>
-                <td>Avatar</td>
-                <td>Abreeza</td>
-                <td>Cinema</td>
-                <td>Time</td>
-                <td>March 24, 2023</td>
+                <td data-cell='Movie Title'>Avatar</td>
+                <td data-cell='Location'>Abreeza</td>
+                <td data-cell='Cinema'>Cinema</td>
+                <td data-cell='Time'>Time</td>
+                <td data-cell='Date'>March 24, 2023</td>
               </tr>
               <tr>
-                <td>Avatar</td>
-                <td>Abreeza</td>
-                <td>Cinema</td>
-                <td>Time</td>
-                <td>March 24, 2023</td>
+                <td data-cell='Movie Title'>Avatar</td>
+                <td data-cell='Location'>Abreeza</td>
+                <td data-cell='Cinema'>Cinema</td>
+                <td data-cell='Time'>Time</td>
+                <td data-cell='Date'>March 24, 2023</td>
               </tr>
               
             </tbody>
