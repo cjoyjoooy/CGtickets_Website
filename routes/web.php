@@ -73,7 +73,7 @@ Route::get('/addMovie',[AdminMoviePageController::class,'addMovie']);
 Route::post('/insertMovie',[AdminMoviePageController::class,'insertMovie']);
 Route::get('/editMovie',[AdminMoviePageController::class,'editMovie']);
 Route::post('/updateMovie',[AdminMoviePageController::class,'updateMovie']);
-// Route::get('/deletemovie/{id}',[AdminMoviePageController::class,'deleteMovie']);
+Route::get('/deletemovie/{id}',[AdminMoviePageController::class,'deleteMovie']);
 
 // Schedule 
 Route::get('/addSchedule',[AdminShowScheduleController::class,'addSchedule']);

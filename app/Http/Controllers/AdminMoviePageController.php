@@ -50,7 +50,7 @@ class adminMoviePageController extends Controller
          // insert code sa edit/update diri hihi 
     }
 
-    public function deleteLocation($id)
+    public function deletemovie($id)
     {   $deletemovie = new Movie;
         //  variable = model/table name::find($id); 
         $deletemovie = Movie::find($id);
