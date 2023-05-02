@@ -25,15 +25,15 @@ class adminShowScheduleController extends Controller
         return view('admin.ScheduleAdd', compact(['locations', 'cinemas', 'movies']));
     }
 
-    public function insertSchedule(){
+    public function insertSchedule(Request $request){
         // insert code sa add/insert diri hihi 
         // any variable = new Modelname 
         $scheduledata = new Schedule;
 
         //variable->table comlumn name = $request-> name sa input box
-        $scheduledata->location_id = $request->$locationID;
-        $scheduledata->cinema_id = $request->$cinemaID;
-        $scheduledata->movie_id = $request->$movieID;
+        $scheduledata->location_id = $request->location;
+        $scheduledata->cinema_id = $request->cinema;
+        $scheduledata->movie_id = $request->movie;
         $scheduledata->time_start = $request->timeStart;
         $scheduledata->time_end = $request->timeEnd;
         $scheduledata->date_schedule = $request->showdate;
@@ -42,7 +42,7 @@ class adminShowScheduleController extends Controller
         // save() -- insert data into the database 
         $scheduledata->save();
         // return siya balik sa page 
-        return redirect()->back();
+        return  view('admin.adminShowSchedule');
     }
 
 

@@ -28,7 +28,7 @@
                     <label for="cinema">Cinema</label>
                     <select name="cinema" id="cinema">
                     @foreach ($cinemas as $cinema  ) 
-                        <option  value="{{$cinema->id}}">{{$cinema->cinema_number}}</option>
+                        <option  value="{{$cinema->id}}" >{{$cinema->cinema_number}}</option>
                     @endforeach>
                     </select>
                 </div>
@@ -38,7 +38,7 @@
                     <label for="movie">Movie</label>
                     <select name="movie" id="movie">
                     @foreach ($movies as $movie)
-                        <option value="{{ $movie->id }}">{{$movie->MovieTitle}}</option>
+                        <option value="{{ $movie->id }}" >{{$movie->MovieTitle}}</option>
                     @endforeach
                     </select>
                 </div>

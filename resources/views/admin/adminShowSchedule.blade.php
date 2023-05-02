@@ -53,13 +53,13 @@
                     <tbody>
 
                         <tr>
-                            <td data-cell='Location'>SM</td>
-                            <td data-cell='Cinema'>Cinema 1</td>
-                            <td data-cell='Movie'>Avatar</td>
-                            <td data-cell='Time Start'>3:00</td>
-                            <td data-cell='Time End'>5:00</td>
-                            <td data-cell='Date'>3/23/23</td>
-                            <td data-cell='Price'>139</td>
+                            <td >SM</td>
+                            <td>Cinema 1</td>
+                            <td>Avatar</td>
+                            <td >3:00</td>
+                            <td >5:00</td>
+                            <td >3/23/23</td>
+                            <td >139</td>
                             <td>
                                 <div class="action-btn-container">
                                     <a href="{{url('editSchedule')}}"><button type="button" class="action-btn edit-btn"><i
