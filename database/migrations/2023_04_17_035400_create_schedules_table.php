@@ -22,7 +22,7 @@ return new class extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->foreignId('movie_id')
-                ->constrained('movie')
+                ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->time('time_start');
