@@ -12,23 +12,24 @@
 
 <body>
     <div class="body-container">
-        <form action="" method="post">
+        <form action="{{url('insertSchedule')}}" method="POST" enctype="multipart/form-data">
+        @csrf
             <h2>ADD SCHEDULE</h2>
             <div class="input-group">
                 <div class="input-box">
                     <label for="location">Location</label>
                     <select name="location" id="location">
-                        <option value="volvo">Abreeza</option>
-                        <option value="saab">Gmall</option>
-                        <option value="opel">SM Eco</option>
+                    @foreach ($locations as $location ) 
+                        <option  value="{{$location->id}}">{{$location->location_name}}</option>
+                    @endforeach
                     </select>
                 </div>
                 <div class="input-box">
                     <label for="cinema">Cinema</label>
                     <select name="cinema" id="cinema">
-                        <option value="volvo">Cinema 1</option>
-                        <option value="saab">Cinema 2</option>
-                        <option value="opel">Cinema 3</option>
+                    @foreach ($cinemas as $cinema  ) 
+                        <option  value="{{$cinema->id}}">{{$cinema->cinema_number}}</option>
+                    @endforeach>
                     </select>
                 </div>
             </div>
@@ -36,9 +37,9 @@
                 <div class="input-box">
                     <label for="movie">Movie</label>
                     <select name="movie" id="movie">
-                        <option value="volvo">Movie 1</option>
-                        <option value="saab">Movie 2</option>
-                        <option value="opel">Movie 3</option>
+                    @foreach ($movies as $movie)
+                        <option value="{{ $movie->id }}">{{$movie->MovieTitle}}</option>
+                    @endforeach
                     </select>
                 </div>
                 <div class="input-box">
