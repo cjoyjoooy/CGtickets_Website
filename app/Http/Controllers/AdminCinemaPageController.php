@@ -21,8 +21,11 @@ class adminCinemaPageController extends Controller
     }
 
     // LOCATION --------------------
-
     public function addLocation(Request $request)
+    {
+        return view('admin.LocationAdd');
+    }
+    public function insertLocation(Request $request)
     {
         // any variable = new Modelname 
         $locationdata = new Location;
@@ -33,7 +36,8 @@ class adminCinemaPageController extends Controller
         // save() -- insert data into the database 
         $locationdata->save();
         // return siya balik sa page 
-        return redirect()->back();
+        return redirect('AdminCinema');
+
     }
 
     public function deleteLocation($id)
@@ -43,6 +47,7 @@ class adminCinemaPageController extends Controller
         $deletelocation->delete();
         return redirect()->back();
     }
+    
 
     public function editLocation($id)
     {   
@@ -59,25 +64,34 @@ class adminCinemaPageController extends Controller
     }
 
     // CINEMA -------------------
-
     public function addCinema(Request $request)
     {
+        $locations = Location::all();
+        return view('admin.CinemaAdd',compact('locations'));
+    }
+
+
+    public function insertCinema(Request $request)
+    {
         $cinemadata = new Cinema;
+        $cinemadata->location_id = $request->location;
         $cinemadata->cinema_number = $request->cinema_num;
         $cinemadata->seat_number = $request->seat_num;
         $cinemadata->save();
-        return redirect()->back();
+        return redirect('AdminCinema');
     }
 
     public function editCinema($id)
     {
+        $locations = Location::all();
         $cinemadata = Cinema::find($id);
-        return view('admin.CinemaEdit',compact('cinemadata'));
+        return view('admin.CinemaEdit',compact(['cinemadata','locations']));
 
     }
 
     public function updateCinema(Request $request, $id){
         $cinemadata = Cinema::find($id);
+        $cinemadata->location_id = $request->location;
         $cinemadata->cinema_number = $request->cinema_num;
         $cinemadata->seat_number = $request->seat_num;
         $cinemadata->save();
