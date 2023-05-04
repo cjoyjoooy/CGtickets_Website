@@ -28,6 +28,11 @@ form{
     font-weight: 600;
     margin: 30px;
 }
+
+option{
+    background-color: #1a202c;
+}
+
 .input-box{
     width: 100%;
     display: flex;

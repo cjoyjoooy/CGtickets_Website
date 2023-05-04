@@ -13,10 +13,13 @@ return new class extends Migration
     {
         Schema::create('cinemas', function (Blueprint $table) {
             $table->id();
-            $table->string('cinema_number',50);
+            $table->string('cinema_number', 50);
             $table->integer('seat_number');
+            $table->foreignId('location_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->timestamps();
-
         });
     }
 

@@ -56,13 +56,15 @@ Route::post ('/signup-user', [AdminSignUpController::class, 'signupUser'])->name
 
 
 //location~
-Route::post('/addLocation',[AdminCinemaPageController::class,'addLocation'])->name('addLocation');
+Route::get('/addLocation',[AdminCinemaPageController::class,'addLocation']);
+Route::post('/insertLocation',[AdminCinemaPageController::class,'insertLocation']);
 Route::get('/delete/{id}',[AdminCinemaPageController::class,'deleteLocation']);
 Route::get('/editLocation/{id}',[AdminCinemaPageController::class,'editLocation']);
 Route::post('/updateLocation/{id}',[AdminCinemaPageController::class,'updateLocation']);
 
 //Cinema
-Route::post('/addCinema',[AdminCinemaPageController::class,'addCinema'])->name('addCinema');
+Route::get('/addCinema',[AdminCinemaPageController::class,'addCinema']);
+Route::post('/insertCinema',[AdminCinemaPageController::class,'insertCinema']);
 Route::get('/deleteCinema/{id}',[AdminCinemaPageController::class,'deleteCinema']);
 Route::get('/editCinema/{id}',[AdminCinemaPageController::class,'editCinema']);
 Route::post('/updateCinema/{id}',[AdminCinemaPageController::class,'updateCinema']);
