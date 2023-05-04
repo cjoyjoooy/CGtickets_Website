@@ -19,7 +19,7 @@ class adminShowScheduleController extends Controller
     public function index()
     {
         $schedules = Schedule::all();
-        return view('admin.adminShowSchedule');
+        return view('admin.adminShowSchedule', compact(['schedules']));
     }
 
     public function addSchedule(){
@@ -27,7 +27,7 @@ class adminShowScheduleController extends Controller
         $cinemas = Cinema::all();
         $movies = Movie::all();
         $schedules = Schedule::all();
-        return view('admin.ScheduleAdd', compact(['locations', 'cinemas', 'movies']));
+        return view('admin.ScheduleAdd', compact(['schedules','locations', 'cinemas', 'movies']));
     }
 
     public function insertSchedule(Request $request){
