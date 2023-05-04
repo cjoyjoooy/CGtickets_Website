@@ -13,8 +13,12 @@ class adminShowScheduleController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+    
+
     public function index()
     {
+        $schedules = Schedule::all();
         return view('admin.adminShowSchedule');
     }
 
@@ -22,6 +26,7 @@ class adminShowScheduleController extends Controller
         $locations = Location::all();
         $cinemas = Cinema::all();
         $movies = Movie::all();
+        $schedules = Schedule::all();
         return view('admin.ScheduleAdd', compact(['locations', 'cinemas', 'movies']));
     }
 
