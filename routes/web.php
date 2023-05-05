@@ -82,5 +82,6 @@ Route::get('/addSchedule',[AdminShowScheduleController::class,'addSchedule']);
 Route::post('/insertSchedule',[AdminShowScheduleController::class,'insertSchedule']);
 Route::get('/editSchedule',[AdminShowScheduleController::class,'editSchedule']);
 Route::post('/updateSchedule',[AdminShowScheduleController::class,'updateSchedule']);
+ROute::get('/deleteSchedule', [AdminShowScheduleController::class,'deleteSchedule']);
 
 

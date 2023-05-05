@@ -48,12 +48,19 @@ class adminShowScheduleController extends Controller
     }
 
 
-    public function editSchedule(){
+    public function editSchedule($id){
+        $scheduledata= Schedule::find($id);
         return view('admin.ScheduleEdit');
     }
 
     public function updateSchedule(){
          // insert code sa edit/update diri hihi 
+    }
+    public function deleteSchedule($id){
+        $deleteschedule = new Schedule;
+        $deleteschedule = Schedule::find($id);
+        $deletschedule->delete();
+        return redirect()->back();
     }
 
 }
