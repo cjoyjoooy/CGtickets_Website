@@ -47,7 +47,7 @@ class adminShowScheduleController extends Controller
         // save() -- insert data into the database 
         $scheduledata->save();
         // return siya balik sa page 
-        return  view('admin.adminShowSchedule');
+        return redirect('AdminShowSchedule');
     }
 
 
