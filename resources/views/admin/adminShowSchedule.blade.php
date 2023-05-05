@@ -52,14 +52,18 @@
                     </thead>
                     <tbody>
 
+                        @foreach ($schedules as $schedule)
                         <tr>
-                            <td >SM</td>
-                            <td>Cinema 1</td>
-                            <td>Avatar</td>
-                            <td >3:00</td>
-                            <td >5:00</td>
-                            <td >3/23/23</td>
-                            <td >139</td>
+                           
+                            <td>{{$schedule->location->location_name}}</td>
+                            <td>{{$schedule->cinema->cinema_number}}</td>
+                            <td>{{$schedule->movie->MovieTitle}}</td>
+                            <td>{{$schedule->time_start}}</td>
+                            <td>{{$schedule->time_end}}</td>
+                            <td>{{$schedule->date_schedule}}</td>
+                            <td>{{$schedule->price}}</td>
+                        
+                            
                             <td>
                                 <div class="action-btn-container">
                                     <a href="{{url('editSchedule')}}"><button type="button" class="action-btn edit-btn"><i
@@ -69,6 +73,7 @@
                                 </div>
                             </td>
                         </tr>
+                        @endforeach
                        
                     </tbody>
                 </table>
