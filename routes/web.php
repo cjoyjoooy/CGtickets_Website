@@ -74,7 +74,7 @@ Route::post('/updateCinema/{id}',[AdminCinemaPageController::class,'updateCinema
 Route::get('/addMovie',[AdminMoviePageController::class,'addMovie']);
 Route::post('/insertMovie',[AdminMoviePageController::class,'insertMovie']);
 Route::get('/editMovie/{id}',[AdminMoviePageController::class,'editMovie']);
-Route::post('/updateMovie/{id}',[AdminMoviePageController::class,'updateMovie']);
+Route::put('/updateMovie/{id}',[AdminMoviePageController::class,'updateMovie']);
 Route::get('/deletemovie/{id}',[AdminMoviePageController::class,'deleteMovie']);
 
 // Schedule 

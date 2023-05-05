@@ -10,8 +10,9 @@
 </head>
 <body>
     <div class="body-container">
-        <form action="{{url('updateMovie',$moviedata->id)}}" method="post">
-            @csrf
+        <form action="{{url('updateMovie',$moviedata->id)}}" method="post"  enctype="multipart/form-data">
+        @csrf 
+        @method('PUT')
           <h2>EDIT MOVIE</h2>
           <div class="input-group">
             <div class="input-box">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Movie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class adminMoviePageController extends Controller
 {
@@ -47,22 +48,25 @@ class adminMoviePageController extends Controller
         return view('admin.MovieEdit', compact(['moviedata']));
     }
 
-    public function updateMovie(Request $request, $id){
-         // insert code sa edit/update diri hihi 
-         $moviedata = Movie::find($id);
-         $moviedata-> MovieTitle = $request->title;
-         $moviedata-> MovieDescription = $request->description;
-         $moviedata-> Genre = $request->genre;
-         $request->validate([
-             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-         ]);
-         $imagename=time().'.'.$request->image->extension();
-         $request->image->move('uploads',$imagename);
-         $moviedata->MoviePoster =$imagename;
-         $moviedata->save();
-         return redirect('AdminMovie');
+    public function updateMovie(Request $request, $id)
+    {
+        //insert code sa edit/update diri hihi 
+        $moviedata = Movie::find($id);
+        $moviedata->MovieTitle = $request->title;
+        $moviedata->MovieDescription = $request->description;
+        $moviedata->Genre = $request->genre;
+        if ($request->hasFile('moviePoster')){
+            $file = $request->file('moviePoster');
+            $request->validate([
+                'moviePoster' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+            $imagename = time().'.'.$file->getClientOriginalExtension();
+            $file->move('uploads',$imagename);
+            $moviedata->MoviePoster = $imagename;
+        }
+        $moviedata->update();
+        return redirect('AdminMovie');
     }
-
     public function deletemovie($id)
     {   $deletemovie = new Movie;
         //  variable = model/table name::find($id); 
