@@ -63,7 +63,7 @@
                             <td>{{$schedule->price}}</td>                                 
                             <td>
                                 <div class="action-btn-container">
-                                    <a href="{{url('editSchedule')}}"><button type="button" class="action-btn edit-btn"><i
+                                    <a href="{{url('editSchedule', $schedule->id)}}"><button type="button" class="action-btn edit-btn"><i
                                         class="fa-solid fa-pen action-btn"></i></button></a>
                                     <a href="{{url('deleteSchedule', $schedule->id)}}"><button type="button" class="action-btn del-btn"><i
                                         class="fa-solid fa-trash action-btn"></i></button></a>

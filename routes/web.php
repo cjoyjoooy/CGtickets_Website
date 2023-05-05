@@ -80,8 +80,8 @@ Route::get('/deletemovie/{id}',[AdminMoviePageController::class,'deleteMovie']);
 // Schedule 
 Route::get('/addSchedule',[AdminShowScheduleController::class,'addSchedule']);
 Route::post('/insertSchedule',[AdminShowScheduleController::class,'insertSchedule']);
-Route::get('/editSchedule',[AdminShowScheduleController::class,'editSchedule']);
-Route::post('/updateSchedule',[AdminShowScheduleController::class,'updateSchedule']);
+Route::get('/editSchedule/{id}',[AdminShowScheduleController::class,'editSchedule']);
+Route::post('/updateSchedule/{id}',[AdminShowScheduleController::class,'updateSchedule']);
 ROute::get('/deleteSchedule/{id}', [AdminShowScheduleController::class,'deleteSchedule']);
 
 

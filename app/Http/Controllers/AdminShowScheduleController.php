@@ -49,12 +49,27 @@ class adminShowScheduleController extends Controller
 
 
     public function editSchedule($id){
-        $scheduledata= Schedule::find($id);
-        return view('admin.ScheduleEdit');
+        $locations = Location::all();
+        $cinemas = Cinema::all();
+        $movies = Movie::all();
+        return view('admin.ScheduleEdit', compact(['locations', 'cinemas', 'movies']));
     }
 
-    public function updateSchedule(){
+    public function updateSchedule(Request $request, $id){
          // insert code sa edit/update diri hihi 
+        $updatesched-> Schedule::find($id);
+        $updatesched->location_id = $request->location;
+        $updatesched->cinema_id = $request->cinema;
+        $updatesched->movie_id = $request->movie;
+        $updatesched->time_start = $request->timeStart;
+        $updatesched->time_end = $request->timeEnd;
+        $updatesched->date_schedule = $request->showdate;
+        $updatesched->price = $request->price;
+        // save() -- insert data into the database 
+        $updatesched->update();
+        // return siya balik sa page 
+        return redirect('AdminShowSchedule');
+
     }
     public function deleteSchedule($id){
         $deleteschedule = new Schedule;
