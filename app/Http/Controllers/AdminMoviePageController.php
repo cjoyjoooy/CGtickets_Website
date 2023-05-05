@@ -41,13 +41,26 @@ class adminMoviePageController extends Controller
         return redirect('AdminMovie');
     }
 
-    public function editMovie()
+    public function editMovie($id)
     {
-        return view('admin.MovieEdit');
+        $moviedata = Movie::find($id);
+        return view('admin.MovieEdit', compact(['moviedata']));
     }
 
-    public function updateMovie(Request $request){
+    public function updateMovie(Request $request, $id){
          // insert code sa edit/update diri hihi 
+         $moviedata = Movie::find($id);
+         $moviedata-> MovieTitle = $request->title;
+         $moviedata-> MovieDescription = $request->description;
+         $moviedata-> Genre = $request->genre;
+         $request->validate([
+             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+         ]);
+         $imagename=time().'.'.$request->image->extension();
+         $request->image->move('uploads',$imagename);
+         $moviedata->MoviePoster =$imagename;
+         $moviedata->save();
+         return redirect('AdminMovie');
     }
 
     public function deletemovie($id)

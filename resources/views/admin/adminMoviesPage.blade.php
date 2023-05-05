@@ -55,7 +55,7 @@
                           <td data-cell='Description'>{{$movie->MovieDescription}}</td>
                           <td>
                             <div class='action-btn-container'>
-                              <a href="{{url('editMovie')}}"><button type='button' class='action-btn edit-btn'><i class='fa-solid fa-pen action-btn'></i></button></a>
+                              <a href="{{url('editMovie', $movie->id)}}"><button type='button' class='action-btn edit-btn'><i class='fa-solid fa-pen action-btn'></i></button></a>
                               <a href="{{url('deletemovie', $movie->id)}}"><button type='button' class='action-btn del-btn'><i
                                 class='fa-solid fa-trash action-btn'></i></button></a>
                               </div>

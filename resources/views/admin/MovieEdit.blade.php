@@ -4,27 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/AddEditStyle.css">
-    <link rel="stylesheet" href="css/adminAddMovieStyle.css">
+    <link rel="stylesheet" href="{{ asset('css/AddEditStyle.css') }}">
+    <link rel="stylesheet" href="{{asset("css/adminAddMovieStyle.css")}}"">
     <title>Edit Movies</title>
 </head>
 <body>
     <div class="body-container">
-        <form action="" method="post">
+        <form action="{{url('updateMovie',$moviedata->id)}}" method="post">
+            @csrf
           <h2>EDIT MOVIE</h2>
           <div class="input-group">
             <div class="input-box">
                 <label for="title">Movie Title</label>
-                <input type="text" id="title" name="title">
+                <input type="text" id="title" name="title" value="{{$moviedata->MovieTitle}}">
             </div>
             <div class="input-box">
                 <label for="genre">Genre</label>
-                <input type="text" id="genre" name="genre">
+                <input type="text" id="genre" name="genre" value="{{$moviedata->Genre}}">
             </div>
           </div>
           <div class="input-box">
             <label for="description">Description</label>
-            <textarea class="desctextarea" id="description" name="description" rows="4" cols="50"></textarea>
+            <textarea class="desctextarea" id="description" name="description" rows="4" cols="50"
+            >{{$moviedata->MovieDescription}}</textarea>
         </div>
         <div class="input-box">
             <label for="moviePoster">Movie Poster</label>

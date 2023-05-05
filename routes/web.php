@@ -73,8 +73,8 @@ Route::post('/updateCinema/{id}',[AdminCinemaPageController::class,'updateCinema
 //Movie
 Route::get('/addMovie',[AdminMoviePageController::class,'addMovie']);
 Route::post('/insertMovie',[AdminMoviePageController::class,'insertMovie']);
-Route::get('/editMovie',[AdminMoviePageController::class,'editMovie']);
-Route::post('/updateMovie',[AdminMoviePageController::class,'updateMovie']);
+Route::get('/editMovie/{id}',[AdminMoviePageController::class,'editMovie']);
+Route::post('/updateMovie/{id}',[AdminMoviePageController::class,'updateMovie']);
 Route::get('/deletemovie/{id}',[AdminMoviePageController::class,'deleteMovie']);
 
 // Schedule 
@@ -82,6 +82,6 @@ Route::get('/addSchedule',[AdminShowScheduleController::class,'addSchedule']);
 Route::post('/insertSchedule',[AdminShowScheduleController::class,'insertSchedule']);
 Route::get('/editSchedule',[AdminShowScheduleController::class,'editSchedule']);
 Route::post('/updateSchedule',[AdminShowScheduleController::class,'updateSchedule']);
-ROute::get('/deleteSchedule', [AdminShowScheduleController::class,'deleteSchedule']);
+ROute::get('/deleteSchedule/{id}', [AdminShowScheduleController::class,'deleteSchedule']);
 
 

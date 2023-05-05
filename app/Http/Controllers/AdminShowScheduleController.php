@@ -59,7 +59,7 @@ class adminShowScheduleController extends Controller
     public function deleteSchedule($id){
         $deleteschedule = new Schedule;
         $deleteschedule = Schedule::find($id);
-        $deletschedule->delete();
+        $deleteschedule->delete();
         return redirect()->back();
     }
 
