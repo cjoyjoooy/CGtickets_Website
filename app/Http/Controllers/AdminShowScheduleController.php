@@ -7,19 +7,17 @@ use App\Models\Location;
 use App\Models\Cinema;
 use App\Models\Movie;
 use App\Models\Schedule;
+use Illuminate\Support\Facades\Redirect;
 
 class adminShowScheduleController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-
-    
-
     public function index()
     {
         $schedules = Schedule::all();
-        return view('admin.adminShowSchedule', compact(['schedules']));
+        return view('admin.adminShowSchedule');
     }
 
     public function addSchedule(){
@@ -27,7 +25,7 @@ class adminShowScheduleController extends Controller
         $cinemas = Cinema::all();
         $movies = Movie::all();
         $schedules = Schedule::all();
-        return view('admin.ScheduleAdd', compact(['schedules','locations', 'cinemas', 'movies']));
+        return view('admin.ScheduleAdd', compact(['locations', 'cinemas', 'movies']));
     }
 
     public function insertSchedule(Request $request){
@@ -43,11 +41,10 @@ class adminShowScheduleController extends Controller
         $scheduledata->time_end = $request->timeEnd;
         $scheduledata->date_schedule = $request->showdate;
         $scheduledata->price = $request->price;
-
         // save() -- insert data into the database 
         $scheduledata->save();
         // return siya balik sa page 
-        return redirect('AdminShowSchedule');
+        return  view('admin.adminShowSchedule');
     }
 
 

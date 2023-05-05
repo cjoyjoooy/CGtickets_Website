@@ -51,18 +51,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
+
                         <tr>
-                        @foreach ($schedules as $schedule)
-                           
-                            <td>{{$schedule->location->location_name}}</td>
-                            <td>{{$schedule->cinema->cinema_number}}</td>
-                            <td>{{$schedule->movie->MovieTitle}}</td>
-                            <td>{{$schedule->time_start}}</td>
-                            <td>{{$schedule->time_end}}</td>
-                            <td>{{$schedule->date_schedule}}</td>
-                            <td>{{$schedule->price}}</td>
-                        
+                            
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td ></td>
+                            <td ></td>
+                            <td ></td>
+                            <td ></td>
                             
                             <td>
                                 <div class="action-btn-container">
