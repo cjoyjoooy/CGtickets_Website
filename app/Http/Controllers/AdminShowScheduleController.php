@@ -15,8 +15,9 @@ class adminShowScheduleController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        return view('admin.adminShowSchedule');
+    {   
+        $schedules = Schedule::all();
+        return view('admin.adminShowSchedule', compact(['schedules']));
     }
 
     public function addSchedule(){
