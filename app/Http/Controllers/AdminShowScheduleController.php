@@ -24,7 +24,6 @@ class adminShowScheduleController extends Controller
         $locations = Location::all();
         $cinemas = Cinema::all();
         $movies = Movie::all();
-        $schedules = Schedule::all();
         return view('admin.ScheduleAdd', compact(['locations', 'cinemas', 'movies']));
     }
 
@@ -44,7 +43,8 @@ class adminShowScheduleController extends Controller
         // save() -- insert data into the database 
         $scheduledata->save();
         // return siya balik sa page 
-        return  view('admin.adminShowSchedule');
+        return redirect('AdminShowSchedule');
+        
     }
 
 
