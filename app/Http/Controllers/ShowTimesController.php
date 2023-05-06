@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Movie;
 use Illuminate\Http\Request;
 
 class ShowTimesController extends Controller
@@ -11,55 +11,22 @@ class ShowTimesController extends Controller
      */
     public function index()
     {
-        return view('client.clientshowlistPage');
+        // $movies = Movie::all();
+        // $movies = Movie::find($id);
+        // return view('client.clientshowlistPage');
+        // return view('client.clientshowlistPage',compact('movies'))->with(['id'=> $id]);
+        
         
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+    public function show($id){
+        $movies = Movie::find($id);
+        return view('client.clientshowlistPage', ['movies'=> Movie::findOrFail($id)]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+   
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+   
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }

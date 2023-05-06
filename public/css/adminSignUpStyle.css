@@ -122,6 +122,9 @@ a:hover{
     background-color: #3c4178;
     transform: scale(1.1);
 }
+.btn:focus{
+    background-color: #3c4178;
+}
 
 .txtbox, .btn{
     border-radius: 5px

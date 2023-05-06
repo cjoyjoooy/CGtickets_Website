@@ -35,38 +35,17 @@
                     <div class="notfound ">
                         <img src="/IT26-FINALPROJECT/resource/NotFound.png" alt="">
                     </div>
+                    @foreach ($movies as $movie)
                     <div class='grid-item movie-item'>
+                        <a href='{{url('ShowTimes', $movie->id)}}'><img src="{{ asset('/uploads/'.$movie->MoviePoster) }}" class="movie-img" alt="Movie Poster"></a>
+                        <p class='movie-title'>{{$movie->MovieTitle}}</p>
+                    </div>
+                    @endforeach
+                    {{-- <div class='grid-item movie-item'>
                         <a href=''><img class='movie-img' src='/resource/avengers.jpg'></a>
                         <p class='movie-title'>Avengers</p>
-                    </div>
-                    <div class='grid-item movie-item'>
-                        <a href=''><img class='movie-img' src='/resource/avengers.jpg'></a>
-                        <p class='movie-title'>Avengers</p>
-                    </div>
-                    <div class='grid-item movie-item'>
-                        <a href=''><img class='movie-img' src='/resource/avengers.jpg'></a>
-                        <p class='movie-title'>Avengers</p>
-                    </div>
-                    <div class='grid-item movie-item'>
-                        <a href=''><img class='movie-img' src='/resource/avengers.jpg'></a>
-                        <p class='movie-title'>Avengers</p>
-                    </div>
-                    <div class='grid-item movie-item'>
-                        <a href=''><img class='movie-img' src='/resource/avengers.jpg'></a>
-                        <p class='movie-title'>Avengers</p>
-                    </div>
-                    <div class='grid-item movie-item'>
-                        <a href=''><img class='movie-img' src='/resource/avengers.jpg'></a>
-                        <p class='movie-title'>Avengers</p>
-                    </div>
-                    <div class='grid-item movie-item'>
-                        <a href=''><img class='movie-img' src='/resource/avengers.jpg'></a>
-                        <p class='movie-title'>Avengers</p>
-                    </div>
-                    <div class='grid-item movie-item'>
-                        <a href=''><img class='movie-img' src='/resource/avengers.jpg'></a>
-                        <p class='movie-title'>Avengers</p>
-                    </div>
+                    </div> --}}
+                    
                 </div>
             </div>
 

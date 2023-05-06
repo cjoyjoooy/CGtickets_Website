@@ -58,13 +58,13 @@ h1{
 .input-box > *{
     height: 35px;
     font-size: 1.1em;
-    letter-spacing: 1px;
+    letter-spacing: 0.4px;
 
 }
 
 .input-box:last-child{
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
 }
@@ -87,9 +87,18 @@ a:visited {
 a:hover{
     color: #3C4178;
 }
-
+/* input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+input:-webkit-autofill{
+    -webkit-text-fill-color: yellow !important;
+    -webkit-te
+} */
 .txtbox{
-    width: calc(100% - 10px);
+    width: 100%;
     border: 1px solid #97A5BB;
     color: #ECEFFF;
     font-weight: 500;
@@ -123,6 +132,9 @@ a:hover{
 .btn:hover{
     background-color: #3c4178;
     transform: scale(1.1);
+}
+.btn:focus{
+    background-color: #3c4178;
 }
 
 

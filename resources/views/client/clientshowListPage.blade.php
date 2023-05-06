@@ -13,9 +13,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/adminTableStyle.css">
-  <link rel="stylesheet" href="css/component.css">
-  <link rel="stylesheet" href="css/clientshowListPageStyle.css">
+  <link rel="stylesheet" href="{{asset("css/adminTableStyle.css")}}">
+  <link rel="stylesheet" href="{{asset("css/component.css")}}">
+  <link rel="stylesheet" href="{{asset("css/clientshowListPageStyle.css")}}">
+ 
+
   <title>Show List</title>
 </head>
 
@@ -24,12 +26,11 @@
   <div class="body-container">
     <section class="movie-details-container">
       <div class="movie-details-content">
-        <div class="movie-img-container">
-          
-          <img class="movie-img" src='/resource/avengers.jpg' alt="movie img">
+        <div class="movie-img-container">         
+          <img class="movie-img" src="{{ asset('/uploads/'.$movies->MoviePoster) }}" alt="movie img">
         </div>
         <div class="movie-details">
-          <h3>Avengers</h3>
+          <h3>{{$movies->MovieTitle}}</h3>
           <p>Marvel's The Avengers" redirects here. For the original comic book characters, see Avengers (comics)</p>
           <span>GENRE:</span> <span>Sci-Fi</span>
         </div>

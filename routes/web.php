@@ -12,6 +12,7 @@ use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\ShowTimesController;
 use App\Http\Controllers\TicketDetailsController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\TicketController;
 
 
 /*
@@ -40,9 +41,10 @@ Route::resource('Homepage', HomepageController::class);
 Route::resource('ShowTimes', ShowTimesController::class);
 Route::resource('TicketDetails', TicketDetailsController::class);
 Route::resource('Payment', PaymentController::class);
+Route::resource('Ticket', TicketController::class);
 
 
-// ---------------  FUNCTIONS --------------------------------
+// ---------------  ADMIN FUNCTIONS --------------------------------
 
 //dashboard
 Route::get('/admindashboard',[AdminDashboardController::class,'admindashboard'])->name('admindashboard');
@@ -82,5 +84,9 @@ Route::get('/addSchedule',[AdminShowScheduleController::class,'addSchedule']);
 Route::post('/insertSchedule',[AdminShowScheduleController::class,'insertSchedule']);
 Route::get('/editSchedule',[AdminShowScheduleController::class,'editSchedule']);
 Route::post('/updateSchedule',[AdminShowScheduleController::class,'updateSchedule']);
+
+// ----------------CLIENT FUNCTION --------------------
+
+Route::get('/ShowTimes/{id}',[ShowTimesController::class,'show']);
 
 

@@ -45,8 +45,8 @@
                     <button type="submit" class="btn">LOGIN</button>
                  </div>
                  <div class="input-box">
-                    <p class= "sign-up" for="">Don't have an account?</p>
-                    <p><a href="signup">Create account</a></p>
+                    <span class= "sign-up" for="">Don't have an account?</span>
+                    <span><a href="signup">Create account</a></span>
                  </div>
             </form>
         </div>
