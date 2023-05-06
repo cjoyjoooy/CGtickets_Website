@@ -31,8 +31,8 @@
         </div>
         <div class="movie-details">
           <h3>{{$movies->MovieTitle}}</h3>
-          <p>Marvel's The Avengers" redirects here. For the original comic book characters, see Avengers (comics)</p>
-          <span>GENRE:</span> <span>Sci-Fi</span>
+          <p>{{$movies->MovieDescription}}</p>
+          <span>GENRE:</span> <span>{{$movies->Genre}}</span>
         </div>
       </div>
     </section>
