@@ -22,7 +22,7 @@ body{
     top: 0;
     width: 100%;
     min-height: 60px;
-    background-color: #0B132B;
+    background-color: #1A202C;
     display: flex;
     justify-content: center;
     z-index: 10;
@@ -74,7 +74,7 @@ a:hover { text-decoration: none; }
 a:active { text-decoration: none; }
 
 .menu-items a{
-    color: #ECECEC;
+    color: #97A5BB;
     font-weight: 900!important;
     letter-spacing: 0.2em!important;
     font-size: 1em!important;
@@ -83,12 +83,12 @@ a:active { text-decoration: none; }
 }
 
 .menu-items a:hover{
-    color: #5BC0BE;
+    color: #4D5499;
 
 }
 
 .menu-active a{
-    color: #5BC0BE!important;
+    color: #4D5499!important;
 }
 .menu-sidebar{
     display: block;
@@ -98,7 +98,7 @@ a:active { text-decoration: none; }
     width: 200px;
     height: 100vh;
     z-index: 11;
-    background: #0B132B;
+    background: #1A202C;
     overflow: hidden;
     transform: translate(-100%);
     transition: 0.4s ease-in-out;
@@ -107,8 +107,9 @@ a:active { text-decoration: none; }
 
 .side-menubar{
     display: flex;
-    padding: 0px;
+    padding: 0 30px 0 25px ;
     height: 80%;
+    
 }
 
 .menu-list{
@@ -124,25 +125,33 @@ a:active { text-decoration: none; }
     position: absolute;
     right: 30px;
     margin-top: 20px;
-    color: #ECECEC;
+    color: #97A5BB;
     cursor: pointer;
+
+}
+.side-menu-items{
+    width: 100%;
+
+
 
 }
 .side-menu-items a{
     display: block;
     padding: 10px 0 10px 35px;
     font-size: 1.2em;
-    color: #ECECEC;
+    color: #97A5BB;
     font-weight: 600;
+    border-radius: 12px;
+   
 }
 .side-menu-items a:visited{
-    color: #ECECEC;
+    color: #97A5BB;
 }
 
 
 .side-menu-items a:hover{
-    color: #5BC0BE;
-    background-color: #1C2541;
+    color: #4D5499;
+    background-color: #171923;
   
 }
 
@@ -152,7 +161,7 @@ footer{
     position: sticky;
     top: 100%;
     width: 100%;
-    background-color: #0B132B;
+    background-color: #1A202C;
     height: 200px;
     display: flex;
     justify-content: center;
@@ -225,24 +234,26 @@ footer{
 
 .btn-cancel{
     background-color: transparent;
-    color: #0B132B;
-    border: 2px solid #0B132B;
+    color: #1A202C;
+    border: 2px solid #1A202C;
 }
 
 .btn-checkout{
-    background-color: #0B132B;
+    background-color: #1A202C;
     color: #ECECEC;
+    border: 2px solid #1A202C;
+
 }
 
 .btn-cancel:hover{
-    background-color: #1C2541;
+    background-color: #1A202C;
     color: #ECECEC;
-    border: 2px solid #1C2541;
+    border: 2px solid #1A202C;
 }
 
 .btn-checkout:hover{
-    background-color: #1C2541;
-    color: #ECECEC;
+    background-color: #171923;
+    color: #888EC5;
 }
 
 /* loader  */

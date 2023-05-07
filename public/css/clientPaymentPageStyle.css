@@ -3,7 +3,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    color: #0B132B;
+    color: #1A202C;
 }
 
 
@@ -63,7 +63,7 @@ span{
 }
 
 .input-box > :nth-child(2){
-    border: 2px solid #0B132B;
+    border: 2px solid #1A202C;
     border-radius: 5px;
     padding-left: 10px;
 }

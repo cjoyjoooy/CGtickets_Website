@@ -4,8 +4,10 @@
 
 .movie-img{
     width: 200px;
-    height: 300px;
-    padding-bottom: 20px;
+    height: 280px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .movie-details-container{
@@ -16,6 +18,7 @@
     justify-content: center;
     text-align: center;
     padding-top: 30px;
+
 }
 
 h3{
@@ -43,14 +46,14 @@ span{
 
 span, p {
     font-size: 1.2em;
-    color: #0B132B;
+    color: #1A202C;
 }
 
 h2{
     text-align: center;
     padding: 25px 0 35px 0;
     font-weight: 900;
-    color: #0B132B;
+    color: #1A202C;
 }
 .section-divider{
     width: 100%;
@@ -61,7 +64,7 @@ h2{
 .divider{
     width: 80%;
     height: 2px;
-    background-color: #0B132B;
+    background-color: #1A202C;
 }
 
 /* show times sections */
@@ -78,7 +81,7 @@ h2{
 }
 
 .show-container{ 
-    border: 3px #0B132B solid;
+    border: 3px #1A202C solid;
     padding: 20px;
     margin-bottom: 25px;
 }
@@ -88,13 +91,13 @@ h2{
 }
 
 .show-info{
-    color: #0B132B;
+    color: #1A202C;
     margin-bottom: 30px;
     font-size: 1.4em;
 }
 
 .show-info :last-child{
-    color: #0B132B;
+    color: #1a202cb9;
 
  
 }
@@ -110,7 +113,7 @@ h2{
 
 .time-btn{
     padding: 10px 20px 10px 20px;
-    background-color: #0B132B;
+    background-color: #1A202C;
     color: #ECECEC;
     font-weight: 900;
     letter-spacing: 2px;
@@ -121,12 +124,12 @@ h2{
 }
 
 .time-btn:hover{
-    background-color: #1C2541;
+    background-color: #171923;
     transform: scale(1.1);
     transition: 0.2s linear;
 }
 .time-btn:active{
-    background-color: #1C2541;
+    background-color: #171923;
     transform: scale(1);
     transition: 0.1s linear;
 }
@@ -142,7 +145,7 @@ h2{
         display: flex;
         flex-direction: row;
         align-items: flex-start;
-        padding: 10px 20px 10px 20px;
+        padding: 10px 20px 10px 0;
         padding-top: 30px;
         text-align: left;
     }
