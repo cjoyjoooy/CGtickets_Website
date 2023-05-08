@@ -84,7 +84,9 @@ Route::post('/insertSchedule',[AdminShowScheduleController::class,'insertSchedul
 Route::get('/editSchedule/{id}',[AdminShowScheduleController::class,'editSchedule']);
 Route::post('/updateSchedule/{id}',[AdminShowScheduleController::class,'updateSchedule']);
 ROute::get('/deleteSchedule/{id}', [AdminShowScheduleController::class,'deleteSchedule']);
-Route::get('/getCinemas/{locationId}', 'ScheduleController@getCinemasByLocation');
+ROute::get('/fetchCinemas/{id}', [AdminShowScheduleController::class,'fetchCinemas']);
+
+
 
 // ----------------CLIENT FUNCTION --------------------
 

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="{{ asset('css/AddEditStyle.css') }}">
     <link rel="stylesheet" href="{{asset('css/adminAddScheduleStyle.css')}}">
     <title>Edit SCHEDULE</title>
@@ -19,14 +20,16 @@
                 <div class="input-box">
                     <label for="location">Location</label>
                     <select name="location" id="location">
-                    @foreach ($locations as $location ) 
-                        <option  value="{{$location->id}}">{{$location->location_name}}</option>
-                    @endforeach 
+                        <option value="">Select Locations</option>
+                        @foreach ($locations as $location) 
+                            <option value="{{$location->id}}">{{$location->location_name}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="input-box">
                     <label for="cinema">Cinema</label>
                     <select name="cinema" id="cinema">
+                        <option value="">Select Cinema</option>
                     @foreach ($cinemas as $cinema  ) 
                         <option  value="{{$cinema->id}}" >{{$cinema->cinema_number}}</option>
                     @endforeach>
@@ -68,5 +71,41 @@
         </form>
     </div>
 </body>
+<script>
+    $(document).ready(function() {
+        // When the location filter value changes
+        $('#location').change(function() {
+            var locationId = $(this).val(); // Get the selected location ID
+            filterCinemas(locationId); // Call the filterCinemas function with the location ID
+        });
+    
+        // Function to filter cinemas based on the selected location
+        function filterCinemas(locationId) {
+            var cinemas = {!! json_encode($cinemas) !!}; // Get all cinemas data (passed from the controller)
+            var filteredCinemas = []; // Array to store filtered cinemas
+    
+            if (locationId !== '') {
+                // Filter cinemas based on the selected location
+                filteredCinemas = cinemas.filter(function(cinema) {
+                    return cinema.location_id == locationId;
+                });
+            } else {
+                // If "All Locations" is selected, show "Select Cinema" option
+                filteredCinemas = [];
+            }
+    
+            // Generate the HTML for the filtered cinemas and update the cinema dropdown
+            var html = '';
+            if (filteredCinemas.length > 0) {
+                $.each(filteredCinemas, function(index, cinema) {
+                    html += '<option value="' + cinema.id + '">' + cinema.cinema_number + '</option>';
+                });
+            } else {
+                html += '<option value="">Select Cinema</option>';
+            }
+            $('#cinema').html(html); // Update the cinema dropdown with the filtered cinemas
+        }
+    });
+     </script>
 
 </html>
