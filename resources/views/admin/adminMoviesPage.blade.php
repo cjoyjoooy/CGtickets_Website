@@ -72,37 +72,6 @@
     </section>
     </div>
     <script src='jsfile/homepage.js'></script>
-
-
-    <!-- script para dili ma repeat ug execute ang query pag irefresh and page  -->
-    {{-- <script>
-    if (window.history.replaceState) {
-      window.history.replaceState(null, null, window.location.href);
-    }
-  </script> --}}
-
-    <!-- javascript for edit movie  -->
-    {{-- <script>
-    $(document).ready(function() {
-      $('.edit-btn').on('click', function() {
-
-        $('#editmovie').modal('show');
-        $tr = $(this).closest('tr');
-
-        var data = $tr.children("td").map(function() {
-          return $(this).text();
-        }).get();
-
-        console.log(data);
-
-        // get data from the table and display to edit modal 
-        $('#updateID').val(data[0]);
-        $('#Title').val(data[2]);
-        $('#movieGenre').val(data[3]);
-        $('#movieDescription').val(data[4]);
-      });
-    });
-  </script> --}}
 </body>
 
 </html>

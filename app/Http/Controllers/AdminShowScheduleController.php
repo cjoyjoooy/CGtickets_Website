@@ -79,11 +79,4 @@ class adminShowScheduleController extends Controller
         return redirect()->back();
     }
 
-    public function fetchCinemas($locationId)
-    {
-        $cinemas = Cinema::where('location_id', $locationId)->get();
-
-        return response()->json($cinemas);
-    }
-
 }

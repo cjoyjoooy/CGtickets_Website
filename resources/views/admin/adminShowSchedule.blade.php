@@ -80,36 +80,6 @@
     </section>
     </div>
     <script src='jsfile/homepage.js'></script>
-    <!-- script para dili ma repeat ug execute ang query pag irefresh and page  -->
-    {{-- <script>
-        if (window.history.replaceState) {
-            window.history.replaceState(null, null, window.location.href);
-        }
-    </script>
-    <!-- javascript for edit schedule  -->
-    <script>
-        $(document).ready(function() {
-            $('.edit-btn').on('click', function() {
-
-                $('#editsched').modal('show');
-                $tr = $(this).closest('tr');
-
-                var data = $tr.children("td").map(function() {
-                    return $(this).text();
-                }).get();
-
-                // get data from the table and display to edit modal 
-                console.log(data);
-                $('#location').val(data[0]);
-                $('#cinema').val(data[1]);
-                $('#movie').val(data[2]);
-                $('#timeStart').val(data[3]);
-                $('#timeEnd').val(data[4]);
-                $('#showdate').val(data[5]);
-                $('#prices').val(data[6]);
-            });
-        });
-    </script> --}}
     
 </body>
 
