@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/AddEditStyle.css') }}">
-    <link rel="stylesheet" href="{{asset("css/adminAddScheduleStyle.css")}}">
+    <link rel="stylesheet" href="{{asset('css/adminAddScheduleStyle.css')}}">
     <title>Edit SCHEDULE</title>
 </head>
 
 <body>
     <div class="body-container">
-        <form action="{{url('updateSchedule', )}}" method="post">
+        <form action="{{url('updateSchedule',$scheduledata->id)}}" method="post">
             @csrf
             <h2>Edit SCHEDULE</h2>
             <div class="input-group">
@@ -44,21 +44,21 @@
                 </div>
                 <div class="input-box">
                     <label for="price">Price </label>
-                    <input type="text" id="price" name="price">
+                    <input type="text" id="price" name="price" value="{{$scheduledata->price}}">
                 </div>
             </div>
             <div class="input-group">
                 <div class="input-box">
                     <label for="timeStart">Time Start </label>
-                    <input type="time" id="timeStart" name="timeStart">
+                    <input type="time" id="timeStart" name="timeStart" value="{{$scheduledata->time_start}}">
                 </div>
                 <div class="input-box">
                     <label for="timeEnd">Time End </label>
-                    <input type="time" id="timeEnd" name="timeEnd">
+                    <input type="time" id="timeEnd" name="timeEnd" value="{{$scheduledata->time_end }}">
                 </div>
                 <div class="input-box">
                     <label for="showdate">Date </label>
-                    <input type="date" id="showdate" name="showdate">
+                    <input type="date" id="showdate" name="showdate" value="{{$scheduledata->date_schedule}}">
                 </div>
             </div>
             <div class="input-box button-container">
