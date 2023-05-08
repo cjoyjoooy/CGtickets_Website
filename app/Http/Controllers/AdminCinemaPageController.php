@@ -37,28 +37,29 @@ class adminCinemaPageController extends Controller
         $locationdata->save();
         // return siya balik sa page 
         return redirect('AdminCinema');
-
     }
 
     public function deleteLocation($id)
-    {   $deletelocation = new Location;
+    {
+        $deletelocation = new Location;
         //  variable = model/table name::find($id); 
         $deletelocation = Location::find($id);
         $deletelocation->delete();
         return redirect()->back();
     }
-    
+
 
     public function editLocation($id)
-    {   
+    {
         // redirect sa edit page with id 
         $locationdata = Location::find($id);
         return view('admin.LocationEdit', compact('locationdata'));
     }
 
-    public function updateLocation(Request $request, $id){
+    public function updateLocation(Request $request, $id)
+    {
         $locationdata = Location::find($id);
-        $locationdata->location_name=$request->location_name;
+        $locationdata->location_name = $request->location_name;
         $locationdata->save();
         return redirect('AdminCinema');
     }
@@ -67,7 +68,7 @@ class adminCinemaPageController extends Controller
     public function addCinema(Request $request)
     {
         $locations = Location::all();
-        return view('admin.CinemaAdd',compact('locations'));
+        return view('admin.CinemaAdd', compact('locations'));
     }
 
 
@@ -85,11 +86,11 @@ class adminCinemaPageController extends Controller
     {
         $locations = Location::all();
         $cinemadata = Cinema::find($id);
-        return view('admin.CinemaEdit',compact(['cinemadata','locations']));
-
+        return view('admin.CinemaEdit', compact(['cinemadata', 'locations']));
     }
 
-    public function updateCinema(Request $request, $id){
+    public function updateCinema(Request $request, $id)
+    {
         $cinemadata = Cinema::find($id);
         $cinemadata->location_id = $request->location;
         $cinemadata->cinema_number = $request->cinema_num;
@@ -99,12 +100,11 @@ class adminCinemaPageController extends Controller
     }
 
     public function deleteCinema($id)
-    {   $cinemadata = new Cinema;
+    {
+        $cinemadata = new Cinema;
         $cinemadata = Cinema::find($id);
         $cinemadata->delete();
         return redirect()->back();
     }
-
-    
 
 }

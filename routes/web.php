@@ -71,7 +71,6 @@ Route::get('/deleteCinema/{id}',[AdminCinemaPageController::class,'deleteCinema'
 Route::get('/editCinema/{id}',[AdminCinemaPageController::class,'editCinema']);
 Route::post('/updateCinema/{id}',[AdminCinemaPageController::class,'updateCinema']);
 
-
 //Movie
 Route::get('/addMovie',[AdminMoviePageController::class,'addMovie']);
 Route::post('/insertMovie',[AdminMoviePageController::class,'insertMovie']);
@@ -85,6 +84,7 @@ Route::post('/insertSchedule',[AdminShowScheduleController::class,'insertSchedul
 Route::get('/editSchedule/{id}',[AdminShowScheduleController::class,'editSchedule']);
 Route::post('/updateSchedule/{id}',[AdminShowScheduleController::class,'updateSchedule']);
 ROute::get('/deleteSchedule/{id}', [AdminShowScheduleController::class,'deleteSchedule']);
+Route::get('/getCinemas/{locationId}', 'ScheduleController@getCinemasByLocation');
 
 // ----------------CLIENT FUNCTION --------------------
 

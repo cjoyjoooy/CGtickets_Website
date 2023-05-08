@@ -19,25 +19,41 @@
     width: 100%;
     text-align: end
 }
+.cinema-action {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#locationfilter{
+    width: 60%;
+    font-size: 1.1em;
+    border-radius: 6px;
+    background-color: transparent;
+    border: 3px solid #1a202c;
+    padding: 2px 10px 2px 10px;
+    color: #1a202c;
+    font-weight: 600;
+}
 
 .btn {
-    background-color: #0B132B;
+    background-color: #1a202c;
     color: #ECECEC;
     outline: none;
 
 }
 
 .btn:hover {
-    background-color: #1C2541;
+    background-color: #171923;
     color: #ECECEC;
 
 }
 
 .table-responsive {
-    min-width: 235px;
+    min-width: 265px;
     overflow-x: auto !important;
     height: 280px;
-    scrollbar-color: #0B132B;
+    scrollbar-color: #1a202c;
     margin: 10px 0 50px 0;
     border-radius: 7px;
 
@@ -50,7 +66,7 @@
 }
 
 th {
-    background-color: #0B132B;
+    background-color: #1a202c;
     color: #ECECEC;
     position: sticky;
     top: 0;
@@ -68,4 +84,10 @@ td {
 tr:hover {
     background-color: #5bc0be7d !important;
     transition: 0.5s ease-in;
+}
+@media screen and (min-width: 390px){
+    .table-responsive {
+        min-width: 350px;
+    }
+
 }

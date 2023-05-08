@@ -59,6 +59,7 @@ option{
 
 
 .btn{
+    width: 100%;
     border-radius: 5px;
     outline: none;
     font-weight: 600;
