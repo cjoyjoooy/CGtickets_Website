@@ -76,7 +76,10 @@ Route::get('/addMovie',[AdminMoviePageController::class,'addMovie']);
 Route::post('/insertMovie',[AdminMoviePageController::class,'insertMovie']);
 Route::get('/editMovie/{id}',[AdminMoviePageController::class,'editMovie']);
 Route::put('/updateMovie/{id}',[AdminMoviePageController::class,'updateMovie']);
-Route::get('/deletemovie/{id}',[AdminMoviePageController::class,'deleteMovie']);
+Route::get('/deletemovie/{id}',[AdminMoviePageController::class,'deleteMovie'])->withTrashed();
+Route::get('/movieArchive',[AdminMoviePageController::class,'movieArchive']);
+Route::get('/movieRestore/{id}',[AdminMoviePageController::class,'movieRestore'])->withTrashed();
+
 
 // Schedule 
 Route::get('/addSchedule',[AdminShowScheduleController::class,'addSchedule']);

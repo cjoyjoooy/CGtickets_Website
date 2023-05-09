@@ -15,6 +15,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
     <!-- page css  -->
     <link rel="stylesheet" href="css/adminTableStyle.css">
@@ -28,10 +29,11 @@
         @include('components.adminNavbar')
         <section class="info-container">
             <div class="info-content">
-                <h2>Movies</h2>
+                <h2>Movie Archives</h2>
+                @if (session('error'))
+                  <div class="alert alert-danger">{{ session('error') }}</div>
+                @endif
                 @include('components.adminsearch')
-                <a href="{{url('movieArchive')}}"> Archives
-                <a href="{{url('addMovie')}}"><button type="button" class="add-btn"><i class="fa-solid fa-plus side-bar-icon" style=" color: #ECECEC "></i></button></a>
             </div>
             <div class="table-responsive">
                 <table class="table table-striped table-hover">
@@ -56,7 +58,7 @@
                           <td data-cell='Description'>{{$movie->MovieDescription}}</td>
                           <td>
                             <div class='action-btn-container'>
-                              <a href="{{url('editMovie', $movie->id)}}"><button type='button' class='action-btn edit-btn'><i class='fa-solid fa-pen action-btn'></i></button></a>
+                              <a href="{{url('movieRestore', $movie->id)}}"><i class="fa-solid fa-trash-restore fa-xl" style="color:green;"></i>
                               <a href="{{url('deletemovie', $movie->id)}}"><button type='button' class='action-btn del-btn'><i
                                 class='fa-solid fa-trash action-btn'></i></button></a>
                               </div>
@@ -65,6 +67,7 @@
                           @endforeach
                     </tbody>
                 </table>
+                <a href="{{url('AdminMovie')}}"> Movie Page
             </div>
     </div>
     <!-- add and edit modal  -->
@@ -76,3 +79,5 @@
 </body>
 
 </html>
+
+

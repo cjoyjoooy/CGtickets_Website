@@ -68,11 +68,38 @@ class adminMoviePageController extends Controller
         return redirect('AdminMovie');
     }
     public function deletemovie($id)
-    {   $deletemovie = new Movie;
+    {  
+        // $movie = Movie::withTrashed()->find($id);
+        $deletemovie = Movie::withTrashed()->find($id);
         //  variable = model/table name::find($id); 
-        $deletemovie = Movie::find($id);
+        if ($deletemovie === null) {
+            return redirect()->back()->with('error', 'Movie not found');
+        }
+        if($deletemovie->trashed()){
+            $deletemovie->forceDelete();
+            return redirect()->back();
+        }
         $deletemovie->delete();
         return redirect()->back();
+    }
+    public function movieRestore($id){
+        $restoremovie = Movie::withTrashed()->find($id);
+        if ($restoremovie === null){
+            return redirect()->back()->with('error', 'Movie not found');
+        }
+        else if (!$restoremovie->trashed()){
+            return redirect()->back()->with('error', 'Movie is not soft deleted');
+        }
+        else{
+            $restoremovie->restore();
+            return redirect()->back();
+        }
+    }
+
+    public function movieArchive(){
+        $movies = Movie::onlyTrashed()->get();
+        
+        return view('admin.MovieArchive', compact('movies'));
     }
 
 }
