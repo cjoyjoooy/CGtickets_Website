@@ -86,8 +86,9 @@ Route::get('/addSchedule',[AdminShowScheduleController::class,'addSchedule']);
 Route::post('/insertSchedule',[AdminShowScheduleController::class,'insertSchedule']);
 Route::get('/editSchedule/{id}',[AdminShowScheduleController::class,'editSchedule']);
 Route::post('/updateSchedule/{id}',[AdminShowScheduleController::class,'updateSchedule']);
-ROute::get('/deleteSchedule/{id}', [AdminShowScheduleController::class,'deleteSchedule']);
-
+Route::get('/deleteSchedule/{id}', [AdminShowScheduleController::class,'deleteSchedule'])->withTrashed();
+Route::get('/scheduleArchive',[AdminShowScheduleController::class,'scheduleArchive']);
+Route::get('/scheduleRestore/{id}',[AdminShowScheduleController::class,'scheduleRestore'])->withTrashed();
 
 // ----------------CLIENT FUNCTION --------------------
 

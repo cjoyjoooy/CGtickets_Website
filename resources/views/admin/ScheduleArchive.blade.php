@@ -21,7 +21,9 @@
     <link rel="stylesheet" href="css/adminComponents.css">
     <link rel="stylesheet" href="css/adminMoviesStyle.css">
     <link rel="stylesheet" href="css/adminShowScheduleStyle.css">
-    <title>Show Schedule</title>
+        <!-- fontaawesome link sa bago na button -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <title>Schedule Archives</title>
 </head>
 
 <body>
@@ -30,9 +32,9 @@
 
         <section class="info-container">
             <div class="info-content">
-                <h2>Show Schedule</h2>
+                <h2>Schedule Archives</h2>
                 @include('components.adminsearch')
-                <a href="{{url('addSchedule')}}"><button type="button" class="add-btn"><i class="fa-solid fa-plus side-bar-icon" style=" color: #ECECEC "></i></button></a>
+                <a href="{{url('AdminShowSchedule')}}"><button type="button"></i>Schedule</button></a>
             </div>
 
             <div class="table-responsive">
@@ -63,8 +65,8 @@
                             <td>{{$schedule->price}}</td>                                 
                             <td>
                                 <div class="action-btn-container">
-                                <a href="{{url('movieRestore', $movie->id)}}"><i class="fa-solid fa-trash-restore fa-xl" style="color:green;"></i>
-                                <a href="{{url('deletemovie', $movie->id)}}"><button type='button' class='action-btn del-btn'><i
+                                <a href="{{url('scheduleRestore', $schedule->id)}}"><i class="fa-solid fa-trash-restore fa-xl" style="color:green;"></i>
+                                <a href="{{url('deleteSchedule', $schedule->id)}}"><button type='button' class='action-btn del-btn'><i
                                 class='fa-solid fa-trash action-btn'></i></button></a>
                                 </div>
                             </td>

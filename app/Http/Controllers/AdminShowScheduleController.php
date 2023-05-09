@@ -73,10 +73,35 @@ class adminShowScheduleController extends Controller
 
     }
     public function deleteSchedule($id){
-        $deleteschedule = new Schedule;
-        $deleteschedule = Schedule::find($id);
+        $deleteschedule = Schedule::withTrashed()->find($id);
+
+        if ($deleteschedule === null) {
+            return redirect()->back()->with('error', 'Movie not found');
+        }
+        if($deleteschedule->trashed()){
+            $deleteschedule->forceDelete();
+            return redirect()->back();
+        }
         $deleteschedule->delete();
         return redirect()->back();
     }
 
+    public function scheduleRestore($id){
+        $scheduleRestore = Schedule::withTrashed()->find($id);
+        if ($scheduleRestore === null){
+            return redirect()->back()->with('error', 'Movie not found');
+        }
+        else if (!$scheduleRestore->trashed()){
+            return redirect()->back()->with('error', 'Movie is not soft deleted');
+        }
+        else{
+            $scheduleRestore->restore();
+            return redirect()->back();
+        }
+    }
+
+    public function scheduleArchive(){
+        $schedules = Schedule::onlyTrashed()->get();
+        return view('admin.ScheduleArchive', compact(['schedules']));
+    }
 }

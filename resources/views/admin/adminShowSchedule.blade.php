@@ -33,6 +33,7 @@
                 <h2>Show Schedule</h2>
                 @include('components.adminsearch')
                 <a href="{{url('addSchedule')}}"><button type="button" class="add-btn"><i class="fa-solid fa-plus side-bar-icon" style=" color: #ECECEC "></i></button></a>
+                <a href="{{url('scheduleArchive')}}"><button type="button" ></i>Archive</button></a>
             </div>
 
             <div class="table-responsive">
