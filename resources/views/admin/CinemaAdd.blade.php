@@ -19,7 +19,7 @@
             <h2>Add Cinema</h2>
             <div class="input-box">
                 <label for="location">Location</label>
-                    <select name="location" id="location">
+                    <select name="location" id="location" required>
                     @foreach ($locations as $location ) 
                         <option  value="{{$location->id}}">{{$location->location_name}}</option>
                     @endforeach
@@ -27,11 +27,11 @@
             </div>
             <div class="input-box">
                 <label for="Cinema">Cinema</label>
-                <input type="text" name="cinema_num" id="Cinema">
+                <input type="text" name="cinema_num" id="Cinema" required>
             </div>
             <div class="input-box">
                 <label for="Seat">Number of Seat</label>
-                <input type="text" name="seat_num" id="Seat">
+                <input type="text" name="seat_num" id="Seat" required>
             </div>
             <div class="input-box button-container">
                 <a href='{{ url()->previous() }}' class="btn"><button type="button" class="btn btn-cancel"

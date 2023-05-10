@@ -18,7 +18,7 @@
             <h2>ADD LOCATION</h2>
             <div class="input-box">
                 <label for="location">Location</label>
-                <input type="text" name="location_name" id="location">
+                <input type="text" name="location_name" id="location" required>
             </div>
             <div class="input-box button-container">
                 <a href="{{ url()->previous() }}" class="btn"><button type="button"

@@ -22,11 +22,7 @@
     @include('components.navbar')
     <div class="body-container">
         <header class="banner-container">
-    @include('components.homepagecarousel')
-
-            {{-- <div class="banner-content">
-                <h1 class="banner-header">Experience each moment with a movie ticket in your hand</h1>
-            </div> --}}
+            @include('components.homepagecarousel')
         </header>
         <main class="main-content" id="movies">
             <div class="content">
@@ -35,17 +31,19 @@
                     <div class="notfound ">
                         <img src="/IT26-FINALPROJECT/resource/NotFound.png" alt="">
                     </div>
+
+
                     @foreach ($movies as $movie)
-                    <div class='grid-item movie-item'>
-                        <a href='{{url('ShowTimes', $movie->id)}}'><img src="{{ asset('/uploads/'.$movie->MoviePoster) }}" class="movie-img" alt="Movie Poster"></a>
-                        <p class='movie-title'>{{$movie->MovieTitle}}</p>
-                    </div>
+                        <div class='grid-item movie-item'>
+                            <a href='{{ url('ShowTimes', $movie->id) }}'>
+                                <img src="{{ asset('/uploads/' . $movie->MoviePoster) }}" class="movie-img"
+                                    alt="Movie Poster">
+                            </a>
+                            <p class='movie-title'>{{ $movie->MovieTitle }}</p>
+                        </div>
                     @endforeach
-                    {{-- <div class='grid-item movie-item'>
-                        <a href=''><img class='movie-img' src='/resource/avengers.jpg'></a>
-                        <p class='movie-title'>Avengers</p>
-                    </div> --}}
-                    
+
+
                 </div>
             </div>
 

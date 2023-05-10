@@ -1,7 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Movie;
+use App\Models\Location;
+use Illuminate\Support\Facades\DB;
+
+use App\Models\Schedule;
 use Illuminate\Http\Request;
 
 class ShowTimesController extends Controller
@@ -11,22 +16,18 @@ class ShowTimesController extends Controller
      */
     public function index()
     {
-        // $movies = Movie::all();
-        // $movies = Movie::find($id);
-        // return view('client.clientshowlistPage');
-        // return view('client.clientshowlistPage',compact('movies'))->with(['id'=> $id]);
-        
-        
     }
-
-    public function show($id){
+    public function show($id)
+    {
         $movies = Movie::find($id);
-        return view('client.clientshowlistPage', ['movies'=> Movie::findOrFail($id)]);
+
+        $locationIds = Schedule::where('movie_id', $id)
+            ->distinct('location_id')
+            ->pluck('location_id');
+        $locationNames = Location::whereIn('id', $locationIds)->get();
+        $schedules = Schedule::whereIn('location_id', $locationIds)
+            ->where('movie_id', $id)
+            ->get();
+        return view('client.clientshowlistPage', compact('movies', 'locationIds', 'schedules','locationNames'));
     }
-
-   
-
-   
-
-
 }

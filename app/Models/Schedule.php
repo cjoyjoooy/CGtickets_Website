@@ -5,6 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
+use App\Models\Movie;
+
 
 class Schedule extends Model
 {
@@ -21,5 +24,4 @@ class Schedule extends Model
     public function movie(){
         return $this->belongsTo(Movie::class, 'movie_id');
     }
-    
 }

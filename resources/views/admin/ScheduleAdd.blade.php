@@ -19,7 +19,7 @@
             <div class="input-group">
                 <div class="input-box">
                     <label for="location">Location</label>
-                    <select name="location" id="location">
+                    <select name="location" id="location" required>
                         <option value="">Select Locations</option>
                         @foreach ($locations as $location) 
                             <option value="{{$location->id}}">{{$location->location_name}}</option>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="input-box">
                     <label for="cinema">Cinema</label>
-                    <select name="cinema" id="cinema">
+                    <select name="cinema" id="cinema" required>
                         <option value="">Select Cinema</option>
                     @foreach ($cinemas as $cinema  ) 
                         <option  value="{{$cinema->id}}" >{{$cinema->cinema_number}}</option>
@@ -39,7 +39,7 @@
             <div class="input-group">
                 <div class="input-box">
                     <label for="movie">Movie</label>
-                    <select name="movie" id="movie">
+                    <select name="movie" id="movie" required>
                     @foreach ($movies as $movie)
                         <option value="{{ $movie->id }}" >{{$movie->MovieTitle}}</option>
                     @endforeach
@@ -47,21 +47,21 @@
                 </div>
                 <div class="input-box">
                     <label for="price">Price </label>
-                    <input type="text" id="price" name="price">
+                    <input type="text" id="price" name="price" required>
                 </div>
             </div>
             <div class="input-group">
                 <div class="input-box">
                     <label for="timeStart">Time Start </label>
-                    <input type="time" id="timeStart" name="timeStart">
+                    <input type="time" id="timeStart" name="timeStart" required>
                 </div>
                 <div class="input-box">
                     <label for="timeEnd">Time End </label>
-                    <input type="time" id="timeEnd" name="timeEnd">
+                    <input type="time" id="timeEnd" name="timeEnd" required>
                 </div>
                 <div class="input-box">
                     <label for="showdate">Date </label>
-                    <input type="date" id="showdate" name="showdate">
+                    <input type="date" id="showdate" name="showdate" required>
                 </div>
             </div>
             <div class="input-box button-container">

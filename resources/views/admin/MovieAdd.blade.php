@@ -16,20 +16,20 @@
           <div class="input-group">
             <div class="input-box">
                 <label for="title">Movie Title</label>
-                <input type="text" id="title" name="title">
+                <input type="text" id="title" name="title" required>
             </div>
             <div class="input-box">
                 <label for="genre">Genre</label>
-                <input type="text" id="genre" name="genre">
+                <input type="text" id="genre" name="genre" required>
             </div>
           </div>
           <div class="input-box">
             <label for="description">Description</label>
-            <textarea class="desctextarea" id="description" name="description" rows="4" cols="50"></textarea>
+            <textarea class="desctextarea" id="description" name="description" rows="4" cols="50" required></textarea>
         </div>
         <div class="input-box">
             <label for="moviePoster">Movie Poster</label>
-            <input type="file" id="moviePoster" name="image">
+            <input type="file" id="moviePoster" name="image" required>
         </div>
         <div class="input-box button-container">
             <a href="{{url()->previous()}}" class="btn"><button type="button" class="btn btn-cancel">Cancel</button></a>
