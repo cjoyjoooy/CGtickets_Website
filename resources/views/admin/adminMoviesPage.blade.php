@@ -30,7 +30,7 @@
             <div class="info-content">
                 <h2>Movies</h2>
                 @include('components.adminsearch')
-                <a href="{{url('movieArchive')}}"> Archives
+                <a href="{{url('movieArchive')}}"> <button type="button" class="add-btn"><i class="fa-solid fa-box-archive side-bar-icon" style= "color: #ECECEC"></i></button></a>
                 <a href="{{url('addMovie')}}"><button type="button" class="add-btn"><i class="fa-solid fa-plus side-bar-icon" style=" color: #ECECEC "></i></button></a>
             </div>
             <div class="table-responsive">

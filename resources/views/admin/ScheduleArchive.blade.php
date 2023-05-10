@@ -21,8 +21,9 @@
     <link rel="stylesheet" href="css/adminComponents.css">
     <link rel="stylesheet" href="css/adminMoviesStyle.css">
     <link rel="stylesheet" href="css/adminShowScheduleStyle.css">
-        <!-- fontaawesome link sa bago na button -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- fontaawesome link sa bago na button -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <title>Schedule Archives</title>
 </head>
 
@@ -34,9 +35,8 @@
             <div class="info-content">
                 <h2>Schedule Archives</h2>
                 @include('components.adminsearch')
-                <a href="{{url('AdminShowSchedule')}}"><button type="button"></i>Schedule</button></a>
+                <a href="{{ url('AdminShowSchedule') }}"><button type="button" class="back-btn"><i class="fa-solid fa-arrow-left back side-bar-icon" style= "color: #ECECEC"></i> back</button></a>
             </div>
-
             <div class="table-responsive">
                 <table class="table table-striped table-hover">
                     <thead>
@@ -49,30 +49,33 @@
                             <th>Date</th>
                             <th>Price</th>
                             <th> </th>
-
                         </tr>
                     </thead>
                     <tbody>
 
                         @foreach ($schedules as $schedule)
-                        <tr>
-                            <td>{{$schedule->location->location_name}}</td>
-                            <td>{{$schedule->cinema->cinema_number}}</td>
-                            <td>{{$schedule->movie->MovieTitle}}</td>
-                            <td>{{$schedule->time_start}}</td>
-                            <td>{{$schedule->time_end}}</td>
-                            <td>{{$schedule->date_schedule}}</td>
-                            <td>{{$schedule->price}}</td>                                 
-                            <td>
-                                <div class="action-btn-container">
-                                <a href="{{url('scheduleRestore', $schedule->id)}}"><i class="fa-solid fa-trash-restore fa-xl" style="color:green;"></i>
-                                <a href="{{url('deleteSchedule', $schedule->id)}}"><button type='button' class='action-btn del-btn'><i
-                                class='fa-solid fa-trash action-btn'></i></button></a>
-                                </div>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td data-cell='Location'>{{$schedule->location->location_name}}</td>
+                                <td data-cell='Cinema'>{{$schedule->cinema->cinema_number}}</td>
+                                <td data-cell='Movie'>{{$schedule->movie->MovieTitle}}</td>
+                                <td data-cell='Time Start'>{{$schedule->time_start}}</td>
+                                <td data-cell='Time End'>{{$schedule->time_end}}</td>
+                                <td data-cell='Date'>{{$schedule->date_schedule}}</td>
+                                <td data-cell='Price'>{{$schedule->price}}</td> 
+                                <td>
+                                    <div class="action-btn-container">
+                                        <a href="{{ url('scheduleRestore', $schedule->id) }}"><button type='button'
+                                                class='action-btn restore-btn'><i
+                                                    class="fa-solid fa-rotate action-btn"
+                                                    style="color:#ECECEC;"></i></button>
+                                            <a href="{{ url('deleteSchedule', $schedule->id) }}"><button type='button'
+                                                    class='action-btn del-btn'><i
+                                                        class='fa-solid fa-trash action-btn'></i></button></a>
+                                    </div>
+                                </td>
+                            </tr>
                         @endforeach
-                       
+
                     </tbody>
                 </table>
             </div>
@@ -81,7 +84,7 @@
     </section>
     </div>
     <script src='jsfile/homepage.js'></script>
-    
+
 </body>
 
 </html>

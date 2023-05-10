@@ -1,71 +1,76 @@
-.grid-container{
+.grid-container {
     display: grid;
-    grid-template-rows: 60px auto ;
+    grid-template-rows: 60px auto;
     grid-template-columns: 100%;
-    grid-template-areas: 
-    'nav'
-    'info'
+    grid-template-areas:
+        'nav'
+        'info'
     ;
 
 }
 
-.info-container{
+.info-container {
     grid-area: info;
     display: flex;
     justify-content: center;
     min-height: 100vh;
 }
 
-.info-content{
+.info-content {
     width: 90%;
 }
 
-.action-container{
+.action-container {
     width: 100%;
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     margin: 30px 0 15px 0;
 
 }
 
-.search-container{
+.search-container {
     width: 100%;
     display: flex;
-  
-  
+
+
 }
-.searchbox-input{
+
+.searchbox-input {
     width: 50%;
     min-width: 95px;
     max-width: 300px;
     padding: 0 10px 0 10px;
-    border-radius: 5px 0 0 5px ;
+    border-radius: 5px 0 0 5px;
     outline: none;
     border: 2px solid #1a202c;
     font-size: 1.3em;
     font-weight: 400;
 }
-.searchbox-input:focus{
+
+.searchbox-input:focus {
     border: 3px solid #1a202c;
 }
-.searchbtn{
+
+.searchbtn {
     background-color: #1a202c;
     padding: 0 10px 0 10px;
-    border-radius: 0 5px 5px 0 ;
+    border-radius: 0 5px 5px 0;
     border: 2px solid #1a202c;
     outline: none;
     color: #ECECEC !important;
-    
+
 }
-.searchbtn:hover{
+
+.searchbtn:hover {
     background-color: #171923;
 }
-.searchbtn:active{
+
+.searchbtn:active {
     background-color: #3A506B;
 }
 
-
-.add-btn{
+.add-btn,
+.back-btn {
     width: 40px;
     padding: 5px 0 5px 0;
     border-radius: 5px;
@@ -74,22 +79,34 @@
     background-color: #1a202c;
     color: #ECECEC;
     font-weight: 600;
+    margin-left: 5px;
 }
 
-.add-btn:hover{
+.back-btn {
+    width: 90px;
+}
+
+.back {
+    padding: 5px 10px 5px 0;
+    width: 20px;
+}
+
+
+.add-btn:hover, .back-btn:hover{
     background-color: #171923;
 }
 
-.add-btn:active{
+.add-btn:active, .back-btn:active {
     background-color: #3A506B;
 }
 
-.action-btn-container{
+.action-btn-container {
     display: flex;
     gap: 0.5em;
-   
+
 }
-.action-btn{
+
+.action-btn {
     color: #ECECEC !important;
     padding: 4px;
     border-radius: 5px;
@@ -97,68 +114,83 @@
     border: none;
 }
 
-.edit-btn{
+.edit-btn {
     background-color: #1a202c;
 }
 
-.edit-btn:hover{
-    background-color: #1C2541;
+.edit-btn:hover {
+    background-color: #171923;
 }
 
-.edit-btn:active{
+.edit-btn:active {
     background-color: #3A506B;
 }
-.del-btn{
-    background-color: #f71735;
-}
-.del-btn:hover{
-    background-color: #e43d3d;
-}
-.del-btn:active{
-    background-color: #b26767;   
+
+.restore-btn {
+    background-color: #4CB648;
 }
 
-.poster{
+.restore-btn:hover {
+    background-color: #379a34;
+}
+
+.del-btn {
+    background-color: #f71735;
+}
+
+.del-btn:hover {
+    background-color: #e43d3d;
+}
+
+.del-btn:active {
+    background-color: #b26767;
+}
+
+.poster {
     min-width: 100px;
     max-width: 150px;
     object-fit: cover;
 }
-@media screen and (min-width: 768px){
-    
-.button-container{
-    margin: 30px 0 20px 0;
+
+@media screen and (min-width: 768px) {
+
+    .button-container {
+        margin: 30px 0 20px 0;
+    }
 }
-}
-@media screen and (min-width: 1280px){
-    .grid-container{
+
+@media screen and (min-width: 1280px) {
+    .grid-container {
         grid-template-columns: 250px calc(100% - 250px);
         grid-template-rows: auto auto;
-        grid-template-areas: 
-        'nav info '
-        'nav info';
-}
+        grid-template-areas:
+            'nav info '
+            'nav info';
+    }
 
 }
 
 
 /* modal css */
- 
-h3{
+
+h3 {
     font-weight: 600;
 }
-.input-box{
+
+.input-box {
     width: 80%;
     display: flex;
     flex-wrap: wrap;
     margin-top: 20px;
 }
-.input-box>*{
+
+.input-box>* {
     width: 100%;
     height: 30px;
     font-size: 1.3em;
 }
 
-.input-box input[type="text"]{
+.input-box input[type="text"] {
     outline: none;
     border-radius: 5px;
     border: 3px solid #1a202c;
@@ -166,15 +198,15 @@ h3{
     padding-left: 5px;
 }
 
-.input-box input:hover{
+.input-box input:hover {
     background-color: #3f4a5c14;
 }
 
-.input-box input:focus{
+.input-box input:focus {
     background-color: #3f4a5c37;
 }
 
-.btn{
+.btn {
     padding: 5px 40px 5px 40px;
     border-radius: 5px;
     outline: none;
@@ -182,28 +214,28 @@ h3{
     font-weight: 600;
 }
 
-.btn-cancel{
+.btn-cancel {
     background-color: transparent;
     color: #1a202c;
 }
 
-.btn-cancel:hover{
+.btn-cancel:hover {
     background-color: #1C2541;
     color: #ECECEC;
 }
 
-.btn-add{
+.btn-add {
     background-color: #1a202c;
     color: #ECECEC;
 }
 
-.btn-add:hover{
+.btn-add:hover {
     background-color: #1C2541;
     color: #ECECEC;
     border: 2px solid #1C2541;
 }
 
-.desctextarea{
+.desctextarea {
     height: 100px !important;
     outline: none;
     border-radius: 5px;

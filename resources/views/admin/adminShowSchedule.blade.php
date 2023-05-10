@@ -32,8 +32,8 @@
             <div class="info-content">
                 <h2>Show Schedule</h2>
                 @include('components.adminsearch')
+                <a href="{{url('scheduleArchive')}}"><button type="button" class="add-btn"><i class="fa-solid fa-box-archive side-bar-icon" style= "color: #ECECEC"></i></button></a>
                 <a href="{{url('addSchedule')}}"><button type="button" class="add-btn"><i class="fa-solid fa-plus side-bar-icon" style=" color: #ECECEC "></i></button></a>
-                <a href="{{url('scheduleArchive')}}"><button type="button" ></i>Archive</button></a>
             </div>
 
             <div class="table-responsive">
@@ -55,13 +55,13 @@
 
                         @foreach ($schedules as $schedule)
                         <tr>
-                            <td>{{$schedule->location->location_name}}</td>
-                            <td>{{$schedule->cinema->cinema_number}}</td>
-                            <td>{{$schedule->movie->MovieTitle}}</td>
-                            <td>{{$schedule->time_start}}</td>
-                            <td>{{$schedule->time_end}}</td>
-                            <td>{{$schedule->date_schedule}}</td>
-                            <td>{{$schedule->price}}</td>                                 
+                            <td data-cell='Location'>{{$schedule->location->location_name}}</td>
+                            <td data-cell='Cinema'>{{$schedule->cinema->cinema_number}}</td>
+                            <td data-cell='Movie'>{{$schedule->movie->MovieTitle}}</td>
+                            <td data-cell='Time Start'>{{$schedule->time_start}}</td>
+                            <td data-cell='Time End'>{{$schedule->time_end}}</td>
+                            <td data-cell='Date'>{{$schedule->date_schedule}}</td>
+                            <td data-cell='Price'>{{$schedule->price}}</td>                                 
                             <td>
                                 <div class="action-btn-container">
                                     <a href="{{url('editSchedule', $schedule->id)}}"><button type="button" class="action-btn edit-btn"><i

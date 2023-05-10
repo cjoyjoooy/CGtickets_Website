@@ -35,6 +35,7 @@
                   <div class="alert alert-danger">{{ session('error') }}</div>
                 @endif
                 @include('components.adminsearch')
+                <a href="{{ url('AdminMovie') }}"><button type="button" class="back-btn"><i class="fa-solid fa-arrow-left back side-bar-icon" style= "color: #ECECEC"></i> back</button></a>
             </div>
             <div class="table-responsive">
                 <table class="table table-striped table-hover">
@@ -59,7 +60,10 @@
                           <td data-cell='Description'>{{$movie->MovieDescription}}</td>
                           <td>
                             <div class='action-btn-container'>
-                              <a href="{{url('movieRestore', $movie->id)}}"><i class="fa-solid fa-trash-restore fa-xl" style="color:green;"></i>
+                              <a href="{{url('movieRestore', $movie->id)}}"><button type='button'
+                                class='action-btn restore-btn'><i
+                                    class="fa-solid fa-rotate action-btn"
+                                    style="color:#ECECEC;"></i></button>
                               <a href="{{url('deletemovie', $movie->id)}}"><button type='button' class='action-btn del-btn'><i
                                 class='fa-solid fa-trash action-btn'></i></button></a>
                               </div>
@@ -68,7 +72,6 @@
                           @endforeach
                     </tbody>
                 </table>
-                <a href="{{url('AdminMovie')}}"> Movie Page
             </div>
     </div>
     <!-- add and edit modal  -->
