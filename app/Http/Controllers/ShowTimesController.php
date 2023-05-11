@@ -25,9 +25,16 @@ class ShowTimesController extends Controller
             ->distinct('location_id')
             ->pluck('location_id');
         $locationNames = Location::whereIn('id', $locationIds)->get();
-        $schedules = Schedule::whereIn('location_id', $locationIds)
+
+        $dates = Schedule::whereIn('location_id', $locationIds)
+            ->select('date_schedule','location_id')
+            ->distinct('date_schedule')
             ->where('movie_id', $id)
             ->get();
-        return view('client.clientshowlistPage', compact('movies', 'locationIds', 'schedules','locationNames'));
+        $schedules = Schedule::whereIn('location_id', $locationIds)
+            ->select('date_schedule','time_start','location_id','id')
+            ->where('movie_id', $id)
+            ->get();
+        return view('client.clientshowlistPage', compact('movies', 'locationIds', 'schedules', 'locationNames','dates'));
     }
 }

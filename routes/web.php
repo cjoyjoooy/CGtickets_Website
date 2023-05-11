@@ -93,5 +93,6 @@ Route::get('/scheduleRestore/{id}',[AdminShowScheduleController::class,'schedule
 // ----------------CLIENT FUNCTION --------------------
 
 Route::get('/ShowTimes/{id}',[ShowTimesController::class,'show']);
+Route::get('/TicketDetails/{id}',[TicketDetailsController::class,'show']);
 
 

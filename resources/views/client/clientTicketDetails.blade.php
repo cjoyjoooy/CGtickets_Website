@@ -13,8 +13,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/component.css">
-    <link rel="stylesheet" href="css/clientTicketDetailsStyle.css">
+    <link rel="stylesheet" href="{{ asset('css/component.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/clientTicketDetailsStyle.css')}}">
     <title>Ticket Details</title>
 </head>
 
@@ -24,27 +24,27 @@
         <div class="content-container">
             <section class="movielist-details-container">
                 <div class="movie-img-container">
-                    <img class="movie-img" src="/resource/asssasin.jpg" alt="">
+                    <img class="movie-img" src="{{ asset('/uploads/' . $scheduledatas->movie->MoviePoster) }}" alt="movie img">
                 </div>
                 <div class="movielist-details">
                     <h2>Ticket Details</h2>
                     <div class="movielist-info">
-                        <span>Movie:</span><span>The Assasin </span>
+                        <span>Movie:</span><span>{{$scheduledatas->movie->MovieTitle}}</span>
                     </div>
                     <div class="movielist-info">
-                        <span>Date:</span> <span>March 13, 2023</span>
+                        <span>Date:</span> <span>{{$scheduledatas->date_schedule}}</span>
                     </div>
                     <div class="movielist-info">
-                        <span>Time:</span> <span>3:00 pm - 6:00 pm</span>
+                        <span>Time:</span> <span>{{$scheduledatas->time_start}} - {{$scheduledatas->time_end}}</span>
                     </div>
                     <div class="movielist-info">
-                        <span>Cinema:</span> <span>Cinema 5</span>
+                        <span>Cinema:</span> <span>{{$scheduledatas->cinema->cinema_number}}</span>
                     </div>
                     <div class="movielist-info">
-                        <span>Location:</span> <span>Abreeza</span>
+                        <span>Location:</span> <span>{{$scheduledatas->location->location_name}}</span>
                     </div>
                     <div class="movielist-info">
-                        <span>Seat Available:</span> <span>87</span>
+                        <span>Seat Available:</span> <span>{{$scheduledatas->cinema->seat_number}}</span>
                     </div>
                 </div>
             </section>
@@ -52,11 +52,11 @@
                 <div class="ticket-details">
                     <div class="ticket-info">
                         <h3>Ticket</h3>
-                        <p>Wakanda Forever</p>
+                        <p>{{$scheduledatas->movie->MovieTitle}}</p>
                     </div>
                     <div class="ticket-info">
                         <h3>Price</h3>
-                        <p>299</p>
+                        <p>{{$scheduledatas->price}}</p>
                     </div>
                     <div class="ticket-info">
                         <h3>Quantity</h3>
@@ -86,7 +86,7 @@
                 </div>
             </section>
             <div class="action-button-container">
-                <a href='clientshowListPage.php?'><button type="button" class="btn btn-cancel">Cancel</button></a>
+                <a href='{{url('Homepage')}}'><button type="button" class="btn btn-cancel">Cancel</button></a>
                 <a href="clientPaymentPage.php"><button type="button" class="btn btn-checkout">Checkout</button></a>
             </div>
 

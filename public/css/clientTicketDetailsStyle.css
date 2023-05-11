@@ -10,7 +10,7 @@
 
 }
 
-/* movie list details  */
+/* movie details  */
 
 .movie-img {
     width: 200px;
@@ -24,17 +24,24 @@
     align-items: center;
     text-align: center;
     padding-top: 30px;
-
 }
 
 .movielist-details {
     padding: 0 10px 15px 10px;
 }
 
+h2{
+    font-weight: 600;
+}
+
 .movielist-info {
     min-width: 100%;
     display: flex;
     justify-content: space-between;
+}
+
+.movielist-info :first-child{
+    font-weight: 600;
 }
 
 span {
@@ -66,6 +73,10 @@ span {
 .ticket-info {
     width: 100%;
     text-align: center;
+}
+.ticket-info :first-child{
+    font-weight: 600;
+
 }
 
 .ticket-info>* {

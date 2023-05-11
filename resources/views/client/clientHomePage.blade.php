@@ -31,8 +31,6 @@
                     <div class="notfound ">
                         <img src="/IT26-FINALPROJECT/resource/NotFound.png" alt="">
                     </div>
-
-
                     @foreach ($movies as $movie)
                         <div class='grid-item movie-item'>
                             <a href='{{ url('ShowTimes', $movie->id) }}'>
@@ -42,8 +40,6 @@
                             <p class='movie-title'>{{ $movie->MovieTitle }}</p>
                         </div>
                     @endforeach
-
-
                 </div>
             </div>
 

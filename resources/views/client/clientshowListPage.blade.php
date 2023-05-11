@@ -41,60 +41,33 @@
         </section>
         <section class="showtimes-container">
             <div class="showtimes-content">
-                <h2>SHOW TIMES</h2>
-
-
-
+                <h1>SHOW TIMES</h1>
                 @foreach ($locationIds as $locationId)
-                    <div class="show-container">
-                        @php
-                            $location = $locationNames->firstWhere('id', $locationId);
-                        @endphp
-                        <div class="show-info">
-                            @if ($location)
-                                <h3>{{ $location->location_name }}</h3>
-                            @endif
-
-                        </div>
-
-                        <div class="show-times">
-                            @foreach ($schedules->where('location_id', $locationId) as $schedule)
-                                <a href="{{url('TicketDetails')}}"><button class="time-btn">
-                                        {{ $schedule->time_start }}</button></a>
-                            @endforeach
-
-                        </div>
+                <div class="show-container">
+                    @php
+                        $location = $locationNames->firstWhere('id', $locationId);
+                    @endphp
+                    <div class="show-info">
+                        @if ($location)
+                            <h3>{{ $location->location_name }}</h3>
+                        @endif
                     </div>
-                @endforeach
-                {{-- <div class="show-container">
-          <div class="show-info">
-            <h3>Gmall</h3>
-            <h5>Thursday, 12 March 2023</h5>
-          </div>
-          <div class="show-times">
-            <a href="clientTicketDetails.php"><button class="time-btn">4:40 PM</button></a>
-            <a href="clientTicketDetails.php"><button class="time-btn">4:40 PM</button></a>
-            <a href="clientTicketDetails.php"><button class="time-btn">4:40 PM</button></a>
-            <a href="clientTicketDetails.php"><button class="time-btn">4:40 PM</button></a>
-            <a href="clientTicketDetails.php"><button class="time-btn">4:40 PM</button></a>
-          </div>
-        </div>
-        <div class="show-container">
-          <div class="show-info">
-            <h3>Abreeza</h3>
-            <h5>Friday, 20 August 2023</h5>
-          </div>
-          <div class="show-times">
-            <a href="clientTicketDetails.php"><button class="time-btn">4:40 PM</button></a>
-            <a href="clientTicketDetails.php"><button class="time-btn">4:40 PM</button></a>
-            <a href="clientTicketDetails.php"><button class="time-btn">4:40 PM</button></a>
-            <a href="clientTicketDetails.php"><button class="time-btn">4:40 PM</button></a>
-            <a href="clientTicketDetails.php"><button class="time-btn">4:40 PM</button></a>
-          </div>
-        </div> --}}
+                    @foreach ($dates->where('location_id', $locationId) as $date)
+                        <div class="show-info-container">
+                            <h5>{{ $date->date_schedule }}</h5>
+                            <div class="show-times">
+                                @foreach ($schedules->where('date_schedule', $date->date_schedule)->where('location_id', $locationId) as $schedule)
+                                    <a href="{{url('TicketDetails', $schedule->id)}}"><button
+                                            class="time-btn">{{ $schedule->time_start }}</button></a>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endforeach
 
-            </div>
-        </section>
+                  </div>
+                  @endforeach 
+
+    </section>
     </div>
     @include('components.footer')
     <script src='jsfile/homepage.js'></script>
