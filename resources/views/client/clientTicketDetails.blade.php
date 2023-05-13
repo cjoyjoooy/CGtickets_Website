@@ -63,7 +63,7 @@
                         <div class="ctrl">
                             <div class="ctrl__button ctrl__button--decrement">&ndash;</div>
                             <div class="ctrl__counter">
-                                <input class="ctrl__counter-input" maxlength="10" type="number" value="1">
+                                <input class="ctrl__counter-input"type="number" value="1" name="qtynumber" maxlength="10"  readonly>
                                 <div class="ctrl__counter-num">1</div>
                             </div>
                             <div class="ctrl__button ctrl__button--increment">+</div>
@@ -114,7 +114,7 @@
 
                 this.decrement = function() {
                     var counter = _this.getCounter();
-                    var nextCounter = (_this.counter > 0) ? --counter : counter;
+                    var nextCounter = (_this.counter > 1) ? --counter : counter;
                     _this.setCounter(nextCounter);
                 };
 
@@ -143,6 +143,7 @@
                         _this.els.counter.num.innerText = _this.getCounter();
                         _this.els.counter.input.value = _this.getCounter();
                         _this.els.counter.num.classList.add(visibleClassName);
+                        
                     }, 100);
 
                     setTimeout(function() {

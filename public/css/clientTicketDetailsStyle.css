@@ -103,6 +103,19 @@ span {
     font-weight: 600;
 }
 
+
+/* ---number input  ------------*/
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 .ctrl {
     flex: 0 0 auto;
     display: flex;
