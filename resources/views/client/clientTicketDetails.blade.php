@@ -59,20 +59,43 @@
                         <p>{{$scheduledatas->price}}</p>
                     </div>
                     <div class="ticket-info">
-                        <h3>Quantity</h3>
-                        <div class="ctrl">
-                            <div class="ctrl__button ctrl__button--decrement">&ndash;</div>
-                            <div class="ctrl__counter">
-                                <input class="ctrl__counter-input"type="number" value="1" name="qtynumber" maxlength="10"  readonly>
-                                <div class="ctrl__counter-num">1</div>
+                    <h3>Quantity</h3>
+                        <form id="quantity-form" method="post">
+                            <div class="ctrl">
+                                <div class="ctrl__button ctrl__button--decrement">&ndash;</div>
+                                <div class="ctrl__counter">
+                                    <input class="ctrl__counter-input" name="quantity" id="quantity-input" maxlength="10" type="number" value="1">
+                                    <div class="ctrl__counter-num">1</div>
+                                </div>
+                                <div class="ctrl__button ctrl__button--increment">+</div>
                             </div>
-                            <div class="ctrl__button ctrl__button--increment">+</div>
-                        </div>
+                        </form>
                     </div>
                     <div class="ticket-info">
-                        <h3>Subtotal</h3>
-                        <p>299</p>
-                    </div>
+                            <h3>Subtotal</h3>
+                            <p id="subtotal">{{$scheduledatas->price}}</p>
+                        </div>
+                        <!-- calculate subtotal -->
+                        <script>
+                            // Get the quantity input element
+                            var quantityInput = document.getElementById('quantity-input');
+
+                            // Get the subtotal element
+                            var subtotalElement = document.getElementById('subtotal');
+
+                            // Get the initial price value
+                            var price = {{$scheduledatas->price}};
+
+                            // Calculate the initial subtotal
+                            var subtotal = price;
+
+                            // Update the subtotal whenever the quantity value changes
+                            quantityInput.addEventListener('change', function() {
+                                var quantity = quantityInput.value;
+                                subtotal = price * quantity;
+                                subtotalElement.textContent = subtotal;
+                            });
+                        </script>
                 </div>
                 <div class="ticket-details">
                     <div class="ticket-info">
@@ -81,16 +104,35 @@
                     </div>
                     <div class="ticket-info">
                         <span>Total:</span>
-                        <span>299</span>
+                        <span id="total"></span>
                     </div>
                 </div>
             </section>
             <div class="action-button-container">
                 <a href='{{url('Homepage')}}'><button type="button" class="btn btn-cancel">Cancel</button></a>
-                <a href="clientPaymentPage.php"><button type="button" class="btn btn-checkout">Checkout</button></a>
+                <a href="{{url('Payment')}}"><button type="button" class="btn btn-checkout">Checkout</button></a>
             </div>
 
         </div>
+        <!-- calculate total -->
+        <script>
+            // Get the total element
+            var totalElement = document.getElementById('total');
+
+            // Calculate the initial total
+            var total = {{$scheduledatas->price}} + 20;
+
+            // Update the total whenever the quantity value changes
+            quantityInput.addEventListener('change', function() {
+                var quantity = quantityInput.value;
+                var subtotal = price * quantity;
+                var total = subtotal + 20;
+                totalElement.textContent = total;
+            });
+
+            // Display the initial total
+            totalElement.textContent = total;
+        </script>
     </main>
     @include('components.footer')
     <script src='jsfile/homepage.js'></script>
