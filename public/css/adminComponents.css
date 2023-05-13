@@ -87,7 +87,9 @@ ul{
 .side-menubar{
     display: flex;
     padding: 0px;
-    height: 80%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .menu-list{
@@ -148,6 +150,7 @@ h2{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     
 }
 
@@ -173,7 +176,7 @@ h2{
     gap: 2em;
 }
 .logout{
-  
+  margin-bottom: 10px;
    
 }
 .menu-burger{ 

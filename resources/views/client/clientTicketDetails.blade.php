@@ -13,8 +13,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/component.css')}}">
-    <link rel="stylesheet" href="{{ asset('css/clientTicketDetailsStyle.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/component.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/clientTicketDetailsStyle.css') }}">
     <title>Ticket Details</title>
 </head>
 
@@ -24,27 +24,29 @@
         <div class="content-container">
             <section class="movielist-details-container">
                 <div class="movie-img-container">
-                    <img class="movie-img" src="{{ asset('/uploads/' . $scheduledatas->movie->MoviePoster) }}" alt="movie img">
+                    <img class="movie-img" src="{{ asset('/uploads/' . $scheduledatas->movie->MoviePoster) }}"
+                        alt="movie img">
                 </div>
                 <div class="movielist-details">
                     <h2>Ticket Details</h2>
                     <div class="movielist-info">
-                        <span>Movie:</span><span>{{$scheduledatas->movie->MovieTitle}}</span>
+                        <span>Movie:</span><span>{{ $scheduledatas->movie->MovieTitle }}</span>
                     </div>
                     <div class="movielist-info">
-                        <span>Date:</span> <span>{{$scheduledatas->date_schedule}}</span>
+                        <span>Date:</span> <span>{{ $scheduledatas->date_schedule }}</span>
                     </div>
                     <div class="movielist-info">
-                        <span>Time:</span> <span>{{$scheduledatas->time_start}} - {{$scheduledatas->time_end}}</span>
+                        <span>Time:</span> <span>{{ $scheduledatas->time_start }} -
+                            {{ $scheduledatas->time_end }}</span>
                     </div>
                     <div class="movielist-info">
-                        <span>Cinema:</span> <span>{{$scheduledatas->cinema->cinema_number}}</span>
+                        <span>Cinema:</span> <span>{{ $scheduledatas->cinema->cinema_number }}</span>
                     </div>
                     <div class="movielist-info">
-                        <span>Location:</span> <span>{{$scheduledatas->location->location_name}}</span>
+                        <span>Location:</span> <span>{{ $scheduledatas->location->location_name }}</span>
                     </div>
                     <div class="movielist-info">
-                        <span>Seat Available:</span> <span>{{$scheduledatas->cinema->seat_number}}</span>
+                        <span>Seat Available:</span> <span>{{ $scheduledatas->cinema->seat_number }}</span>
                     </div>
                 </div>
             </section>
@@ -52,19 +54,20 @@
                 <div class="ticket-details">
                     <div class="ticket-info">
                         <h3>Ticket</h3>
-                        <p>{{$scheduledatas->movie->MovieTitle}}</p>
+                        <p>{{ $scheduledatas->movie->MovieTitle }}</p>
                     </div>
                     <div class="ticket-info">
                         <h3>Price</h3>
-                        <p>{{$scheduledatas->price}}</p>
+                        <p>{{ $scheduledatas->price }}</p>
                     </div>
                     <div class="ticket-info">
-                    <h3>Quantity</h3>
+                        <h3>Quantity</h3>
                         <form id="quantity-form" method="post">
                             <div class="ctrl">
                                 <div class="ctrl__button ctrl__button--decrement">&ndash;</div>
                                 <div class="ctrl__counter">
-                                    <input class="ctrl__counter-input" name="quantity" id="quantity-input" maxlength="10" type="number" value="1">
+                                    <input class="ctrl__counter-input" name="quantity" id="quantity-input"
+                                        maxlength="10" type="number" value="1">
                                     <div class="ctrl__counter-num">1</div>
                                 </div>
                                 <div class="ctrl__button ctrl__button--increment">+</div>
@@ -72,30 +75,9 @@
                         </form>
                     </div>
                     <div class="ticket-info">
-                            <h3>Subtotal</h3>
-                            <p id="subtotal">{{$scheduledatas->price}}</p>
-                        </div>
-                        <!-- calculate subtotal -->
-                        <script>
-                            // Get the quantity input element
-                            var quantityInput = document.getElementById('quantity-input');
-
-                            // Get the subtotal element
-                            var subtotalElement = document.getElementById('subtotal');
-
-                            // Get the initial price value
-                            var price = {{$scheduledatas->price}};
-
-                            // Calculate the initial subtotal
-                            var subtotal = price;
-
-                            // Update the subtotal whenever the quantity value changes
-                            quantityInput.addEventListener('change', function() {
-                                var quantity = quantityInput.value;
-                                subtotal = price * quantity;
-                                subtotalElement.textContent = subtotal;
-                            });
-                        </script>
+                        <h3>Subtotal</h3>
+                        <p id="subtotal">{{ $scheduledatas->price }}</p>
+                    </div>
                 </div>
                 <div class="ticket-details">
                     <div class="ticket-info">
@@ -109,33 +91,136 @@
                 </div>
             </section>
             <div class="action-button-container">
-                <a href='{{url('Homepage')}}'><button type="button" class="btn btn-cancel">Cancel</button></a>
-                <a href="{{url('Payment')}}"><button type="button" class="btn btn-checkout">Checkout</button></a>
+                <a href='{{ url('Homepage') }}'><button type="button" class="btn btn-cancel">Cancel</button></a>
+                <a href="{{url('Payment', $scheduledatas->id)}}"><button type="button" class="btn btn-checkout">Checkout</button></a>
             </div>
 
         </div>
-        <!-- calculate total -->
-        <script>
-            // Get the total element
-            var totalElement = document.getElementById('total');
 
-            // Calculate the initial total
-            var total = {{$scheduledatas->price}} + 20;
-
-            // Update the total whenever the quantity value changes
-            quantityInput.addEventListener('change', function() {
-                var quantity = quantityInput.value;
-                var subtotal = price * quantity;
-                var total = subtotal + 20;
-                totalElement.textContent = total;
-            });
-
-            // Display the initial total
-            totalElement.textContent = total;
-        </script>
     </main>
     @include('components.footer')
-    <script src='jsfile/homepage.js'></script>
+    <script src={{ asset('jsfile/homepage.js') }}></script>
+    <!-- calculate subtotal -->
+    <script>
+        // Get the quantity input element
+        var quantityInput = document.getElementById('quantity-input');
+
+        // Get the increment and decrement buttons
+        var decrementButton = document.querySelector('.ctrl__button--decrement');
+        var incrementButton = document.querySelector('.ctrl__button--increment');
+
+        // Get the subtotal element
+        var subtotalElement = document.getElementById('subtotal');
+
+        // Get the initial price value
+        var price = {{ $scheduledatas->price }};
+
+        // Calculate the initial subtotal
+        var subtotal = price;
+        var lastChanged = Date.now();
+
+        // Define a debounce function to limit how frequently the calculation is performed
+        function debounce(func, delay) {
+            var timer;
+            return function() {
+                var context = this,
+                    args = arguments;
+                clearTimeout(timer);
+                timer = setTimeout(function() {
+                    func.apply(context, args);
+                }, delay);
+            };
+        }
+
+        // Define a function to update the subtotal whenever the quantity value changes
+        function updateSubtotal() {
+            var quantity = quantityInput.value;
+            subtotal = price * quantity;
+            subtotalElement.textContent = subtotal;
+            console.log("price: " + price)
+            console.log("quantity: " + quantity)
+            console.log("subtotal: " + subtotal)
+            console.log(subtotalElement.textContent)
+        }
+
+        // Update the subtotal whenever the quantity value changes, using the debounce function to limit the frequency
+        quantityInput.addEventListener('change', debounce(function() {
+            var now = Date.now();
+            if (now - lastChanged > 300) {
+                lastChanged = now;
+                updateSubtotal();
+            }
+        }, 500));
+        // Update the subtotal whenever the quantity value changes
+        quantityInput.addEventListener('input', function() {
+            var quantity = quantityInput.value;
+            subtotal = price * quantity;
+            subtotalElement.textContent = subtotal;
+        });
+
+
+        // Update the quantity whenever the increment or decrement buttons are clicked
+        decrementButton.addEventListener('click', function() {
+            var quantity = parseInt(quantityInput.value);
+            if (quantity > 1) {
+                quantityInput.value = quantity - 1;
+                quantityInput.dispatchEvent(new Event('change'));
+                console.log("price: " + price);
+                console.log("subtotal: " + subtotal);
+                console.log(subtotalElement.textContent);
+                console.log(quantity);
+            }
+        });
+
+        incrementButton.addEventListener('click', function() {
+            var quantity = parseInt(quantityInput.value);
+            quantityInput.value = quantity + 1;
+            quantityInput.dispatchEvent(new Event('change'));
+            console.log("price: " + price);
+            console.log("subtotal: " + subtotal);
+            console.log(subtotalElement.textContent);
+            console.log(quantity);
+
+        });
+    </script>
+    <!-- calculate total -->
+    <script>
+        // Get the total element
+        var totalElement = document.getElementById('total');
+
+        // Define the quantityInput variable
+        var quantityInput = document.getElementById('quantity-input');
+
+        // Calculate the initial total
+        var total = {{ $scheduledatas->price }} + 20;
+
+        // Define the debounce function
+        function debounce(func, wait) {
+            var timeout;
+            return function executedFunction() {
+                var context = this;
+                var args = arguments;
+                var later = function() {
+                    timeout = null;
+                    func.apply(context, args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Wrap the event listener inside the debounce function
+        quantityInput.addEventListener('change', debounce(function() {
+            var quantity = quantityInput.value;
+            var subtotal = price * quantity;
+            var total = subtotal + 20;
+            totalElement.textContent = total;
+        }, 500));
+
+        // Display the initial total
+        totalElement.textContent = total;
+    </script>
+
     <script>
         (function() {
             'use strict';
@@ -185,7 +270,7 @@
                         _this.els.counter.num.innerText = _this.getCounter();
                         _this.els.counter.input.value = _this.getCounter();
                         _this.els.counter.num.classList.add(visibleClassName);
-                        
+
                     }, 100);
 
                     setTimeout(function() {

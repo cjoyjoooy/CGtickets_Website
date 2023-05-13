@@ -70,7 +70,8 @@
     </section>
     </div>
     @include('components.footer')
-    <script src='jsfile/homepage.js'></script>
+    <script src={{ asset('jsfile/homepage.js')}}></script>
+
 
     <!-- script para ma click each row sa table  -->
     {{-- <script>

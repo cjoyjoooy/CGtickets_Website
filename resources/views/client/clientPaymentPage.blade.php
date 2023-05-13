@@ -12,8 +12,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/component.css">
-    <link rel="stylesheet" href="css/clientPaymentPageStyle.css">
+    <link rel="stylesheet" href="{{ asset('css/component.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('css/clientPaymentPageStyle.css')}}">
     <title>Payment</title>
 </head>
 <body>
@@ -79,7 +80,8 @@
     </main>
     @include('components.footer')
 
-    <script src='jsfile/homepage.js'></script>
+    <script src={{ asset('jsfile/homepage.js')}}></script>
+
 </body>
 
 </html>

@@ -29,7 +29,7 @@
                 <h1 class="content-header">NOW SHOWING</h1>
                 <div class="grid-container movie-list">
                     <div class="notfound ">
-                        <img src="/IT26-FINALPROJECT/resource/NotFound.png" alt="">
+                        {{-- <img src="/IT26-FINALPROJECT/resource/NotFound.png" alt=""> --}}
                     </div>
                     @foreach ($movies as $movie)
                         <div class='grid-item movie-item'>
@@ -47,7 +47,9 @@
         @include('components.footer')
     </div>
     {{-- <span class="loader"></span> --}}
-    <script src='jsfile/homepage.js'></script>
+    <script src={{ asset('jsfile/homepage.js')}}></script>
+    
+    {{-- <script src='/jsfile/homepage.js'></script> --}}
     {{-- <script>
         window.addEventListener("load",()=> {
             document.querySelector(".loader")
