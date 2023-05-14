@@ -73,7 +73,7 @@
                 </div>
             </section>
             <div class="action-button-container">
-            <a href="clientHomepage.php"><button type="button" class="btn btn-cancel">Cancel</button></a>
+            <a href="{{url('Homepage')}}"><button type="button" class="btn btn-cancel">Cancel</button></a>
             <button type="button" class="btn btn-checkout">Confirm</button>
             </div>
         </div>

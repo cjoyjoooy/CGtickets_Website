@@ -6,9 +6,8 @@
         <input type="text" class="search-input" id="filter" placeholder="Search...">
     </div>
     <ul class="menulist">
-        <li class="menu-items"><a href="{{ url('Homepage') }}">HOME</a></li>
-        <li class="menu-items"><a href="{{ url('#') }}" class="active">MOVIES</a></li>
-        {{-- <li class="menu-items"><a href="{{ url('Homepage') }}">CONTACT</a></li> --}}
+        <li class="menu-items"><a href="{{ url('Homepage#') }}" id="home-link">HOME</a></li>
+        <li class="menu-items"><a href="{{ url('Homepage#movies') }}" id="movies-link">MOVIES</a></li>
     </ul>
 </nav>
 <div class="menu-sidebar">
@@ -17,9 +16,8 @@
     </div>
     <div class="side-menubar">
         <ul class="menu-list">
-            <li class="side-menu-items"><a href="{{ url('Homepage') }}">HOME</a></li>
-            <li class="side-menu-items"><a href="{{ url('#') }}" class="active">MOVIES</a></li>
-            {{-- <li class="side-menu-items"><a href="{{ url('Homepage') }}">CONTACT</a></li> --}}
+            <li class="side-menu-items"><a href="{{ url('Homepage#') }}" id="home-link">HOME</a></li>
+            <li class="side-menu-items"><a href="{{ url('Homepage#movies') }}" id="movies-link">MOVIES</a></li>
         </ul>
     </div>
 </div>

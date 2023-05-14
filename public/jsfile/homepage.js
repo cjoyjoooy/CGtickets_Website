@@ -26,10 +26,6 @@ const navLinks = document.querySelectorAll('.side-menu-items a').forEach(link =>
   }
 });
 
-
-
-
-
   //search icon button
 const searcicon = document.querySelector(".search-icon");
 const searchcontainer = document.querySelector(".search-menu");

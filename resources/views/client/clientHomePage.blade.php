@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    @include('components.navbar')
+    @include('components.homepagenavbar')
     <div class="body-container">
         <header class="banner-container">
             @include('components.homepagecarousel')
@@ -28,9 +28,9 @@
             <div class="content">
                 <h1 class="content-header">NOW SHOWING</h1>
                 <div class="grid-container movie-list">
-                    <div class="notfound ">
-                        {{-- <img src="/IT26-FINALPROJECT/resource/NotFound.png" alt=""> --}}
-                    </div>
+                    {{-- <div class="notfound ">
+                        <img src="/IT26-FINALPROJECT/resource/NotFound.png" alt="">
+                    </div> --}}
                     @foreach ($movies as $movie)
                         <div class='grid-item movie-item'>
                             <a href='{{ url('ShowTimes', $movie->id) }}'>
@@ -46,15 +46,63 @@
         </main>
         @include('components.footer')
     </div>
-    {{-- <span class="loader"></span> --}}
-    <script src={{ asset('jsfile/homepage.js')}}></script>
+    <script src={{ asset('jsfile/homepage.js') }}></script>
+
+{{-- navigation bar active state--}}
+<script>
+    // Get the current URL path
+    const path = window.location.href;
+
+    // Find the corresponding navigation link and add the 'active' class
+    const homeLink = document.getElementById('home-link');
+    const moviesLink = document.getElementById('movies-link');
     
-    {{-- <script src='/jsfile/homepage.js'></script> --}}
-    {{-- <script>
-        window.addEventListener("load",()=> {
-            document.querySelector(".loader")
+    if (path.endsWith('/Homepage') || path.endsWith('/Homepage#')) {
+        homeLink.classList.add('active');
+    } else if (path.endsWith('/Homepage#movies')) {
+        moviesLink.classList.add('active');
+    }
+
+    // Add event listeners to links
+    const links = document.querySelectorAll('.menu-items a');
+    links.forEach(link => {
+        link.addEventListener('click', (event) => {
+            // Remove the 'active' class from all links
+            links.forEach(link => {
+                link.classList.remove('active');
+            });
+            // Add the 'active' class to the clicked link
+            event.target.classList.add('active');
         });
-    </script> --}}
+    });
+
+    // Get all the menu links
+    const menuLinks = document.querySelectorAll('.side-menu-items a');
+
+    // Loop through the menu links and add a click event listener to each
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            // Remove the active class from all menu links
+            menuLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Add the active class to the clicked link
+            link.classList.add('active');
+        });
+    });
+</script>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
 </body>
 
 </html>
