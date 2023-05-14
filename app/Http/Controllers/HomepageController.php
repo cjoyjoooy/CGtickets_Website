@@ -19,4 +19,15 @@ class HomepageController extends Controller
 
         return view('client.clientHomePage', compact('movies'));
     }
+
+    public function movielist(){
+        $movies = Movie::select('MovieTitle')->get();
+        $data = [];
+
+        foreach ($movies as $movie){
+            $data[] = $movie['MovieTitle'];
+        }
+
+        return response()->json($data);
+        }
 }

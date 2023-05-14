@@ -15,6 +15,25 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/component.css">
     <link rel="stylesheet" href="css/clientHomePageStyle.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+//   search suggestions
+
+$( function() {
+  $.ajax({
+    method: "GET",
+    url: "movielist",
+    success: function(response) {
+      var availableTags = response;
+      $( "#filter" ).autocomplete({
+        source: availableTags
+      });
+    }
+  });
+});
+  </script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <title>Home Page</title>
 </head>
 

@@ -95,4 +95,6 @@ Route::get('/scheduleRestore/{id}',[AdminShowScheduleController::class,'schedule
 Route::get('/ShowTimes/{id}',[ShowTimesController::class,'show']);
 Route::get('/TicketDetails/{id}',[TicketDetailsController::class,'show']);
 
+Route::get('/movielist',[HomepageController::class,'movielist']);
+
 
