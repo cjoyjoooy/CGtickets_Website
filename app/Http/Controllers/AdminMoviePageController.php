@@ -38,10 +38,9 @@ class adminMoviePageController extends Controller
         $imagename=time().'.'.$request->image->extension();
         $request->image->move('uploads',$imagename);
         $moviedata->MoviePoster =$imagename;
-        $moviedata->save();
-        return redirect('AdminMovie');
+            $moviedata->save();
+            return redirect('AdminMovie') -> with('success', 'Movie added successfully.');      
     }
-
     public function editMovie($id)
     {
         $moviedata = Movie::find($id);
@@ -50,6 +49,7 @@ class adminMoviePageController extends Controller
 
     public function updateMovie(Request $request, $id)
     {
+
         //insert code sa edit/update diri hihi 
         $moviedata = Movie::find($id);
         $moviedata->MovieTitle = $request->title;
@@ -64,8 +64,14 @@ class adminMoviePageController extends Controller
             $file->move('uploads',$imagename);
             $moviedata->MoviePoster = $imagename;
         }
-        $moviedata->update();
-        return redirect('AdminMovie');
+        if($moviedata){
+            $moviedata->update();
+            return redirect(url('AdminMovie'))-> with('success', 'Movie Updated successfully.');
+        }else{
+            return back()-> with('fail', 'Movie Updated Unsuccessfully.');
+        }
+
+        
     }
     public function deletemovie($id)
     {  
@@ -77,10 +83,10 @@ class adminMoviePageController extends Controller
         }
         if($deletemovie->trashed()){
             $deletemovie->forceDelete();
-            return redirect()->back();
+            return redirect()->back()-> with('success', 'Movie deleted successfully.');
         }
         $deletemovie->delete();
-        return redirect()->back();
+        return redirect()->back()-> with('success', 'Movie moved to archive.');
     }
     public function movieRestore($id){
         $restoremovie = Movie::withTrashed()->find($id);
@@ -92,7 +98,7 @@ class adminMoviePageController extends Controller
         }
         else{
             $restoremovie->restore();
-            return redirect()->back();
+            return redirect()->back()-> with('success', 'Movie restored successfully.');
         }
     }
 

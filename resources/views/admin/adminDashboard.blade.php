@@ -38,12 +38,14 @@
           </div>
           <div class="dashboard-grid-item">
             <div class="item-content">
-
-              <!-- count how many movies  -->
-
-              <h1><i class="fa-solid fa-film"></i><span>{{$movies}}</span></h1>
+              <h1><i class="fa-solid fa-clapperboard"></i><span>{{$movies}}</span></h1>
               <div>Movies</div>
- 
+            </div>
+          </div>
+          <div class="dashboard-grid-item">
+            <div class="item-content">
+              <h1><i class="fa-solid fa-sack-dollar"></i><span>N/A</span></h1>
+              <div>Sales</div>
             </div>
           </div>
         </div>

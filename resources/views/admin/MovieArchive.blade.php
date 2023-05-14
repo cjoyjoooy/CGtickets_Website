@@ -29,6 +29,12 @@
     <div class="grid-container">
         @include('components.adminNavbar')
         <section class="info-container">
+          @if (Session::has('success'))
+          <div class="alert alert-success fade-in-out">{{ Session::get('success') }}</div>
+      @endif
+      @if (Session::has('fail'))
+          <div class="alert alert-danger fade-in-out">{{ Session::get('fail') }}</div>
+      @endif 
             <div class="info-content">
                 <h2>Movie Archives</h2>
                 @if (session('error'))
