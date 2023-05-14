@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="css/adminTableStyle.css">
     <link rel="stylesheet" href="css/adminComponents.css">
     <link rel="stylesheet" href="css/adminMoviesStyle.css">
-    <title>Movies</title>
+    <title>Movies Archives</title>
 </head>
 
 <body>

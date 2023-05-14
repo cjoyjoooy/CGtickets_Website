@@ -14,6 +14,21 @@ burger.addEventListener("click", function () {
     menuSidebar.style.transform = "translate(-100%)";
   });
 
+// navigation active state 
+const activePage=window.location.pathname;
+const navLinks = document.querySelectorAll('.side-menu-items a').forEach(link => {
+  if (link.href.includes(`${activePage}`)) {
+    link.classList.add('active');
+    const icon = link.querySelector('i');
+    if (icon) {
+      icon.classList.add('icon-active');
+    }
+  }
+});
+
+
+
+
 
   //search icon button
 const searcicon = document.querySelector(".search-icon");

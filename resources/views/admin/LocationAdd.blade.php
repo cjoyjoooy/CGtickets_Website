@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/adminAddMovieStyle.css') }}">
     <link rel="stylesheet" href="{{ asset('css/AddEditStyle.css') }}">
-
     <title>Add Location</title>
 </head>
 

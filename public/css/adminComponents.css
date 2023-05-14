@@ -59,7 +59,7 @@ a:active { text-decoration: none; }
 
 a{
     text-decoration: none;
-    color: #97A5BB;
+
 }
 
 ul{
@@ -121,18 +121,31 @@ ul{
     font-weight: 600;
     border-radius: 12px;
 }
+.side-menu-items a:link{
+    color: #97A5BB;
+}
 .side-menu-items a:visited{
     color: #97A5BB;
+}
+
+.side-menu-items a:hover{
+    color: #97A5BB;
+    background-color: #171923;
+    /* edit  */
+}
+
+.active{
+    color: #171923 !important;
+    background-color: #888EC5 !important;
+}
+
+.icon-active{
+    color: #171923 !important;
 }
 
 h2{
     font-size: 3em;
     font-weight: 900;
-}
-.side-menu-items a:hover{
-    color: #97A5BB;
-    background-color: #171923;
-    /* edit  */
 }
 
 
