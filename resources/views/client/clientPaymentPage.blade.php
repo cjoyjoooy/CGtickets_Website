@@ -38,7 +38,7 @@
                     </div>
                 </div>
             </section>
-            <form action="{{ route('insertData') }}" method="POST" class="details-container">
+            <form action="{{ url('insertData') }}" method="POST" class="details-container">
                 @csrf
                 <h2>Personal Details</h2>
                 <div class="input-box">

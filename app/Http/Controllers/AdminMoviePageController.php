@@ -83,10 +83,10 @@ class adminMoviePageController extends Controller
         }
         if($deletemovie->trashed()){
             $deletemovie->forceDelete();
-            return redirect()->back()-> with('success', 'Movie deleted successfully.');
+            return redirect('AdminMovie')-> with('success', 'Movie deleted successfully.');
         }
         $deletemovie->delete();
-        return redirect()->back()-> with('success', 'Movie moved to archive.');
+        return redirect('AdminMovie')-> with('success', 'Movie moved to archive.');
     }
     public function movieRestore($id){
         $restoremovie = Movie::withTrashed()->find($id);

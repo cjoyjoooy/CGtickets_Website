@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class TicketController extends Controller
 {
-   public function index(Request $request)
+    public function index(Request $request)
 {
     $transactionId = $request->input('transactionId');
     $name = $request->input('name');

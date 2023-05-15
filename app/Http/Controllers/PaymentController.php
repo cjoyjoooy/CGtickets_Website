@@ -35,16 +35,16 @@ class PaymentController extends Controller
             'customer_email' => $request->input('email'),
             'customer_phonenumber' => $request->input('phone')
         ]);
-    
+
         // Create a new payment record
         $payment = Payment::create([
             'cardholder_name' => $request->input('cardname'),
             'card_number' => $request->input('CardNum')
         ]);
-    
+
         // Get the quantity from the ticket details page
         $quantity = $request->input('quantity');
-    
+
         // Create a new transaction record
         $transaction = Transaction::create([
             'date' => now(), // Set the current date
@@ -54,15 +54,15 @@ class PaymentController extends Controller
             'total' => $request->input('totalAmount'),
             'payment_id' => $payment->id
         ]);
-    
+
         // Redirect to the "Ticket" page
-        return redirect()->route('Ticket', [
+        return app(TicketController::class)->index($request->merge([
             'transactionId' => $transaction->id,
             'name' => $request->input('name'),
             'quantity' => $quantity,
             'totalAmount' => $request->input('totalAmount'),
             'scheduleID' => $request->input('scheduleID')
-        ]);
+        ]));
     }
 
 }

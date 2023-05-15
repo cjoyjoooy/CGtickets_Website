@@ -98,6 +98,7 @@ Route::get('/movielist', [HomepageController::class, 'movielist']);
 
 Route::get('/Payment/{id}', [PaymentController::class, 'show']);
 Route::post('/insertData', [PaymentController::class, 'insertData']);
+Route::get('/ticket/{transactionId}/{name}/{quantity}/{totalAmount}/{scheduleID}', [TicketController::class, 'index'])->name('Ticket');
 
 // Route::get('/Ticket', [TicketController::class, 'index'])->name('Ticket');
 
