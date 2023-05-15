@@ -26,7 +26,7 @@
                 <div class="summary-content">
                     <div class="summary-info">
                         <span>Net Charges:</span>
-                        <span>PHP 550</span>
+                        <span id="charges"></span>
                     </div>
                     <div class="summary-info">
                         <span>Payment To:</span>
@@ -82,6 +82,13 @@
 
     <script src={{ asset('jsfile/homepage.js')}}></script>
 
+    <script>
+        window.onload = function() {
+            var charges = sessionStorage.getItem('charges');
+            document.getElementById('charges').innerText = charges;
+            console.log(charges);
+        };
+    </script>
 </body>
 
 </html>

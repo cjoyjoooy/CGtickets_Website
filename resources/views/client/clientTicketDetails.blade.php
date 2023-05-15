@@ -58,7 +58,7 @@
                     </div>
                     <div class="ticket-info">
                         <h3>Price</h3>
-                        <p>{{ $scheduledatas->price }}</p>
+                        <p id="price">{{ $scheduledatas->price }}</p>
                     </div>
                     <div class="ticket-info">
                         <h3>Quantity</h3>
@@ -86,13 +86,13 @@
                     </div>
                     <div class="ticket-info">
                         <span>Total:</span>
-                        <span id="total"></span>
+                        <span ><input type="text" id="total" name="total" readonly></span>
                     </div>
                 </div>
             </section>
             <div class="action-button-container">
                 <a href='{{ url('Homepage') }}'><button type="button" class="btn btn-cancel">Cancel</button></a>
-                <a href="{{url('Payment', $scheduledatas->id)}}"><button type="button" class="btn btn-checkout">Checkout</button></a>
+                <a href="{{url('Payment', $scheduledatas->id)}}"><button type="button" class="btn btn-checkout" onclick="setCharges()">Checkout</button></a>
             </div>
 
         </div>
@@ -100,6 +100,13 @@
     </main>
     @include('components.footer')
     <script src={{ asset('jsfile/homepage.js') }}></script>
+
+    <script>
+        function setCharges() {
+            var total = document.getElementById('total').value;
+            sessionStorage.setItem('charges', total);
+        }
+    </script>
     <!-- calculate subtotal -->
     <script>
         // Get the quantity input element
@@ -184,44 +191,46 @@
         });
     </script>
     <!-- calculate total -->
+
+    <script>
+        var totalElement = document.getElementById('total');
+  var price = document.getElementById('price').innerText;
+  
+  // Define the quantityInput variable
+  var quantityInput = document.getElementById('quantity-input');
+  
+  // Calculate the initial total
+  var total = parseInt(price) + 20;
+  
+  // Define the debounce function
+  function debounce(func, wait) {
+    var timeout;
+    return function executedFunction() {
+        var context = this;
+        var args = arguments;
+        var later = function() {
+            timeout = null;
+            func.apply(context, args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+  }
+  
+  // Wrap the event listener inside the debounce function
+  quantityInput.addEventListener('change', debounce(function() {
+      var quantity = quantityInput.value;
+      var subtotal = price * quantity;
+      var total = subtotal + 20;
+      totalElement.value = total;
+  }, 500));
+  
+  // Display the initial total
+  totalElement.value = total;
+
+    </script>
     <script>
         // Get the total element
-        var totalElement = document.getElementById('total');
-
-        // Define the quantityInput variable
-        var quantityInput = document.getElementById('quantity-input');
-
-        // Calculate the initial total
-        var total = {{ $scheduledatas->price }} + 20;
-
-        // Define the debounce function
-        function debounce(func, wait) {
-            var timeout;
-            return function executedFunction() {
-                var context = this;
-                var args = arguments;
-                var later = function() {
-                    timeout = null;
-                    func.apply(context, args);
-                };
-                clearTimeout(timeout);
-                timeout = setTimeout(later, wait);
-            };
-        }
-
-        // Wrap the event listener inside the debounce function
-        quantityInput.addEventListener('change', debounce(function() {
-            var quantity = quantityInput.value;
-            var subtotal = price * quantity;
-            var total = subtotal + 20;
-            totalElement.textContent = total;
-        }, 500));
-
-        // Display the initial total
-        totalElement.textContent = total;
-    </script>
-
-    <script>
         (function() {
             'use strict';
 

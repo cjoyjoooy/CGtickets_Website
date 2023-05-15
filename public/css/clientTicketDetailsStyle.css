@@ -102,6 +102,17 @@ span {
 .ticket-details:last-child .ticket-info :first-child {
     font-weight: 600;
 }
+#total{
+    width: 100%;
+    min-width: 30px;
+    border: none;
+    cursor:default;
+    text-align: center;
+}
+#total:focus, #total:active{
+    border: none;
+outline: none;
+}
 
 
 /* ---number input  ------------*/

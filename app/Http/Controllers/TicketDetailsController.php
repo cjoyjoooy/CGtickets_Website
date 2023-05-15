@@ -20,4 +20,7 @@ class TicketDetailsController extends Controller
         return view('client.clientTicketDetails', compact('scheduledatas'));
     }
 
+
 }
+
+
