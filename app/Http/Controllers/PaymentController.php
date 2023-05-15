@@ -29,44 +29,41 @@ class PaymentController extends Controller
 
     public function insertData(Request $request)
     {
-
-    // Create a new customer record
-    $customer = Customer::create([
-        'customer_name' => $request->name,
-        'customer_email' => $request->email,
-        'customer_phonenumber' => $request->phone
-    ]);
-
-    // Create a new payment record
-    $payment = Payment::create([
-        'cardholder_name' => $request->cardname,
-        'card_number' => $request->CardNum
-    ]);
-
-    // Get the quantity from the ticket details page
-    $quantity = $request->input('quantity');
-
-
-
-    // Create a new transaction record
-    $transaction = Transaction::create([
-        'date' => now(), // Set the current date
-        'customer_id' => $customer->id,
-        'schedule_id' => $request->scheduleID,
-        'quantity' => $request->quantity,
-        'total' => $request->totalAmount,
-        'payment_id' => $payment->id
-    ]);
-
-    // Redirect to the "Ticket" page
-    return redirect()->route('Ticket', [
-        'transactionId' => $transaction->id,
-        'name' => $request->input('name'),
-        'quantity' => $request->input('quantity'),
-        'totalAmount' => $request->input('totalAmount'),
-        'schedule_id' => $request->input('scheduleID')
-    ]);
-}
+        // Create a new customer record
+        $customer = Customer::create([
+            'customer_name' => $request->input('name'),
+            'customer_email' => $request->input('email'),
+            'customer_phonenumber' => $request->input('phone')
+        ]);
+    
+        // Create a new payment record
+        $payment = Payment::create([
+            'cardholder_name' => $request->input('cardname'),
+            'card_number' => $request->input('CardNum')
+        ]);
+    
+        // Get the quantity from the ticket details page
+        $quantity = $request->input('quantity');
+    
+        // Create a new transaction record
+        $transaction = Transaction::create([
+            'date' => now(), // Set the current date
+            'customer_id' => $customer->id,
+            'schedule_id' => $request->input('scheduleID'),
+            'quantity' => $quantity,
+            'total' => $request->input('totalAmount'),
+            'payment_id' => $payment->id
+        ]);
+    
+        // Redirect to the "Ticket" page
+        return redirect()->route('Ticket', [
+            'transactionId' => $transaction->id,
+            'name' => $request->input('name'),
+            'quantity' => $quantity,
+            'totalAmount' => $request->input('totalAmount'),
+            'scheduleID' => $request->input('scheduleID')
+        ]);
+    }
 
     // Dapat pag click sa confirm button sa payment page pa  ma insert tanan data sa customer,payment, and transaction
     // feel nako dapat first ma insert data sa Customer and payment table kay need ilang foreign key sa transaction table hihi

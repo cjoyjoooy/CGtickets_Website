@@ -15,35 +15,38 @@
         <div class="ticket-content">
             <div class="header">CINEMA TICKET</div>
             
+            @foreach ($schedules as $schedule)
             <div class="flex-container">
                 <div class="movie-img ticket-info-container">
-                    <img src="{{ asset('/uploads/1682782980.jpg') }}"  class="poster" alt="Movie Poster">
+                    <img src="{{ asset('/uploads/'.$schedule->movie->MoviePoster) }}"  class="poster" alt="Movie Poster">
                 </div>
                 <div class="ticket-info-container">                
                     <div class="title info-content-container">
-                    <h3>John Wick</h3>
+                    <h3>{{$schedule->movie->MovieTitle}}</h3>
                 </div>
                 <div class="info-content-container">
                     <div class="info-group">
                         <p>Location</p>
-                        <p>{{$schedule_id}}</p>                
+                            
+                        <p>{{$schedule->location->location_name}}</p>                
                     </div>
                     <div class="info-group">
                         <p>Cinema</p>
-                        <p>Cinema 5</p>
+                        <p>{{$schedule->cinema->cinema_number}}</p>
                     </div>
                 </div>
                 <div class="info-content-container">
                     <div class="info-group">
                         <p>Date</p>
-                        <p>March 14, 2022</p>
+                        <p>{{$schedule->date_schedule}}</p>
                     </div>
                     <div class="info-group">
                         <p>Time</p>
-                        <p>3:00pm - 5:00pm</p>
+                        <p>{{$schedule->time_start}}- {{$schedule->time_end}}</p>
                     </div>
                 </div>
             </div>
+            @endforeach
            
                 <div class="divider"></div>
                 <div class="ticket-info-container transaction details">
