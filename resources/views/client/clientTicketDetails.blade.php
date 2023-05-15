@@ -86,13 +86,14 @@
                     </div>
                     <div class="ticket-info">
                         <span>Total:</span>
-                        <span ><input type="text" id="total" name="total" readonly></span>
+                        <span><input type="text" id="total" name="total" readonly></span>
                     </div>
                 </div>
             </section>
             <div class="action-button-container">
                 <a href='{{ url('Homepage') }}'><button type="button" class="btn btn-cancel">Cancel</button></a>
-                <a href="{{url('Payment', $scheduledatas->id)}}"><button type="button" class="btn btn-checkout" onclick="setCharges()">Checkout</button></a>
+                <a href="{{ url('Payment', $scheduledatas->id) }}"><button type="button" id="checkout-button" class="btn btn-checkout"
+                        onclick="setCharges()">Checkout</button></a>
             </div>
 
         </div>
@@ -101,11 +102,25 @@
     @include('components.footer')
     <script src={{ asset('jsfile/homepage.js') }}></script>
 
+    {{-- pass the total to the payment page  --}}
+
     <script>
         function setCharges() {
             var total = document.getElementById('total').value;
             sessionStorage.setItem('charges', total);
+            console.log("session: " + total);
         }
+
+        document.getElementById('checkout-button').addEventListener('click', setCharges);
+        // Storing the quantity value in session storage
+
+    </script>
+
+    <script>
+        
+        var quantityInput = document.getElementById('quantity-input').value;
+            sessionStorage.setItem('quantity', quantityInput);
+            console.log("quantity: " + quantityInput);
     </script>
     <!-- calculate subtotal -->
     <script>
@@ -148,6 +163,7 @@
             console.log("quantity: " + quantity)
             console.log("subtotal: " + subtotal)
             console.log(subtotalElement.textContent)
+            sessionStorage.setItem('quantity', quantity);
         }
 
         // Update the subtotal whenever the quantity value changes, using the debounce function to limit the frequency
@@ -194,40 +210,39 @@
 
     <script>
         var totalElement = document.getElementById('total');
-  var price = document.getElementById('price').innerText;
-  
-  // Define the quantityInput variable
-  var quantityInput = document.getElementById('quantity-input');
-  
-  // Calculate the initial total
-  var total = parseInt(price) + 20;
-  
-  // Define the debounce function
-  function debounce(func, wait) {
-    var timeout;
-    return function executedFunction() {
-        var context = this;
-        var args = arguments;
-        var later = function() {
-            timeout = null;
-            func.apply(context, args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-  }
-  
-  // Wrap the event listener inside the debounce function
-  quantityInput.addEventListener('change', debounce(function() {
-      var quantity = quantityInput.value;
-      var subtotal = price * quantity;
-      var total = subtotal + 20;
-      totalElement.value = total;
-  }, 500));
-  
-  // Display the initial total
-  totalElement.value = total;
+        var price = document.getElementById('price').innerText;
 
+        // Define the quantityInput variable
+        var quantityInput = document.getElementById('quantity-input');
+
+        // Calculate the initial total
+        var total = parseInt(price) + 20;
+
+        // Define the debounce function
+        function debounce(func, wait) {
+            var timeout;
+            return function executedFunction() {
+                var context = this;
+                var args = arguments;
+                var later = function() {
+                    timeout = null;
+                    func.apply(context, args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Wrap the event listener inside the debounce function
+        quantityInput.addEventListener('change', debounce(function() {
+            var quantity = quantityInput.value;
+            var subtotal = price * quantity;
+            var total = subtotal + 20;
+            totalElement.value = total;
+        }, 500));
+
+        // Display the initial total
+        totalElement.value = total;
     </script>
     <script>
         // Get the total element

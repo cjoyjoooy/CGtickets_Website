@@ -40,7 +40,6 @@ Route::resource('AdminTransaction', AdminTransactionPageController::class);
 Route::resource('Homepage', HomepageController::class);
 Route::resource('ShowTimes', ShowTimesController::class);
 Route::resource('TicketDetails', TicketDetailsController::class);
-Route::resource('Payment', PaymentController::class);
 Route::resource('Ticket', TicketController::class);
 
 
@@ -92,9 +91,14 @@ Route::get('/scheduleRestore/{id}',[AdminShowScheduleController::class,'schedule
 
 // ----------------CLIENT FUNCTION --------------------
 
-Route::get('/ShowTimes/{id}',[ShowTimesController::class,'show']);
-Route::get('/TicketDetails/{id}',[TicketDetailsController::class,'show']);
+Route::get('/ShowTimes/{id}', [ShowTimesController::class, 'show']);
+Route::get('/TicketDetails/{id}', [TicketDetailsController::class, 'show']);
 
-Route::get('/movielist',[HomepageController::class,'movielist']);
+Route::get('/movielist', [HomepageController::class, 'movielist']);
 
+Route::get('/Payment/{id}', [PaymentController::class, 'show']);
+Route::post('/insertData', [PaymentController::class, 'insertData']);
 
+// Route::get('/Ticket', [TicketController::class, 'index'])->name('Ticket');
+
+// Route::resource('Payment', PaymentController::class);

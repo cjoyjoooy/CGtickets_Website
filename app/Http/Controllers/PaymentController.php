@@ -1,9 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Schedule;
 
+use App\Models\Customer;
+use App\Models\Payment;
+use App\Models\Schedule;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
+
+use Carbon\Carbon;
 
 class PaymentController extends Controller
 {
@@ -12,8 +17,7 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        return view('client.clientPaymentPage');
-        
+       
     }
 
     public function show($id)
@@ -21,6 +25,48 @@ class PaymentController extends Controller
         $scheduledatas = Schedule::find($id);
         return view('client.clientPaymentPage', compact('scheduledatas'));
     }
+
+
+    public function insertData(Request $request)
+    {
+
+    // Create a new customer record
+    $customer = Customer::create([
+        'customer_name' => $request->name,
+        'customer_email' => $request->email,
+        'customer_phonenumber' => $request->phone
+    ]);
+
+    // Create a new payment record
+    $payment = Payment::create([
+        'cardholder_name' => $request->cardname,
+        'card_number' => $request->CardNum
+    ]);
+
+    // Get the quantity from the ticket details page
+    $quantity = $request->input('quantity');
+
+
+
+    // Create a new transaction record
+    $transaction = Transaction::create([
+        'date' => now(), // Set the current date
+        'customer_id' => $customer->id,
+        'schedule_id' => $request->scheduleID,
+        'quantity' => $request->quantity,
+        'total' => $request->totalAmount,
+        'payment_id' => $payment->id
+    ]);
+
+    // Redirect to the "Ticket" page
+    return redirect()->route('Ticket', [
+        'transactionId' => $transaction->id,
+        'name' => $request->input('name'),
+        'quantity' => $request->input('quantity'),
+        'totalAmount' => $request->input('totalAmount'),
+        'schedule_id' => $request->input('scheduleID')
+    ]);
+}
 
     // Dapat pag click sa confirm button sa payment page pa  ma insert tanan data sa customer,payment, and transaction
     // feel nako dapat first ma insert data sa Customer and payment table kay need ilang foreign key sa transaction table hihi

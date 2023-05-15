@@ -13,10 +13,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/component.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('css/clientPaymentPageStyle.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/clientPaymentPageStyle.css') }}">
     <title>Payment</title>
 </head>
+
 <body>
     @include('components.navbar')
     <main class="body-container">
@@ -24,10 +24,10 @@
             <section class="summary-container">
                 <h2>Summary of Transaction</h2>
                 <div class="summary-content">
-                    <div class="summary-info">
+                    <form action="" method="POST" class="summary-info">
                         <span>Net Charges:</span>
-                        <span id="charges"></span>
-                    </div>
+                        <span><input type="text" id="charges" readonly></span>
+                    </form>
                     <div class="summary-info">
                         <span>Payment To:</span>
                         <span>CGTickets, INC.</span>
@@ -38,8 +38,15 @@
                     </div>
                 </div>
             </section>
-            <section class="details-container">
+            <form action="{{ route('insertData') }}" method="POST" class="details-container">
+                @csrf
                 <h2>Personal Details</h2>
+                <div class="input-box">
+                    <input type="text" name="scheduleID" id="scheduleID" value="{{ $scheduledatas->id }}" hidden>
+                    <input type="text" name="totalAmount" id="charges" hidden>
+                    <input type="text" name="quantity" id="quantities" hidden>
+
+                </div>
                 <div class="input-box">
                     <label for="name">Name</label>
                     <input type="text" name="name" id="name" required>
@@ -52,8 +59,6 @@
                     <label for="phone">Phone Number</label>
                     <input type="text" name="phone" id="phone" required>
                 </div>
-            </section>
-            <section class="details-container">
                 <h2>Card Details</h2>
                 <div class="input-box">
                     <label for="cardname">Card Holder Name</label>
@@ -71,24 +76,42 @@
                     <label for="expirydate">Expiry Date</label>
                     <input type="month" name="expirydate" id="expirydate" required>
                 </div>
-            </section>
-            <div class="action-button-container">
-            <a href="{{url('Homepage')}}"><button type="button" class="btn btn-cancel">Cancel</button></a>
-            <button type="button" class="btn btn-checkout">Confirm</button>
-            </div>
+                <div class="action-button-container">
+                    <a href="{{ url('Homepage') }}">
+                        <button type="button" class="btn btn-cancel">Cancel</button>
+                    </a>
+                    <button type="submit" class="btn btn-checkout">Confirm</button>
+                </div>
+            </form>
         </div>
     </main>
     @include('components.footer')
 
-    <script src={{ asset('jsfile/homepage.js')}}></script>
+    <script src={{ asset('jsfile/homepage.js') }}></script>
 
     <script>
         window.onload = function() {
+            // Retrieve the total value from session storage
             var charges = sessionStorage.getItem('charges');
-            document.getElementById('charges').innerText = charges;
-            console.log(charges);
+
+            // Set the retrieved total value in all elements with the ID "charges"
+            var chargesElements = document.querySelectorAll('#charges');
+            for (var i = 0; i < chargesElements.length; i++) {
+                chargesElements[i].value = charges;
+                console.log("session: " + charges);
+            }
+
+            // Retrieve the quantity value from session storage
+            var quantityInput = sessionStorage.getItem('quantity');
+
+            // Set the retrieved quantity value in the element with the ID "quantity"
+            var quantityElement = document.getElementById('quantities');
+            quantityElement.value = quantityInput;
+            console.log("quantity: " + quantityInput);
         };
     </script>
+
+
 </body>
 
 </html>
