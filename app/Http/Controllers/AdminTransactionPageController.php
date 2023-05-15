@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 
 class adminTransactionPageController extends Controller
@@ -11,7 +12,8 @@ class adminTransactionPageController extends Controller
      */
     public function index()
     {
-        return view('admin.adminTransactionPage');
+        $transactions = Transaction::all();
+        return view('admin.adminTransactionPage',compact(['transactions']));
     }
 
     /**
