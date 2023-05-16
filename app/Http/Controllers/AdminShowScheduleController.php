@@ -13,12 +13,16 @@ class adminShowScheduleController extends Controller
 {
     /**
      * Display a listing of the resource.
-     */
-    public function index()
-    {   
-        $schedules = Schedule::all();
-        return view('admin.adminShowSchedule', compact(['schedules']));
-    }
+     */ 
+        public function index()
+        {
+            $schedules = Schedule::with('movie')
+                ->whereNull('deleted_at')
+                ->get();
+        
+            return view('admin.adminShowSchedule', compact('schedules'));
+        }
+    
 
     public function addSchedule(){
         $locations = Location::all();
@@ -80,28 +84,39 @@ class adminShowScheduleController extends Controller
         }
         if($deleteschedule->trashed()){
             $deleteschedule->forceDelete();
-            return redirect()->back();
+            return redirect()->back()->with('success', 'Schedule deleted successfully.');
         }
         $deleteschedule->delete();
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Schedule deleted successfully.');;
     }
 
-    public function scheduleRestore($id){
-        $scheduleRestore = Schedule::withTrashed()->find($id);
-        if ($scheduleRestore === null){
-            return redirect()->back()->with('error', 'Movie not found');
-        }
-        else if (!$scheduleRestore->trashed()){
-            return redirect()->back()->with('error', 'Movie is not soft deleted');
-        }
-        else{
-            $scheduleRestore->restore();
-            return redirect()->back();
-        }
+    public function scheduleRestore($id)
+{
+    $scheduleRestore = Schedule::with(['movie' => function ($query) {
+        $query->withTrashed();
+    }])->withTrashed()->find($id);
+
+    if ($scheduleRestore === null) {
+        return redirect()->back()->with('error', 'Schedule not found');
+    } elseif (!$scheduleRestore->trashed()) {
+        return redirect()->back()->with('error', 'Schedule is not soft deleted');
+    } elseif ($scheduleRestore->movie && $scheduleRestore->movie->trashed()) {
+        return redirect()->back()->with('error', 'Associated movie is still trashed');
     }
 
-    public function scheduleArchive(){
-        $schedules = Schedule::onlyTrashed()->get();
-        return view('admin.ScheduleArchive', compact(['schedules']));
-    }
+    $scheduleRestore->restore();
+    return redirect()->back()->with('success', 'Schedule restored successfully.');
+}
+
+    public function scheduleArchive()
+{
+    $schedules = Schedule::onlyTrashed()
+        ->whereNotNull('deleted_at')
+        ->with(['movie' => function ($query) {
+            $query->withTrashed();
+        }])
+        ->get();
+
+    return view('admin.ScheduleArchive', compact('schedules'));
+}   
 }

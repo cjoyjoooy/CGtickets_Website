@@ -27,12 +27,17 @@
     <div class="grid-container">
         @include('components.adminNavbar')
         <section class="info-container">
-            @if (Session::has('success'))
-                <div class="alert alert-success fade-in-out">{{ Session::get('success') }}</div>
-            @endif
-            @if (Session::has('fail'))
-                <div class="alert alert-danger fade-in-out">{{ Session::get('fail') }}</div>
-            @endif
+            @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+        
+        @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
             <div class="info-content">
                 <h2>Movies</h2>
                 @include('components.adminsearch')

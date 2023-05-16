@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Movie;
 use Illuminate\Http\Request;
+use App\Models\Schedule;
 use Illuminate\Support\Facades\File;
 
 class adminMoviePageController extends Controller
@@ -74,31 +75,50 @@ class adminMoviePageController extends Controller
         
     }
     public function deletemovie($id)
-    {  
-        // $movie = Movie::withTrashed()->find($id);
+    {
         $deletemovie = Movie::withTrashed()->find($id);
-        //  variable = model/table name::find($id); 
+    
         if ($deletemovie === null) {
             return redirect()->back()->with('error', 'Movie not found');
         }
-        if($deletemovie->trashed()){
+    
+        // Trash the schedules if the movie is trashed
+        if ($deletemovie->trashed()) {
+            $schedules = Schedule::where('movie_id', $deletemovie->id)->get();
+            foreach ($schedules as $schedule) {
+                $schedule->delete();
+            }
             $deletemovie->forceDelete();
-            return redirect('AdminMovie')-> with('success', 'Movie deleted successfully.');
+            return redirect('AdminMovie')->with('success', 'Movie and associated schedules deleted successfully.');
         }
+    
+        // Delete the schedules if the movie is not trashed
+        $schedules = Schedule::where('movie_id', $deletemovie->id)->get();
+        foreach ($schedules as $schedule) {
+            $schedule->delete();
+        }
+    
         $deletemovie->delete();
-        return redirect('AdminMovie')-> with('success', 'Movie moved to archive.');
+        return redirect('AdminMovie')->with('success', 'Movie and associated schedules moved to archive.');
     }
-    public function movieRestore($id){
+    public function movieRestore($id)
+    {
         $restoremovie = Movie::withTrashed()->find($id);
-        if ($restoremovie === null){
+    
+        if ($restoremovie === null) {
             return redirect()->back()->with('error', 'Movie not found');
-        }
-        else if (!$restoremovie->trashed()){
+        } elseif (!$restoremovie->trashed()) {
             return redirect()->back()->with('error', 'Movie is not soft deleted');
-        }
-        else{
+        } else {
             $restoremovie->restore();
-            return redirect()->back()-> with('success', 'Movie restored successfully.');
+    
+            // Restore the associated schedules
+            $schedules = Schedule::withTrashed()->where('movie_id', $restoremovie->id)->get();
+            foreach ($schedules as $schedule) {
+                $schedule->restore();
+            }
+    
+            return redirect()->back()->with('success', 'Movie and associated schedules restored successfully.');
         }
     }
 

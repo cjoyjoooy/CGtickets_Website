@@ -14,8 +14,12 @@ class AdminDashboardController extends Controller
      * Display a listing of the resource.
      */
     public function index()
+
     {
-        $scheduledatas = Schedule::all();
+
+        $scheduledatas = Schedule::with('movie')
+                ->whereNull('deleted_at')
+                ->get();
         $schedules = Schedule::count();
         $cinemas = Cinema::count();
         $movies = Movie::count();
