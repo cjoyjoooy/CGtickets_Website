@@ -102,23 +102,7 @@
     </section>
     </div>
     <script src='jsfile/homepage.js'></script>
-    <!-- <script>
-        //   search and suggestions
-        $(function() {
-            $.ajax({
-                method: "GET",
-                url: "schedSearch",
-                success: function(response) {
-                var availableTags = response;
-                $( "#searchsched" ).autocomplete({
-                    source: availableTags.map(function(item) {
-                    return item.location + ' - ' + item.cinema + ' - ' + item.movie;
-                    })
-                });
-                }
-            });
-        });
-          </script> -->
+  
 
 </body>
 
