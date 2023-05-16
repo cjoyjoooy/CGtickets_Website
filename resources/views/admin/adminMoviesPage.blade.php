@@ -20,6 +20,10 @@
     <link rel="stylesheet" href="css/adminTableStyle.css">
     <link rel="stylesheet" href="css/adminComponents.css">
     <link rel="stylesheet" href="css/adminMoviesStyle.css">
+    <!-- js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <title>Movies</title>
 </head>
 
@@ -63,27 +67,21 @@
                         </tr>
                     </thead>
                     <tbody class="movielist">
-                        @foreach ($movies as $movie)
+                            @foreach ($movies as $movie)
                             <tr class="movielist-item">
-
                                 <td data-cell='Movie ID'>{{ $movie->id }}</td>
-                                <td data-cell='Movie Poster'><img src="{{ asset('/uploads/' . $movie->MoviePoster) }}"
-                                        class="poster" alt="Movie Poster"></td>
+                                <td data-cell='Movie Poster'><img src="{{ asset('/uploads/' . $movie->MoviePoster) }}" class="poster" alt="Movie Poster"></td>
                                 <td data-cell='Title'>{{ $movie->MovieTitle }}</td>
                                 <td data-cell='Genre'>{{ $movie->Genre }}</td>
                                 <td data-cell='Description'>{{ $movie->MovieDescription }}</td>
                                 <td>
                                     <div class='action-btn-container'>
-                                        <a href="{{ url('editMovie', $movie->id) }}"><button type='button'
-                                                class='action-btn edit-btn'><i
-                                                    class='fa-solid fa-pen action-btn'></i></button></a>
-                                        <a href="{{ url('deletemovie', $movie->id) }}"><button type='button'
-                                                class='action-btn del-btn'><i
-                                                    class='fa-solid fa-trash action-btn'></i></button></a>
+                                        <a href="{{ url('editMovie', $movie->id) }}"><button type='button' class='action-btn edit-btn'><i class='fa-solid fa-pen action-btn'></i></button></a>
+                                        <a href="{{ url('deletemovie', $movie->id) }}"><button type='button' class='action-btn del-btn'><i class='fa-solid fa-trash action-btn'></i></button></a>
                                     </div>
                                 </td>
                             </tr>
-                        @endforeach
+                            @endforeach
                     </tbody>
                 </table>
             </div>
@@ -94,6 +92,22 @@
     </section>
     </div>
     <script src='jsfile/homepage.js'></script>
+    <script>
+        //   search and suggestions
+        
+        $( function() {
+          $.ajax({
+            method: "GET",
+            url: "movieSearch",
+            success: function(response) {
+              var availableTags = response;
+              $( "#search" ).autocomplete({
+                source: availableTags
+              });
+            }
+          });
+        });
+          </script>
 </body>
 
 </html>
