@@ -12,6 +12,22 @@
 
 <body>
     <div class="body-container">
+        @if (session('success'))
+        <div class="alert alert-success fade-in-out ">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if (session('error'))
+        <div class="alert alert-danger fade-in-out ">
+            {{ session('error') }}
+        </div>
+    @endif
+    @if (session('fail'))
+        <div class="alert alert-danger fade-in-out">
+            {{ session('fail') }}
+        </div>
+    @endif
         <form action="{{ url('insertLocation') }}" method="POST">
             @csrf
             <h2>ADD LOCATION</h2>

@@ -27,25 +27,27 @@ class adminCinemaPageController extends Controller
     }
     public function insertLocation(Request $request)
     {
-        // any variable = new Modelname 
         $locationdata = new Location;
-
-        //variable->table comlumn name = $request-> name sa input box
         $locationdata->location_name = $request->location_name;
-
-        // save() -- insert data into the database 
-        $locationdata->save();
-        // return siya balik sa page 
-        return redirect('AdminCinema');
+        if ($locationdata->save()) {
+            // Data inserted successfully
+            return redirect('AdminCinema')->with('success', 'Location added successfully.');
+        } else {
+            // Failed to insert data
+            return redirect('AdminCinema')->with('error', 'Failed to add location.');
+        }
     }
 
     public function deleteLocation($id)
     {
-        $deletelocation = new Location;
-        //  variable = model/table name::find($id); 
         $deletelocation = Location::find($id);
-        $deletelocation->delete();
-        return redirect()->back();
+        if ($deletelocation->delete()) {
+            // Data deleted successfully
+            return redirect()->back()->with('success', 'Location deleted successfully.');
+        } else {
+            // Failed to delete data
+            return redirect()->back()->with('error', 'Failed to delete location.');
+        }
     }
 
 
@@ -60,8 +62,13 @@ class adminCinemaPageController extends Controller
     {
         $locationdata = Location::find($id);
         $locationdata->location_name = $request->location_name;
-        $locationdata->save();
-        return redirect('AdminCinema');
+        if ($locationdata->save()) {
+            // Data updated successfully
+            return redirect('AdminCinema')->with('success', 'Location updated successfully.');
+        } else {
+            // Failed to update data
+            return redirect('AdminCinema')->with('error', 'Failed to update location.');
+        }
     }
 
     // CINEMA -------------------
@@ -74,12 +81,23 @@ class adminCinemaPageController extends Controller
 
     public function insertCinema(Request $request)
     {
+
+        $validatedData = $request->validate([
+            'seat_num' => 'required|numeric',
+        ]);
+    
         $cinemadata = new Cinema;
         $cinemadata->location_id = $request->location;
         $cinemadata->cinema_number = $request->cinema_num;
-        $cinemadata->seat_number = $request->seat_num;
-        $cinemadata->save();
-        return redirect('AdminCinema');
+        $cinemadata->seat_number = $validatedData['seat_num'];
+
+        if ($cinemadata->save()) {
+            // Data inserted successfully
+            return redirect('AdminCinema')->with('success', 'Cinema added successfully.');
+        } else {
+            // Failed to insert data
+            return redirect('AdminCinema')->with('error', 'Failed to add cinema.');
+        }
     }
 
     public function editCinema($id)
@@ -88,23 +106,34 @@ class adminCinemaPageController extends Controller
         $cinemadata = Cinema::find($id);
         return view('admin.CinemaEdit', compact(['cinemadata', 'locations']));
     }
-
     public function updateCinema(Request $request, $id)
     {
+        $validatedData = $request->validate([
+            'seat_num' => 'required|numeric',
+        ]);
         $cinemadata = Cinema::find($id);
         $cinemadata->location_id = $request->location;
         $cinemadata->cinema_number = $request->cinema_num;
-        $cinemadata->seat_number = $request->seat_num;
-        $cinemadata->save();
-        return redirect('AdminCinema');
+        $cinemadata->seat_number = $validatedData['seat_num'];
+        if ($cinemadata->save()) {
+            // Data updated successfully
+            return redirect('AdminCinema')->with('success', 'Cinema updated successfully.');
+        } else {
+            // Failed to update data
+            return redirect('AdminCinema')->with('error', 'Failed to update cinema.');
+        }
     }
 
     public function deleteCinema($id)
     {
-        $cinemadata = new Cinema;
         $cinemadata = Cinema::find($id);
-        $cinemadata->delete();
-        return redirect()->back();
+        if ($cinemadata->delete()) {
+            // Data deleted successfully
+            return redirect()->back()->with('success', 'Cinema deleted successfully.');
+        } else {
+            // Failed to delete data
+            return redirect()->back()->with('error', 'Failed to delete cinema.');
+        }
     }
 
 }

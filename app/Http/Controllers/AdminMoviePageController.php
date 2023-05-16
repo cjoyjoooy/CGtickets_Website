@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Movie;
 use Illuminate\Http\Request;
+use App\Models\Schedule;
 use Illuminate\Support\Facades\File;
 
 class adminMoviePageController extends Controller
@@ -24,23 +25,40 @@ class adminMoviePageController extends Controller
         return view('admin.MovieAdd');
     }
 
-    public function insertMovie(Request $request){
-            // any variable = new Modelname 
-        $moviedata = new Movie;
+    public function insertMovie(Request $request)
+{
+    // Validate the uploaded image
+    $request->validate([
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    ]);
 
-        //variable->table comlumn name = $request-> name sa input box
-        $moviedata-> MovieTitle = $request->title;
-        $moviedata-> MovieDescription = $request->description;
-        $moviedata-> Genre = $request->genre;
-        $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-        $imagename=time().'.'.$request->image->extension();
-        $request->image->move('uploads',$imagename);
-        $moviedata->MoviePoster =$imagename;
-            $moviedata->save();
-            return redirect('AdminMovie') -> with('success', 'Movie added successfully.');      
+    // Create a new instance of the Movie model
+    $moviedata = new Movie;
+
+    // Assign values to the object's properties from the request data
+    $moviedata->MovieTitle = $request->title;
+    $moviedata->MovieDescription = $request->description;
+    $moviedata->Genre = $request->genre;
+
+    // Move the uploaded image to the 'uploads' directory
+    $imagename = time().'.'.$request->image->extension();
+    if ($request->image->move('uploads', $imagename)) {
+        // Set the image filename to the MoviePoster property
+        $moviedata->MoviePoster = $imagename;
+
+        // Save the movie data
+        if ($moviedata->save()) {
+            return redirect('AdminMovie')->with('success', 'Movie added successfully.');
+        } else {
+            return back()->with('fail', 'Movie added unsuccessfully.');
+        }
+    } else {
+        return back()->with('fail', 'Failed uploading the image.');
     }
+}
+
+
+
     public function editMovie($id)
     {
         $moviedata = Movie::find($id);
@@ -64,8 +82,7 @@ class adminMoviePageController extends Controller
             $file->move('uploads',$imagename);
             $moviedata->MoviePoster = $imagename;
         }
-        if($moviedata){
-            $moviedata->update();
+        if($moviedata->update()){    
             return redirect(url('AdminMovie'))-> with('success', 'Movie Updated successfully.');
         }else{
             return back()-> with('fail', 'Movie Updated Unsuccessfully.');
@@ -74,31 +91,50 @@ class adminMoviePageController extends Controller
         
     }
     public function deletemovie($id)
-    {  
-        // $movie = Movie::withTrashed()->find($id);
+    {
         $deletemovie = Movie::withTrashed()->find($id);
-        //  variable = model/table name::find($id); 
+    
         if ($deletemovie === null) {
             return redirect()->back()->with('error', 'Movie not found');
         }
-        if($deletemovie->trashed()){
+    
+        // Trash the schedules if the movie is trashed
+        if ($deletemovie->trashed()) {
+            $schedules = Schedule::where('movie_id', $deletemovie->id)->get();
+            foreach ($schedules as $schedule) {
+                $schedule->delete();
+            }
             $deletemovie->forceDelete();
-            return redirect()->back()-> with('success', 'Movie deleted successfully.');
+            return redirect('AdminMovie')->with('success', 'Movie and associated schedules deleted successfully.');
         }
+    
+        // Delete the schedules if the movie is not trashed
+        $schedules = Schedule::where('movie_id', $deletemovie->id)->get();
+        foreach ($schedules as $schedule) {
+            $schedule->delete();
+        }
+    
         $deletemovie->delete();
-        return redirect()->back()-> with('success', 'Movie moved to archive.');
+        return redirect('AdminMovie')->with('success', 'Movie and associated schedules moved to archive.');
     }
-    public function movieRestore($id){
+    public function movieRestore($id)
+    {
         $restoremovie = Movie::withTrashed()->find($id);
-        if ($restoremovie === null){
+    
+        if ($restoremovie === null) {
             return redirect()->back()->with('error', 'Movie not found');
-        }
-        else if (!$restoremovie->trashed()){
+        } elseif (!$restoremovie->trashed()) {
             return redirect()->back()->with('error', 'Movie is not soft deleted');
-        }
-        else{
+        } else {
             $restoremovie->restore();
-            return redirect()->back()-> with('success', 'Movie restored successfully.');
+    
+            // Restore the associated schedules
+            $schedules = Schedule::withTrashed()->where('movie_id', $restoremovie->id)->get();
+            foreach ($schedules as $schedule) {
+                $schedule->restore();
+            }
+    
+            return redirect()->back()->with('success', 'Movie and associated schedules restored successfully.');
         }
     }
 

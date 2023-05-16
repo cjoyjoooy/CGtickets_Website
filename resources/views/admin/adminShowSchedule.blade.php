@@ -27,11 +27,21 @@
 <body>
     <div class="grid-container">
         @include('components.adminNavbar')
-
         <section class="info-container">
+            @if (session('success'))
+                <div class="alert alert-success fade-in-out">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            @if (session('error'))
+                <div class="alert alert-danger fade-in-out">
+                    {{ session('error') }}
+                </div>
+            @endif
             <div class="info-content">
                 <h2>Show Schedule</h2>
-                @include('components.adminScheduleSearch')
+                @include('components.adminsearch')
                 <a href="{{url('scheduleArchive')}}"><button type="button" class="add-btn"><i class="fa-solid fa-box-archive side-bar-icon" style= "color: #ECECEC"></i></button></a>
                 <a href="{{url('addSchedule')}}"><button type="button" class="add-btn"><i class="fa-solid fa-plus side-bar-icon" style=" color: #ECECEC "></i></button></a>
             </div>
@@ -55,24 +65,26 @@
 
                         @foreach ($schedules as $schedule)
                         <tr>
-                            <td data-cell='Location'>{{$schedule->location->location_name}}</td>
-                            <td data-cell='Cinema'>{{$schedule->cinema->cinema_number}}</td>
-                            <td data-cell='Movie'>{{$schedule->movie->MovieTitle}}</td>
-                            <td data-cell='Time Start'>{{$schedule->time_start}}</td>
-                            <td data-cell='Time End'>{{$schedule->time_end}}</td>
-                            <td data-cell='Date'>{{$schedule->date_schedule}}</td>
-                            <td data-cell='Price'>{{$schedule->price}}</td>                                 
+                            <td data-cell='Location'>{{ $schedule->location->location_name }}</td>
+                            <td data-cell='Cinema'>{{ $schedule->cinema->cinema_number }}</td>
+                            <td data-cell='Movie'>{{ optional($schedule->movie)->MovieTitle }}</td>
+                            <td data-cell='Time Start'>{{ \Carbon\Carbon::parse($schedule->time_start)->format('h:i A') }}</td>
+                            <td data-cell='Time End'>{{ \Carbon\Carbon::parse($schedule->time_end)->format('h:i A') }}</td>
+                            <td data-cell='Date'>{{ $schedule->date_schedule }}</td>
+                            <td data-cell='Price'>{{ $schedule->price }}</td>
                             <td>
                                 <div class="action-btn-container">
-                                    <a href="{{url('editSchedule', $schedule->id)}}"><button type="button" class="action-btn edit-btn"><i
-                                        class="fa-solid fa-pen action-btn"></i></button></a>
-                                    <a href="{{url('deleteSchedule', $schedule->id)}}"><button type="button" class="action-btn del-btn"><i
-                                        class="fa-solid fa-trash action-btn"></i></button></a>
+                                    <a href="{{ url('editSchedule', $schedule->id) }}"><button type="button"
+                                            class="action-btn edit-btn"><i
+                                                class="fa-solid fa-pen action-btn"></i></button></a>
+                                    <a href="{{ url('deleteSchedule', $schedule->id) }}"><button type="button"
+                                            class="action-btn del-btn"><i
+                                                class="fa-solid fa-trash action-btn"></i></button></a>
                                 </div>
                             </td>
                         </tr>
-                        @endforeach
-                       
+                    @endforeach           
+
                     </tbody>
                 </table>
             </div>
@@ -81,7 +93,7 @@
     </section>
     </div>
     <script src='jsfile/homepage.js'></script>
-    
+
 </body>
 
 </html>

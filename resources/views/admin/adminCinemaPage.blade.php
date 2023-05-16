@@ -25,6 +25,22 @@
     <div class="grid-container">
         @include('components.adminNavbar')
         <section class="info-container">
+            @if (session('success'))
+            <div class="alert alert-success fade-in-out ">
+                {{ session('success') }}
+            </div>
+        @endif
+    
+        @if (session('error'))
+            <div class="alert alert-danger fade-in-out ">
+                {{ session('error') }}
+            </div>
+        @endif
+        @if (session('fail'))
+            <div class="alert alert-danger fade-in-out">
+                {{ session('fail') }}
+            </div>
+        @endif
             <div class="info-content">
                 <h2>Cinemas</h2>
 

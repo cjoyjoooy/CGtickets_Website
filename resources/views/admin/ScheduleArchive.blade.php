@@ -30,8 +30,16 @@
 <body>
     <div class="grid-container">
         @include('components.adminNavbar')
-
         <section class="info-container">
+            @if (Session::has('success'))
+            <div class="alert alert-success fade-in-out">{{ Session::get('success') }}</div>
+        @endif
+        @if (Session::has('fail'))
+            <div class="alert alert-danger fade-in-out">{{ Session::get('fail') }}</div>
+        @endif 
+        @if (Session::has('error'))
+        <div class="alert alert-danger fade-in-out">{{ Session::get('error') }}</div>
+    @endif 
             <div class="info-content">
                 <h2>Schedule Archives</h2>
                 @include('components.adminsearch')
@@ -57,7 +65,7 @@
                             <tr>
                                 <td data-cell='Location'>{{$schedule->location->location_name}}</td>
                                 <td data-cell='Cinema'>{{$schedule->cinema->cinema_number}}</td>
-                                <td data-cell='Movie'>{{$schedule->movie->MovieTitle}}</td>
+                                <td data-cell='Movie'> {{ optional($schedule->movie)->MovieTitle }}</td>
                                 <td data-cell='Time Start'>{{$schedule->time_start}}</td>
                                 <td data-cell='Time End'>{{$schedule->time_end}}</td>
                                 <td data-cell='Date'>{{$schedule->date_schedule}}</td>

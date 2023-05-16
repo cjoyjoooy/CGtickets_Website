@@ -37,6 +37,19 @@ span{
     padding-left: 10px;
 }
 
+#charges{
+    width: 100%;
+    min-width: 30px;
+    border: none;
+    cursor:default;
+    background-color: transparent;
+
+}
+#charges:focus, #charges:active{
+    border: none;
+outline: none;
+}
+
 
 /* personal details */
 

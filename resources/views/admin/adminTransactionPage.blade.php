@@ -35,7 +35,7 @@
                                 <th>Transaction ID</th>
                                 <th>Date</th>
                                 <th>Customer ID</th>                                
-                                <th>Movie</th>
+                                <th>Schedule ID</th>
                                 <th>Quantity</th>
                                 <th>Payment ID</th>
                                 <th>Total</th>
@@ -43,52 +43,17 @@
                             </tr>
                         </thead>
                         <tbody>
-
+                            @foreach ($transactions as $transaction)                                
                             <tr>
-                                <td data-cell='Transaction ID'>001</td>
-                                <td data-cell='Date'>12/22/23</td>
-                                <td data-cell='Customer ID'>C001</td>
-                                <td data-cell='Movie'>Avatar</td>
-                                <td data-cell='Quantity'>5</td>
-                                <td data-cell='Payment ID'>P01</td>
-                                <td data-cell='Total'>299</td>
+                                <td data-cell='Transaction ID'>{{$transaction->id}}</td>
+                                <td data-cell='Date'>{{$transaction->date}}</td>
+                                <td data-cell='Customer ID'>{{$transaction->customer_id}}</td>
+                                <td data-cell='Schedule ID'>{{$transaction->schedule_id}}</td>
+                                <td data-cell='Quantity'>{{$transaction->quantity}}</td>
+                                <td data-cell='Payment ID'>{{$transaction->payment_id}}</td>
+                                <td data-cell='Total'>{{$transaction->total}}</td>
                             </tr>
-                            <tr>
-                                <td data-cell='Transaction ID'>001</td>
-                                <td data-cell='Date'>12/22/23</td>
-                                <td data-cell='Customer ID'>C001</td>
-                                <td data-cell='Movie'>Avatar</td>
-                                <td data-cell='Quantity'>5</td>
-                                <td data-cell='Payment ID'>P01</td>
-                                <td data-cell='Total'>299</td>
-                            </tr>
-                            <tr>
-                                <td data-cell='Transaction ID'>001</td>
-                                <td data-cell='Date'>12/22/23</td>
-                                <td data-cell='Customer ID'>C001</td>
-                                <td data-cell='Movie'>Avatar</td>
-                                <td data-cell='Quantity'>5</td>
-                                <td data-cell='Payment ID'>P01</td>
-                                <td data-cell='Total'>299</td>
-                            </tr>
-                            <tr>
-                                <td data-cell='Transaction ID'>001</td>
-                                <td data-cell='Date'>12/22/23</td>
-                                <td data-cell='Customer ID'>C001</td>
-                                <td data-cell='Movie'>Avatar</td>
-                                <td data-cell='Quantity'>5</td>
-                                <td data-cell='Payment ID'>P01</td>
-                                <td data-cell='Total'>299</td>
-                            </tr>
-                            <tr>
-                                <td data-cell='Transaction ID'>001</td>
-                                <td data-cell='Date'>12/22/23</td>
-                                <td data-cell='Customer ID'>C001</td>
-                                <td data-cell='Movie'>Avatar</td>
-                                <td data-cell='Quantity'>5</td>
-                                <td data-cell='Payment ID'>P01</td>
-                                <td data-cell='Total'>299</td>
-                            </tr>     
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
