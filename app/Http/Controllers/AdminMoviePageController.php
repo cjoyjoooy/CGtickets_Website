@@ -107,5 +107,28 @@ class adminMoviePageController extends Controller
         
         return view('admin.MovieArchive', compact('movies'));
     }
+    public function movieSearch(){
+        $movies = Movie::select('MovieTitle')->get();
+        $data = [];
 
+        foreach ($movies as $movie){
+            $data[] = $movie['MovieTitle'];
+        }
+
+        return response()->json($data);
+        }
+    
+    public function searchmovie(Request $request){
+        $searchmovie=$request->searchmovie;
+
+        if($searchmovie != ""){
+            $movies = Movie::where("MovieTitle", "LIKE", "%$searchmovie%")->get();
+            return view('admin.adminMoviesPage', compact('movies'));
+        }
+        else{
+            return redirect()->back();
+        }
+    }
 }
+
+
