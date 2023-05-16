@@ -106,6 +106,9 @@ Route::get('/ticket/{transactionId}/{name}/{quantity}/{totalAmount}/{scheduleID}
 [TicketController::class, 'index'])->name('Ticket');
 Route::get('/barcode/{code}', [TicketController::class, 'bcode']);
 
+Route::get('/payment/show/{id}', 'PaymentController@show')->name('payment.show');
+
+
 // Route::get('/Ticket', [TicketController::class, 'index'])->name('Ticket');
 
 // Route::resource('Payment', PaymentController::class);

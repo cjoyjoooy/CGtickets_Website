@@ -38,6 +38,17 @@
                     </div>
                 </div>
             </section>
+            <section class="details-container">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+            </section>
             <form action="{{ url('insertData') }}" method="POST" class="details-container">
                 @csrf
                 <h2>Personal Details</h2>
@@ -45,28 +56,27 @@
                     <input type="text" name="scheduleID" id="scheduleID" value="{{ $scheduledatas->id }}" hidden>
                     <input type="text" name="totalAmount" id="charges" hidden>
                     <input type="text" name="quantity" id="quantities" hidden>
-
                 </div>
                 <div class="input-box">
                     <label for="name">Name</label>
-                    <input type="text" name="name" id="name" required>
+                    <input type="text" name="name" id="name" required value="{{ old('name') ?? '' }}">
                 </div>
                 <div class="input-box">
                     <label for="email">Email</label>
-                    <input type="email" name="email" id="email" required>
+                    <input type="email" name="email" id="email" required value="{{ old('email') ?? '' }}">
                 </div>
                 <div class="input-box">
                     <label for="phone">Phone Number</label>
-                    <input type="text" name="phone" id="phone" required>
+                    <input type="text" name="phone" id="phone" required value="{{ old('phone') ?? '' }}">
                 </div>
                 <h2>Card Details</h2>
                 <div class="input-box">
                     <label for="cardname">Card Holder Name</label>
-                    <input type="text" name="cardname" id="cardname" required>
+                    <input type="text" name="cardname" id="cardname" required value="{{ old('cardname') ?? '' }}">
                 </div>
                 <div class="input-box">
                     <label for="CardNum">Credit Card Number</label>
-                    <input type="text" name="CardNum" id="CardNum" required>
+                    <input type="text" name="CardNum" id="CardNum" required value="{{ old('CardNum') ?? '' }}">
                 </div>
                 <div class="input-box">
                     <label for="cvc">CVC/CVV2</label>
