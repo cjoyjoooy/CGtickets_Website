@@ -51,8 +51,6 @@
     </div>
     <script src={{ asset('jsfile/homepage.js') }}></script>
     <script>
-        //   search suggestions
-
         $(function() {
             $.ajax({
                 method: "GET",
@@ -60,10 +58,44 @@
                 success: function(response) {
                     var availableTags = response;
                     $("#filter").autocomplete({
-                        source: availableTags
+                        source: availableTags,
+                        select: function(event, ui) {
+                            filterMovies(ui.item.value); // Filter movies based on selected suggestion
+                        }
+                    });
+    
+                    $('#filter').on('keyup', function(event) {
+                        if (event.keyCode === 13) {
+                            filterMovies($(this).val()); // Filter movies when Enter key is pressed
+                        }
                     });
                 }
             });
+    
+            function filterMovies(filter) {
+                var movies = {!! json_encode($movies) !!};
+                var filteredMovies = movies.filter(function(movie) {
+                    return movie.MovieTitle.toLowerCase().includes(filter.toLowerCase());
+                });
+    
+                var movieList = $('.movie-list');
+                movieList.empty();
+    
+                if (filteredMovies.length === 0) {
+                    movieList.append('<div class="notfound"><img src="/IT26-FINALPROJECT/resource/NotFound.png" alt=""></div>');
+                } else {
+                    $.each(filteredMovies, function(index, movie) {
+                        var movieItem = '<div class="grid-item movie-item">' +
+                            '<a href="' + '{{ url('ShowTimes') }}/' + movie.id + '">' +
+                            '<img src="{{ asset('/uploads/') }}/' + movie.MoviePoster + '" class="movie-img" alt="Movie Poster">' +
+                            '</a>' +
+                            '<p class="movie-title">' + movie.MovieTitle + '</p>' +
+                            '</div>';
+    
+                        movieList.append(movieItem);
+                    });
+                }
+            }
         });
     </script>
 
