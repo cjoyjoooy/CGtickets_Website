@@ -52,65 +52,65 @@
     <script src={{ asset('jsfile/homepage.js') }}></script>
     <script>
         //   search suggestions
-        
-        $( function() {
-          $.ajax({
-            method: "GET",
-            url: "movielist",
-            success: function(response) {
-              var availableTags = response;
-              $( "#filter" ).autocomplete({
-                source: availableTags
-              });
-            }
-          });
-        });
-          </script>
 
-{{-- navigation bar active state--}}
-<script>
-    // Get the current URL path
-    const path = window.location.href;
-
-    // Find the corresponding navigation link and add the 'active' class
-    const homeLink = document.getElementById('home-link');
-    const moviesLink = document.getElementById('movies-link');
-    
-    if (path.endsWith('/Homepage') || path.endsWith('/Homepage#')) {
-        homeLink.classList.add('active');
-    } else if (path.endsWith('/Homepage#movies')) {
-        moviesLink.classList.add('active');
-    }
-
-    // Add event listeners to links
-    const links = document.querySelectorAll('.menu-items a');
-    links.forEach(link => {
-        link.addEventListener('click', (event) => {
-            // Remove the 'active' class from all links
-            links.forEach(link => {
-                link.classList.remove('active');
+        $(function() {
+            $.ajax({
+                method: "GET",
+                url: "movielist",
+                success: function(response) {
+                    var availableTags = response;
+                    $("#filter").autocomplete({
+                        source: availableTags
+                    });
+                }
             });
-            // Add the 'active' class to the clicked link
-            event.target.classList.add('active');
         });
-    });
+    </script>
 
-    // Get all the menu links
-    const menuLinks = document.querySelectorAll('.side-menu-items a');
+    {{-- navigation bar active state --}}
+    <script>
+        // Get the current URL path
+        const path = window.location.href;
 
-    // Loop through the menu links and add a click event listener to each
-    menuLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            // Remove the active class from all menu links
-            menuLinks.forEach(link => {
-                link.classList.remove('active');
+        // Find the corresponding navigation link and add the 'active' class
+        const homeLink = document.getElementById('home-link');
+        const moviesLink = document.getElementById('movies-link');
+
+        if (path.endsWith('/Homepage') || path.endsWith('/Homepage#')) {
+            homeLink.classList.add('active');
+        } else if (path.endsWith('/Homepage#movies')) {
+            moviesLink.classList.add('active');
+        }
+
+        // Add event listeners to links
+        const links = document.querySelectorAll('.menu-items a');
+        links.forEach(link => {
+            link.addEventListener('click', (event) => {
+                // Remove the 'active' class from all links
+                links.forEach(link => {
+                    link.classList.remove('active');
+                });
+                // Add the 'active' class to the clicked link
+                event.target.classList.add('active');
             });
-
-            // Add the active class to the clicked link
-            link.classList.add('active');
         });
-    });
-</script>
+
+        // Get all the menu links
+        const menuLinks = document.querySelectorAll('.side-menu-items a');
+
+        // Loop through the menu links and add a click event listener to each
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Remove the active class from all menu links
+                menuLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+
+                // Add the active class to the clicked link
+                link.classList.add('active');
+            });
+        });
+    </script>
 </body>
 
 </html>

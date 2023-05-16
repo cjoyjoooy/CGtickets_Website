@@ -53,6 +53,9 @@ outline: none;
 
 /* personal details */
 
+h2{
+    margin-top: 10px;
+}
 
 
 .details-container{
@@ -87,6 +90,11 @@ outline: none;
 
 .input-box :nth-child(2):focus{
     background-color: #3f4a5c37;
+}
+
+.action-button-container {
+    margin-top: 20px;
+    margin-bottom: 50px;
 }
 @media screen and (min-width: 800px){
     .content-container{
