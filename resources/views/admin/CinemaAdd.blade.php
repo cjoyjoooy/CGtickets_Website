@@ -12,6 +12,22 @@
 
 <body>
     <div class="body-container">
+        @if (session('success'))
+        <div class="alert alert-success fade-in-out ">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if (session('error'))
+        <div class="alert alert-danger fade-in-out ">
+            {{ session('error') }}
+        </div>
+    @endif
+    @if (session('fail'))
+        <div class="alert alert-danger fade-in-out">
+            {{ session('fail') }}
+        </div>
+    @endif
         <form action="{{ url('insertCinema') }}" method="POST">
             @csrf
             <h2>Add Cinema</h2>
@@ -30,9 +46,14 @@
             <div class="input-box">
                 <label for="Seat">Number of Seat</label>
                 <input type="text" name="seat_num" id="Seat" required>
+                @if ($errors->any())
+                        <span class="message alert alert-danger fade-in-out ">
+                            {{ $errors->first() }}
+                        </span>
+                    @endif
             </div>
             <div class="input-box button-container">
-                <a href='{{ url()->previous() }}' class="btn"><button type="button" class="btn btn-cancel"
+                <a href='{{ url('AdminCinema') }}' class="btn"><button type="button" class="btn btn-cancel"
                         data-dismiss="modal">Cancel</button></a>
                 <input type="submit" name="submit" value="Add" class="btn btn-add">
             </div>

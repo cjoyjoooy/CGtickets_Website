@@ -13,8 +13,29 @@
 
 <body>
     <div class="body-container">
+        @if (session('success'))
+        <div class="alert alert-success fade-in-out ">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    {{-- @if (session('error'))
+        <div class="alert alert-danger fade-in-out ">
+            {{ session('error') }}
+        </div>
+    @endif --}}
+    @if (session('fail'))
+        <div class="alert alert-danger fade-in-out">
+            {{ session('fail') }}
+        </div>
+    @endif
         <form action="{{url('updateSchedule',$scheduledata->id)}}" method="post">
             @csrf
+            @if (session('error'))
+            <div class="alert alert-danger fade-in-out " style="text-align: center;">
+                {{ session('error') }}
+            </div>
+        @endif 
             <h2>Edit SCHEDULE</h2>
             <div class="input-group">
                 <div class="input-box">
@@ -48,6 +69,11 @@
                 <div class="input-box">
                     <label for="price">Price </label>
                     <input type="text" id="price" name="price" value="{{$scheduledata->price}}">
+                    @if ($errors->any())
+                    <span class="message alert alert-danger fade-in-out ">
+                        {{ $errors->first() }}
+                    </span>
+                @endif
                 </div>
             </div>
             <div class="input-group">
@@ -65,7 +91,7 @@
                 </div>
             </div>
             <div class="input-box button-container">
-                <a href="{{url()->previous()}}" class="btn"><button type="button" class="btn btn-cancel">Cancel</button></a>
+                <a href="{{url('AdminShowSchedule')}}" class="btn"><button type="button" class="btn btn-cancel">Cancel</button></a>
                 <input type="submit" name="submit" value="Edit" class="btn btn-add">
             </div>
         </form>

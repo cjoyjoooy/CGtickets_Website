@@ -25,23 +25,40 @@ class adminMoviePageController extends Controller
         return view('admin.MovieAdd');
     }
 
-    public function insertMovie(Request $request){
-            // any variable = new Modelname 
-        $moviedata = new Movie;
+    public function insertMovie(Request $request)
+{
+    // Validate the uploaded image
+    $request->validate([
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    ]);
 
-        //variable->table comlumn name = $request-> name sa input box
-        $moviedata-> MovieTitle = $request->title;
-        $moviedata-> MovieDescription = $request->description;
-        $moviedata-> Genre = $request->genre;
-        $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-        $imagename=time().'.'.$request->image->extension();
-        $request->image->move('uploads',$imagename);
-        $moviedata->MoviePoster =$imagename;
-            $moviedata->save();
-            return redirect('AdminMovie') -> with('success', 'Movie added successfully.');      
+    // Create a new instance of the Movie model
+    $moviedata = new Movie;
+
+    // Assign values to the object's properties from the request data
+    $moviedata->MovieTitle = $request->title;
+    $moviedata->MovieDescription = $request->description;
+    $moviedata->Genre = $request->genre;
+
+    // Move the uploaded image to the 'uploads' directory
+    $imagename = time().'.'.$request->image->extension();
+    if ($request->image->move('uploads', $imagename)) {
+        // Set the image filename to the MoviePoster property
+        $moviedata->MoviePoster = $imagename;
+
+        // Save the movie data
+        if ($moviedata->save()) {
+            return redirect('AdminMovie')->with('success', 'Movie added successfully.');
+        } else {
+            return back()->with('fail', 'Movie added unsuccessfully.');
+        }
+    } else {
+        return back()->with('fail', 'Failed uploading the image.');
     }
+}
+
+
+
     public function editMovie($id)
     {
         $moviedata = Movie::find($id);
@@ -65,8 +82,7 @@ class adminMoviePageController extends Controller
             $file->move('uploads',$imagename);
             $moviedata->MoviePoster = $imagename;
         }
-        if($moviedata){
-            $moviedata->update();
+        if($moviedata->update()){    
             return redirect(url('AdminMovie'))-> with('success', 'Movie Updated successfully.');
         }else{
             return back()-> with('fail', 'Movie Updated Unsuccessfully.');

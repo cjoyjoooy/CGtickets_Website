@@ -38,11 +38,12 @@
                 <div class="info-content-container">
                     <div class="info-group">
                         <p>Date</p>
-                        <p>{{$schedule->date_schedule}}</p>
+                        
+                        <p>{{ \Carbon\Carbon::parse($schedule->date_schedule)->format('F d, Y') }}</p>
                     </div>
                     <div class="info-group">
                         <p>Time</p>
-                        <p>{{$schedule->time_start}}- {{$schedule->time_end}}</p>
+                        <p>{{ \Carbon\Carbon::parse($schedule->time_start)->format('h:i A') }} - {{ \Carbon\Carbon::parse($schedule->time_end)->format('h:i A') }}</p>
                     </div>
                 </div>
             </div>

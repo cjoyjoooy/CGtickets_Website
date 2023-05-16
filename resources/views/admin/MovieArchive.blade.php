@@ -16,7 +16,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- fontaawesome link sa bago na button -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
     <!-- page css  -->
     <link rel="stylesheet" href="css/adminTableStyle.css">
@@ -29,19 +30,21 @@
     <div class="grid-container">
         @include('components.adminNavbar')
         <section class="info-container">
-          @if (Session::has('success'))
-          <div class="alert alert-success fade-in-out">{{ Session::get('success') }}</div>
-      @endif
-      @if (Session::has('fail'))
-          <div class="alert alert-danger fade-in-out">{{ Session::get('fail') }}</div>
-      @endif 
+            @if (Session::has('success'))
+                <div class="alert alert-success fade-in-out">{{ Session::get('success') }}</div>
+            @endif
+            @if (Session::has('fail'))
+                <div class="alert alert-danger fade-in-out">{{ Session::get('fail') }}</div>
+            @endif
+            @if (Session::has('error'))
+                <div class="alert alert-danger fade-in-out">{{ Session::get('error') }}</div>
+            @endif
             <div class="info-content">
                 <h2>Movie Archives</h2>
-                @if (session('error'))
-                  <div class="alert alert-danger">{{ session('error') }}</div>
-                @endif
                 @include('components.adminsearch')
-                <a href="{{ url('AdminMovie') }}"><button type="button" class="back-btn"><i class="fa-solid fa-arrow-left back side-bar-icon" style= "color: #ECECEC"></i> back</button></a>
+                <a href="{{ url('AdminMovie') }}"><button type="button" class="back-btn"><i
+                            class="fa-solid fa-arrow-left back side-bar-icon" style="color: #ECECEC"></i>
+                        back</button></a>
             </div>
             <div class="table-responsive">
                 <table class="table table-striped table-hover">
@@ -56,26 +59,27 @@
                         </tr>
                     </thead>
                     <tbody class="movielist">
-                      @foreach ($movies as $movie)
-                        <tr class="movielist-item">
-                                
-                          <td data-cell='Movie ID'>{{$movie->id}}</td>
-                          <td data-cell='Movie Poster'><img src="{{ asset('/uploads/'.$movie->MoviePoster) }}" class="poster" alt="Movie Poster"></td>
-                          <td data-cell='Title'>{{$movie->MovieTitle}}</td>
-                          <td data-cell='Genre'>{{$movie->Genre}}</td>
-                          <td data-cell='Description'>{{$movie->MovieDescription}}</td>
-                          <td>
-                            <div class='action-btn-container'>
-                              <a href="{{url('movieRestore', $movie->id)}}"><button type='button'
-                                class='action-btn restore-btn'><i
-                                    class="fa-solid fa-rotate action-btn"
-                                    style="color:#ECECEC;"></i></button>
-                              <a href="{{url('deletemovie', $movie->id)}}"><button type='button' class='action-btn del-btn'><i
-                                class='fa-solid fa-trash action-btn'></i></button></a>
-                              </div>
-                            </td>
-                          </tr>
-                          @endforeach
+                        @foreach ($movies as $movie)
+                            <tr class="movielist-item">
+
+                                <td data-cell='Movie ID'>{{ $movie->id }}</td>
+                                <td data-cell='Movie Poster'><img src="{{ asset('/uploads/' . $movie->MoviePoster) }}"
+                                        class="poster" alt="Movie Poster"></td>
+                                <td data-cell='Title'>{{ $movie->MovieTitle }}</td>
+                                <td data-cell='Genre'>{{ $movie->Genre }}</td>
+                                <td data-cell='Description'>{{ $movie->MovieDescription }}</td>
+                                <td>
+                                    <div class='action-btn-container'>
+                                        <a href="{{ url('movieRestore', $movie->id) }}"><button type='button'
+                                                class='action-btn restore-btn'><i class="fa-solid fa-rotate action-btn"
+                                                    style="color:#ECECEC;"></i></button>
+                                            <a href="{{ url('deletemovie', $movie->id) }}"><button type='button'
+                                                    class='action-btn del-btn'><i
+                                                        class='fa-solid fa-trash action-btn'></i></button></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -89,5 +93,3 @@
 </body>
 
 </html>
-
-

@@ -54,11 +54,11 @@
                     </div>
                     @foreach ($dates->where('location_id', $locationId) as $date)
                         <div class="show-info-container">
-                            <h5>{{ $date->date_schedule }}</h5>
+                            <h5>{{ \Carbon\Carbon::parse($date->date_schedule)->format('F d, Y') }}</h5>
                             <div class="show-times">
                                 @foreach ($schedules->where('date_schedule', $date->date_schedule)->where('location_id', $locationId) as $schedule)
                                     <a href="{{url('TicketDetails', $schedule->id)}}"><button
-                                            class="time-btn">{{ $schedule->time_start }}</button></a>
+                                            class="time-btn">{{ \Carbon\Carbon::parse( $schedule->time_start)->format('h:i A') }}</button></a>
                                 @endforeach
                             </div>
                         </div>

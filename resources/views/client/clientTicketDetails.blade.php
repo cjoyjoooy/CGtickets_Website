@@ -33,11 +33,12 @@
                         <span>Movie:</span><span>{{ $scheduledatas->movie->MovieTitle }}</span>
                     </div>
                     <div class="movielist-info">
-                        <span>Date:</span> <span>{{ $scheduledatas->date_schedule }}</span>
+                        <span>Date:</span> <span>{{ \Carbon\Carbon::parse($scheduledatas->date_schedule )->format('F d, Y') }}</span>
                     </div>
                     <div class="movielist-info">
-                        <span>Time:</span> <span>{{ $scheduledatas->time_start }} -
-                            {{ $scheduledatas->time_end }}</span>
+                        <span>Time:</span> <span>{{ \Carbon\Carbon::parse($scheduledatas->time_start)->format('h:i A') }} -
+                            {{ \Carbon\Carbon::parse($scheduledatas->time_end)->format('h:i A') }}</span>
+                           
                     </div>
                     <div class="movielist-info">
                         <span>Cinema:</span> <span>{{ $scheduledatas->cinema->cinema_number }}</span>

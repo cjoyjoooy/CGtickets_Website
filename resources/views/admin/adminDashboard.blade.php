@@ -44,7 +44,7 @@
           </div>
           <div class="dashboard-grid-item">
             <div class="item-content">
-              <h1><i class="fa-solid fa-sack-dollar"></i><span>N/A</span></h1>
+              <h1><i class="fa-solid fa-sack-dollar"></i><span>{{$dailySales}}</span></h1>
               <div>Sales</div>
             </div>
           </div>
@@ -72,7 +72,7 @@
                 <td data-cell='Movie Title'>{{$scheduledata->movie->MovieTitle}}</td>
                 <td data-cell='Location'>{{$scheduledata->location->location_name}}</td>
                 <td data-cell='Cinema'>{{$scheduledata->cinema->cinema_number}}</td>
-                <td data-cell='Time'>{{$scheduledata->time_start}}</td>
+                <td data-cell='Time'>{{ \Carbon\Carbon::parse($scheduledata->time_start)->format('h:i A') }}</td>
                 <td data-cell='Date'>{{$scheduledata->date_schedule}}</td>
               </tr>
             @endforeach
