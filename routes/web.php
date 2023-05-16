@@ -104,9 +104,11 @@ Route::get('/Payment/{id}', [PaymentController::class, 'show']);
 Route::post('/insertData', [PaymentController::class, 'insertData']);
 Route::get('/ticket/{transactionId}/{name}/{quantity}/{totalAmount}/{scheduleID}', 
 [TicketController::class, 'index'])->name('Ticket');
-Route::get('/barcode/{code}', [TicketController::class, 'bcode']);
+
 
 Route::get('/payment/show/{id}', 'PaymentController@show')->name('payment.show');
+
+Route::get('/generate-transaction-number', [TicketController::class, 'generateTransactionNumber']);
 
 
 // Route::get('/Ticket', [TicketController::class, 'index'])->name('Ticket');

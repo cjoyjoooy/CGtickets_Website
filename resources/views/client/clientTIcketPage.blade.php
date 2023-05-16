@@ -64,8 +64,8 @@
                         <p>{{$quantity}}</p>
                     </div>
                     <div class="info-group transaction-num">
-                        <p>{{$barcode}}</p>
                         <p>Transanction number</p>
+                        <p>{{$transactionNumber}}</p>
                     </div>
                 </div>
             </div>
