@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="css/adminComponents.css">
     <link rel="stylesheet" href="css/adminMoviesStyle.css">
     <link rel="stylesheet" href="css/adminShowScheduleStyle.css">
+     <!-- js -->
+     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <title>Show Schedule</title>
 </head>
 
@@ -41,7 +45,7 @@
             @endif
             <div class="info-content">
                 <h2>Show Schedule</h2>
-                @include('components.adminsearch')
+                @include('components.adminScheduleSearch')
                 <a href="{{url('scheduleArchive')}}"><button type="button" class="add-btn"><i class="fa-solid fa-box-archive side-bar-icon" style= "color: #ECECEC"></i></button></a>
                 <a href="{{url('addSchedule')}}"><button type="button" class="add-btn"><i class="fa-solid fa-plus side-bar-icon" style=" color: #ECECEC "></i></button></a>
             </div>
@@ -62,7 +66,7 @@
                         </tr>
                     </thead>
                     <tbody>
-
+                    @if ($schedules->count() > 0)
                         @foreach ($schedules as $schedule)
                         <tr>
                             <td data-cell='Location'>{{ $schedule->location->location_name }}</td>
@@ -83,7 +87,12 @@
                                 </div>
                             </td>
                         </tr>
-                    @endforeach           
+                    @endforeach 
+                    @else
+                <tr>
+                    <td colspan="8">No matching schedules found.</td>
+                </tr>
+            @endif          
 
                     </tbody>
                 </table>
@@ -93,6 +102,23 @@
     </section>
     </div>
     <script src='jsfile/homepage.js'></script>
+    <!-- <script>
+        //   search and suggestions
+        $(function() {
+            $.ajax({
+                method: "GET",
+                url: "schedSearch",
+                success: function(response) {
+                var availableTags = response;
+                $( "#searchsched" ).autocomplete({
+                    source: availableTags.map(function(item) {
+                    return item.location + ' - ' + item.cinema + ' - ' + item.movie;
+                    })
+                });
+                }
+            });
+        });
+          </script> -->
 
 </body>
 

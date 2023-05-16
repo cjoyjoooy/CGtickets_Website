@@ -186,4 +186,44 @@ class adminShowScheduleController extends Controller
 
     return view('admin.ScheduleArchive', compact('schedules'));
 }   
+//     public function searchsched()
+// {
+//             $schedules = Schedule::with(['location', 'cinema', 'movie'])->get();
+//             $data = [];
+
+//             foreach ($schedules as $schedule) {
+//                 $data[] = [
+//                     'location' => $schedule->location->location_name,
+//                     'cinema' => $schedule->cinema->cinema_number,
+//                     'movie' => $schedule->movie->MovieTitle,
+//                 ];
+//             }
+
+//             return response()->json($data);
+// }
+public function schedulesearch(Request $request){
+    $schedule = $request->input('searchsched');
+
+    if ($schedule != "") {
+        $schedules = Schedule::where(function ($query) use ($schedule) {
+            $query->whereHas('location', function ($query) use ($schedule) {
+                $query->where('location_name', 'LIKE', "%$schedule%");
+            })
+            ->orWhereHas('cinema', function ($query) use ($schedule) {
+                $query->where('cinema_number', 'LIKE', "%$schedule%");
+            })
+            ->orWhereHas('movie', function ($query) use ($schedule) {
+                $query->where('MovieTitle', 'LIKE', "%$schedule%");
+            })
+            ->orWhere("price", "LIKE", "%$schedule%")
+            ->orWhere(function ($q) use ($schedule) {
+                $q->where("time_end", "LIKE", "%$schedule%")
+                ->orWhere("time_start", "LIKE", "%$schedule%");});
+        })
+        ->get();
+        return view('admin.adminShowSchedule', compact('schedules'));
+    } else {
+        return redirect()->back();
+    }
+}
 }

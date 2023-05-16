@@ -90,6 +90,8 @@ Route::post('/updateSchedule/{id}',[AdminShowScheduleController::class,'updateSc
 Route::get('/deleteSchedule/{id}', [AdminShowScheduleController::class,'deleteSchedule'])->withTrashed();
 Route::get('/scheduleArchive',[AdminShowScheduleController::class,'scheduleArchive']);
 Route::get('/scheduleRestore/{id}',[AdminShowScheduleController::class,'scheduleRestore'])->withTrashed();
+Route::get('/schedSearch',[AdminShowScheduleController::class,'searchsched']);
+Route::post('/schedulesearch',[AdminShowScheduleController::class,'schedulesearch']);
 
 // ----------------CLIENT FUNCTION --------------------
 
@@ -100,7 +102,9 @@ Route::get('/movielist', [HomepageController::class, 'movielist']);
 
 Route::get('/Payment/{id}', [PaymentController::class, 'show']);
 Route::post('/insertData', [PaymentController::class, 'insertData']);
-Route::get('/ticket/{transactionId}/{name}/{quantity}/{totalAmount}/{scheduleID}', [TicketController::class, 'index'])->name('Ticket');
+Route::get('/ticket/{transactionId}/{name}/{quantity}/{totalAmount}/{scheduleID}', 
+[TicketController::class, 'index'])->name('Ticket');
+Route::get('/barcode/{code}', [TicketController::class, 'bcode']);
 
 // Route::get('/Ticket', [TicketController::class, 'index'])->name('Ticket');
 
