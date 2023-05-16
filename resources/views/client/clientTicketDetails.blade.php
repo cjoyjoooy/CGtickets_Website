@@ -47,7 +47,7 @@
                         <span>Location:</span> <span>{{ $scheduledatas->location->location_name }}</span>
                     </div>
                     <div class="movielist-info">
-                        <span id="seat-count">Seat Available:</span> <span>{{ $scheduledatas->cinema->seat_number }}</span>
+                        <span>Seat Available:</span> <span id="seatcount">{{ $scheduledatas->cinema->seat_number }}</span>
                     </div>
                 </div>
             </section>
@@ -103,11 +103,11 @@
     @include('components.footer')
     <script src={{ asset('jsfile/homepage.js') }}></script>
 
-    <!-- checks if seat number=0 button check out will not be clicked -->
-    <script>
+     <!-- checks if seat number=0 button check out will not be clicked -->
+     <script>
     // Get the necessary elements
     const quantityInput = document.getElementById('quantity-input');
-    const seatCount = document.getElementById('seat-count');
+    const seatCount = document.getElementById('seatcount');
     const checkoutButton = document.getElementById('checkout-button');
 
     // Function to update the seat count
@@ -122,13 +122,6 @@
         // Enable or disable checkout button based on seat count
         checkoutButton.disabled = (updatedSeatCount <= 0);
     }
-
-    // Set the initial values
-    setCharges();
-
-    // Event listener for quantity input changes
-    quantityInput.addEventListener('change', setCharges);
-    </script>
 
     {{-- pass the total to the payment page  --}}
 
