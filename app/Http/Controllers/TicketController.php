@@ -15,11 +15,13 @@ class TicketController extends Controller
     $totalAmount = $request->input('totalAmount');
     $schedule_id = $request->input('scheduleID');
     $schedules = Schedule::where('id', $schedule_id)->get();
-    
     $transactionNumber = $this->generateTransactionNumber();
 
+    // Update the seat number in the database
+    $this->updateSeatNumber($schedule_id, $quantity);
+
     return view('client.clientTicketPage', compact('transactionId', 'name', 'quantity', 
-    'totalAmount', 'schedule_id', 'schedules', 'transactionNumber'));
+        'totalAmount', 'schedule_id', 'schedules', 'transactionNumber'));
 }
 public function generateTransactionNumber()
     {
@@ -28,6 +30,15 @@ public function generateTransactionNumber()
         $transactionNumber = $prefix . $randomString;
         
         return $transactionNumber;
+    }
+    public function updateSeatNumber($schedule_id, $quantity)
+    {
+        $schedule = Schedule::find($schedule_id);
+        $availableSeats = $schedule->cinema->seat_number;
+        $updatedSeats = $availableSeats - $quantity;
+
+        $schedule->cinema->seat_number = $updatedSeats;
+        $schedule->cinema->save();
     }
 
 }
