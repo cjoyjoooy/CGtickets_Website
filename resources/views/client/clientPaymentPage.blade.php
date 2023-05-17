@@ -108,7 +108,7 @@
             var chargesElements = document.querySelectorAll('#charges');
             for (var i = 0; i < chargesElements.length; i++) {
                 chargesElements[i].value = charges;
-                console.log("session: " + charges);
+                console.log("charges: " + charges);
             }
 
             // Retrieve the quantity value from session storage

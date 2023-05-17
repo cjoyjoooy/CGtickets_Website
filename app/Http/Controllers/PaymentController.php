@@ -74,9 +74,9 @@ class PaymentController extends Controller
         'phone' => 'required|numeric',
         'cardname' => 'required|string|regex:/^[a-zA-Z\s]+$/',
         'CardNum' => 'required|numeric',
-        'quantity' => 'required|integer',
-        'totalAmount' => 'required|numeric',
-        'scheduleID' => 'required|integer'
+     
+   
+      
     ], [
         'name.required' => 'The name field is required.',
         'name.string' => 'The name field must be a string.',
@@ -90,12 +90,7 @@ class PaymentController extends Controller
         'cardname.regex' => 'The cardholder name field must contain only alphabetic characters.',
         'CardNum.required' => 'The card number field is required.',
         'CardNum.numeric' => 'The card number must be numeric.',
-        'quantity.required' => 'The quantity field is required.',
-        'quantity.integer' => 'The quantity must be an integer.',
-        'totalAmount.required' => 'The total amount field is required.',
-        'totalAmount.numeric' => 'The total amount must be numeric.',
-        'scheduleID.required' => 'The schedule ID field is required.',
-        'scheduleID.integer' => 'The schedule ID must be an integer.'
+    
     ]);
 
     if ($validator->fails()) {

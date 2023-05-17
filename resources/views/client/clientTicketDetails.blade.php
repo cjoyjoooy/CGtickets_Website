@@ -33,12 +33,14 @@
                         <span>Movie:</span><span>{{ $scheduledatas->movie->MovieTitle }}</span>
                     </div>
                     <div class="movielist-info">
-                        <span>Date:</span> <span>{{ \Carbon\Carbon::parse($scheduledatas->date_schedule )->format('F d, Y') }}</span>
+                        <span>Date:</span>
+                        <span>{{ \Carbon\Carbon::parse($scheduledatas->date_schedule)->format('F d, Y') }}</span>
                     </div>
                     <div class="movielist-info">
-                        <span>Time:</span> <span>{{ \Carbon\Carbon::parse($scheduledatas->time_start)->format('h:i A') }} -
+                        <span>Time:</span>
+                        <span>{{ \Carbon\Carbon::parse($scheduledatas->time_start)->format('h:i A') }} -
                             {{ \Carbon\Carbon::parse($scheduledatas->time_end)->format('h:i A') }}</span>
-                           
+
                     </div>
                     <div class="movielist-info">
                         <span>Cinema:</span> <span>{{ $scheduledatas->cinema->cinema_number }}</span>
@@ -47,7 +49,8 @@
                         <span>Location:</span> <span>{{ $scheduledatas->location->location_name }}</span>
                     </div>
                     <div class="movielist-info">
-                        <span>Seat Available:</span> <span id="seatcount">{{ $scheduledatas->cinema->seat_number }}</span>
+                        <span>Seat Available:</span> <span
+                            id="seatcount">{{ $scheduledatas->cinema->seat_number }}</span>
                     </div>
                 </div>
             </section>
@@ -93,8 +96,8 @@
             </section>
             <div class="action-button-container">
                 <a href='{{ url('Homepage') }}'><button type="button" class="btn btn-cancel">Cancel</button></a>
-                <a href="{{ url('Payment', $scheduledatas->id) }}"><button type="button" id="checkout-button" class="btn btn-checkout"
-                        onclick="setCharges()">Checkout</button></a>
+                <a href="{{ url('Payment', $scheduledatas->id) }}"><button type="button" id="checkout-button"
+                        class="btn btn-checkout" onclick="setCharges()">Checkout</button></a>
             </div>
 
         </div>
@@ -103,266 +106,237 @@
     @include('components.footer')
     <script src={{ asset('jsfile/homepage.js') }}></script>
 
-     <!-- checks if seat number=0 button check out will not be clicked -->
-     <script>
+<!-- checks if seat number=0 button check out will not be clicked -->
+<script>
     // Get the necessary elements
     const quantityInput = document.getElementById('quantity-input');
     const seatCount = document.getElementById('seatcount');
     const checkoutButton = document.getElementById('checkout-button');
-
+  
     // Function to update the seat count
-    function setCharges() {
-        const quantity = quantityInput.value;
-        const seatAvailable = parseInt(seatCount.innerText);
-
-        // Update seat count
-        const updatedSeatCount = seatAvailable - quantity;
-        seatCount.innerText = updatedSeatCount;
-
-        // Enable or disable checkout button based on seat count
-        checkoutButton.disabled = (updatedSeatCount <= 0);
+    function updateSeatCount() {
+      const quantity = quantityInput.value;
+      const seatAvailable = parseInt(seatCount.innerText);
+  
+      // Update seat count
+      const updatedSeatCount = seatAvailable - quantity;
+      seatCount.innerText = updatedSeatCount;
+  
+      // Enable or disable checkout button based on seat count
+      checkoutButton.disabled = updatedSeatCount <= 0;
     }
+  
+    // pass the total to the payment page
+    function setCharges() {
+      var total = document.getElementById('total').value;
+      sessionStorage.setItem('charges', total);
+      console.log("session: " + total);
+    }
+  
+    // Storing the quantity value in session storage
+    var quantityInputValue = document.getElementById('quantity-input').value;
+    sessionStorage.setItem('quantity', quantityInputValue);
+    console.log("quantity: " + quantityInputValue);
+  
+    // Get the quantity input element
 
-    {{-- pass the total to the payment page  --}}
-
-    <script>
-        function setCharges() {
-            var total = document.getElementById('total').value;
-            sessionStorage.setItem('charges', total);
-            console.log("session: " + total);
+  
+    // Get the increment and decrement buttons
+    var decrementButton = document.querySelector('.ctrl__button--decrement');
+    var incrementButton = document.querySelector('.ctrl__button--increment');
+  
+    // Get the subtotal element
+    var subtotalElement = document.getElementById('subtotal');
+  
+    // Get the initial price value
+    var price = 10; // Replace with the actual price value
+  
+    // Calculate the initial subtotal
+    var subtotal = price;
+    var lastChanged = Date.now();
+  
+    // Define a debounce function to limit how frequently the calculation is performed
+    function debounce(func, delay) {
+      var timer;
+      return function () {
+        var context = this,
+          args = arguments;
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          func.apply(context, args);
+        }, delay);
+      };
+    }
+  
+    // Define a function to update the subtotal whenever the quantity value changes
+    function updateSubtotal() {
+      var quantity = quantityInput.value;
+      subtotal = price * quantity;
+      subtotalElement.textContent = subtotal;
+      console.log("price: " + price);
+      console.log("quantity: " + quantity);
+      console.log("subtotal: " + subtotal);
+      console.log(subtotalElement.textContent);
+      sessionStorage.setItem('quantity', quantity);
+    }
+  
+    // Update the subtotal whenever the quantity value changes, using the debounce function to limit the frequency
+    quantityInput.addEventListener(
+      'change',
+      debounce(function () {
+        var now = Date.now();
+        if (now - lastChanged > 300) {
+          lastChanged = now;
+          updateSubtotal();
         }
-
-        document.getElementById('checkout-button').addEventListener('click', setCharges);
-        // Storing the quantity value in session storage
-
-    </script>
-
-    <script>
-        
-        var quantityInput = document.getElementById('quantity-input').value;
-            sessionStorage.setItem('quantity', quantityInput);
-            console.log("quantity: " + quantityInput);
-    </script>
-    <!-- calculate subtotal -->
-    <script>
-        // Get the quantity input element
-        var quantityInput = document.getElementById('quantity-input');
-
-        // Get the increment and decrement buttons
-        var decrementButton = document.querySelector('.ctrl__button--decrement');
-        var incrementButton = document.querySelector('.ctrl__button--increment');
-
-        // Get the subtotal element
-        var subtotalElement = document.getElementById('subtotal');
-
-        // Get the initial price value
-        var price = {{ $scheduledatas->price }};
-
-        // Calculate the initial subtotal
-        var subtotal = price;
-        var lastChanged = Date.now();
-
-        // Define a debounce function to limit how frequently the calculation is performed
-        function debounce(func, delay) {
-            var timer;
-            return function() {
-                var context = this,
-                    args = arguments;
-                clearTimeout(timer);
-                timer = setTimeout(function() {
-                    func.apply(context, args);
-                }, delay);
-            };
-        }
-
-        // Define a function to update the subtotal whenever the quantity value changes
-        function updateSubtotal() {
-            var quantity = quantityInput.value;
-            subtotal = price * quantity;
-            subtotalElement.textContent = subtotal;
-            console.log("price: " + price)
-            console.log("quantity: " + quantity)
-            console.log("subtotal: " + subtotal)
-            console.log(subtotalElement.textContent)
-            sessionStorage.setItem('quantity', quantity);
-        }
-
-        // Update the subtotal whenever the quantity value changes, using the debounce function to limit the frequency
-        quantityInput.addEventListener('change', debounce(function() {
-            var now = Date.now();
-            if (now - lastChanged > 300) {
-                lastChanged = now;
-                updateSubtotal();
-            }
-        }, 500));
-        // Update the subtotal whenever the quantity value changes
-        quantityInput.addEventListener('input', function() {
-            var quantity = quantityInput.value;
-            subtotal = price * quantity;
-            subtotalElement.textContent = subtotal;
-        });
-
-
-        // Update the quantity whenever the increment or decrement buttons are clicked
-        decrementButton.addEventListener('click', function() {
-            var quantity = parseInt(quantityInput.value);
-            if (quantity > 1) {
-                quantityInput.value = quantity - 1;
-                quantityInput.dispatchEvent(new Event('change'));
-                console.log("price: " + price);
-                console.log("subtotal: " + subtotal);
-                console.log(subtotalElement.textContent);
-                console.log(quantity);
-            }
-        });
-
-        incrementButton.addEventListener('click', function() {
-            var quantity = parseInt(quantityInput.value);
-            quantityInput.value = quantity + 1;
-            quantityInput.dispatchEvent(new Event('change'));
-            console.log("price: " + price);
-            console.log("subtotal: " + subtotal);
-            console.log(subtotalElement.textContent);
-            console.log(quantity);
-
-        });
-    </script>
-    <!-- calculate total -->
-
-    <script>
-        var totalElement = document.getElementById('total');
-        var price = document.getElementById('price').innerText;
-
-        // Define the quantityInput variable
-        var quantityInput = document.getElementById('quantity-input');
-
-        // Calculate the initial total
-        var total = parseInt(price) + 20;
-
-        // Define the debounce function
-        function debounce(func, wait) {
-            var timeout;
-            return function executedFunction() {
-                var context = this;
-                var args = arguments;
-                var later = function() {
-                    timeout = null;
-                    func.apply(context, args);
-                };
-                clearTimeout(timeout);
-                timeout = setTimeout(later, wait);
-            };
-        }
-
-        // Wrap the event listener inside the debounce function
-        quantityInput.addEventListener('change', debounce(function() {
-            var quantity = quantityInput.value;
-            var subtotal = price * quantity;
-            var total = subtotal + 20;
-            totalElement.value = total;
-        }, 500));
-
-        // Display the initial total
+      }, 500)
+    );
+  
+    // Update the subtotal whenever the quantity value changes
+    quantityInput.addEventListener('input', function () {
+      var quantity = quantityInput.value;
+      subtotal = price * quantity;
+      subtotalElement.textContent = subtotal;
+    });
+  
+    // Update the quantity whenever the increment or decrement buttons are clicked
+    decrementButton.addEventListener('click', function () {
+      var quantity = parseInt(quantityInput.value);
+      if (quantity > 1) {
+        quantityInput.value = quantity - 1;
+        quantityInput.dispatchEvent(new Event('change'));
+        console.log("price: " + price);
+        console.log("subtotal: " + subtotal);
+        console.log(subtotalElement.textContent);
+        console.log(quantity);
+      }
+    });
+  
+    incrementButton.addEventListener('click', function () {
+      var quantity = parseInt(quantityInput.value);
+      quantityInput.value = quantity + 1;
+      quantityInput.dispatchEvent(new Event('change'));
+      console.log("price: " + price);
+      console.log("subtotal: " + subtotal);
+      console.log(subtotalElement.textContent);
+      console.log(quantity);
+    });
+  
+    var totalElement = document.getElementById('total');
+    var priceElement = document.getElementById('price');
+  
+    // Calculate the initial total
+    var total = parseInt(priceElement.innerText) + 20;
+  
+    // Wrap the event listener inside the debounce function
+    quantityInput.addEventListener(
+      'change',
+      debounce(function () {
+        var quantity = quantityInput.value;
+        var subtotal = price * quantity;
+        var total = subtotal + 20;
         totalElement.value = total;
-    </script>
-    <script>
-        // Get the total element
-        (function() {
-            'use strict';
-
-            function ctrls() {
-                var _this = this;
-
-                this.counter = 1;
-                this.els = {
-                    decrement: document.querySelector('.ctrl__button--decrement'),
-                    counter: {
-                        container: document.querySelector('.ctrl__counter'),
-                        num: document.querySelector('.ctrl__counter-num'),
-                        input: document.querySelector('.ctrl__counter-input')
-                    },
-                    increment: document.querySelector('.ctrl__button--increment')
-                };
-
-                this.decrement = function() {
-                    var counter = _this.getCounter();
-                    var nextCounter = (_this.counter > 1) ? --counter : counter;
-                    _this.setCounter(nextCounter);
-                };
-
-                this.increment = function() {
-                    var counter = _this.getCounter();
-                    var nextCounter = (counter < 9999999999) ? ++counter : counter;
-                    _this.setCounter(nextCounter);
-                };
-
-                this.getCounter = function() {
-                    return _this.counter;
-                };
-
-                this.setCounter = function(nextCounter) {
-                    _this.counter = nextCounter;
-                };
-
-                this.debounce = function(callback) {
-                    setTimeout(callback, 100);
-                };
-
-                this.render = function(hideClassName, visibleClassName) {
-                    _this.els.counter.num.classList.add(hideClassName);
-
-                    setTimeout(function() {
-                        _this.els.counter.num.innerText = _this.getCounter();
-                        _this.els.counter.input.value = _this.getCounter();
-                        _this.els.counter.num.classList.add(visibleClassName);
-
-                    }, 100);
-
-                    setTimeout(function() {
-                        _this.els.counter.num.classList.remove(hideClassName);
-                        _this.els.counter.num.classList.remove(visibleClassName);
-                    }, 1100);
-                };
-
-                this.ready = function() {
-                    _this.els.decrement.addEventListener('click', function() {
-                        _this.debounce(function() {
-                            _this.decrement();
-                            _this.render('is-decrement-hide', 'is-decrement-visible');
-                        });
-                    });
-
-                    _this.els.increment.addEventListener('click', function() {
-                        _this.debounce(function() {
-                            _this.increment();
-                            _this.render('is-increment-hide', 'is-increment-visible');
-                        });
-                    });
-
-                    _this.els.counter.input.addEventListener('input', function(e) {
-                        var parseValue = parseInt(e.target.value);
-                        if (!isNaN(parseValue) && parseValue >= 0) {
-                            _this.setCounter(parseValue);
-                            _this.render();
-                        }
-                    });
-
-                    _this.els.counter.input.addEventListener('focus', function(e) {
-                        _this.els.counter.container.classList.add('is-input');
-                    });
-
-                    _this.els.counter.input.addEventListener('blur', function(e) {
-                        _this.els.counter.container.classList.remove('is-input');
-                        _this.render();
-                    });
-                };
-            };
-
-            // init
-            var controls = new ctrls();
-            document.addEventListener('DOMContentLoaded', controls.ready);
-        })();
-    </script>
+      }, 500)
+    );
+  
+    // Display the initial total
+    totalElement.value = total;
+  
+    (function () {
+      'use strict';
+  
+      function ctrls() {
+        var _this = this;
+  
+        this.counter = 1;
+        this.els = {
+          decrement: document.querySelector('.ctrl__button--decrement'),
+          counter: {
+            container: document.querySelector('.ctrl__counter'),
+            num: document.querySelector('.ctrl__counter-num'),
+            input: document.querySelector('.ctrl__counter-input')
+          },
+          increment: document.querySelector('.ctrl__button--increment')
+        };
+  
+        this.decrement = function () {
+          var counter = _this.getCounter();
+          var nextCounter = _this.counter > 1 ? --counter : counter;
+          _this.setCounter(nextCounter);
+        };
+  
+        this.increment = function () {
+          var counter = _this.getCounter();
+          var nextCounter = counter < 9999999999 ? ++counter : counter;
+          _this.setCounter(nextCounter);
+        };
+  
+        this.getCounter = function () {
+          return _this.counter;
+        };
+  
+        this.setCounter = function (nextCounter) {
+          _this.counter = nextCounter;
+        };
+  
+        this.debounce = function (callback) {
+          setTimeout(callback, 100);
+        };
+  
+        this.render = function (hideClassName, visibleClassName) {
+          _this.els.counter.num.classList.add(hideClassName);
+  
+          setTimeout(function () {
+            _this.els.counter.num.innerText = _this.getCounter();
+            _this.els.counter.input.value = _this.getCounter();
+            _this.els.counter.num.classList.add(visibleClassName);
+          }, 100);
+  
+          setTimeout(function () {
+            _this.els.counter.num.classList.remove(hideClassName);
+            _this.els.counter.num.classList.remove(visibleClassName);
+          }, 1100);
+        };
+  
+        this.ready = function () {
+          _this.els.decrement.addEventListener('click', function () {
+            _this.debounce(function () {
+              _this.decrement();
+              _this.render('is-decrement-hide', 'is-decrement-visible');
+            });
+          });
+  
+          _this.els.increment.addEventListener('click', function () {
+            _this.debounce(function () {
+              _this.increment();
+              _this.render('is-increment-hide', 'is-increment-visible');
+            });
+          });
+  
+          _this.els.counter.input.addEventListener('input', function (e) {
+            var parseValue = parseInt(e.target.value);
+            if (!isNaN(parseValue) && parseValue >= 0) {
+              _this.setCounter(parseValue);
+              _this.render();
+            }
+          });
+  
+          _this.els.counter.input.addEventListener('focus', function (e) {
+            _this.els.counter.container.classList.add('is-input');
+          });
+  
+          _this.els.counter.input.addEventListener('blur', function (e) {
+            _this.els.counter.container.classList.remove('is-input');
+            _this.render();
+          });
+        };
+      }
+  
+      // init
+      var controls = new ctrls();
+      document.addEventListener('DOMContentLoaded', controls.ready);
+    })();
+  </script>
 </body>
 
 </html>
