@@ -52,6 +52,8 @@
     <script src={{ asset('jsfile/homepage.js') }}></script>
     <script>
         $(function() {
+            var searchFoundHeader = $('<h1 class="searchfound content-header">No movies found</h1>');
+
             $.ajax({
                 method: "GET",
                 url: "movielist",
@@ -63,27 +65,34 @@
                             filterMovies(ui.item.value); // Filter movies based on selected suggestion
                         }
                     });
-    
+
                     $('#filter').on('keyup', function(event) {
                         if (event.keyCode === 13) {
+                            event.preventDefault();
                             filterMovies($(this).val()); // Filter movies when Enter key is pressed
                         }
                     });
                 }
             });
-    
+
             function filterMovies(filter) {
                 var movies = {!! json_encode($movies) !!};
                 var filteredMovies = movies.filter(function(movie) {
                     return movie.MovieTitle.toLowerCase().includes(filter.toLowerCase());
                 });
-    
+
                 var movieList = $('.movie-list');
+                var notFoundContainer = $('.notfound');
                 movieList.empty();
-    
+                notFoundContainer.empty();
+
                 if (filteredMovies.length === 0) {
-                    movieList.append('<div class="notfound"><img src="/IT26-FINALPROJECT/resource/NotFound.png" alt=""></div>');
+                    if ($('.searchfound').length === 0) {
+                        movieList.parent().append(searchFoundHeader);
+                    }
                 } else {
+                    searchFoundHeader.remove();
+
                     $.each(filteredMovies, function(index, movie) {
                         var movieItem = '<div class="grid-item movie-item">' +
                             '<a href="' + '{{ url('ShowTimes') }}/' + movie.id + '">' +
@@ -91,9 +100,11 @@
                             '</a>' +
                             '<p class="movie-title">' + movie.MovieTitle + '</p>' +
                             '</div>';
-    
+
                         movieList.append(movieItem);
                     });
+
+                    notFoundContainer.remove();
                 }
             }
         });

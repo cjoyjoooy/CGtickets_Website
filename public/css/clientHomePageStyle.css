@@ -21,6 +21,9 @@
     color: #0B132B;
 }
 
+.searchfound{
+   margin-bottom:200px;
+}
 .search-btn{ 
     position: absolute;
     right: 0;

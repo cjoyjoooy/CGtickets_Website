@@ -69,10 +69,10 @@ class PaymentController extends Controller
     public function insertData(Request $request)
 {
     $validator = Validator::make($request->all(), [
-        'name' => 'required|string|alpha',
+        'name' => 'required|string|regex:/^[a-zA-Z\s]+$/',
         'email' => 'required|email',
         'phone' => 'required|numeric',
-        'cardname' => 'required|string|alpha',
+        'cardname' => 'required|string|regex:/^[a-zA-Z\s]+$/',
         'CardNum' => 'required|numeric',
         'quantity' => 'required|integer',
         'totalAmount' => 'required|numeric',
@@ -80,14 +80,14 @@ class PaymentController extends Controller
     ], [
         'name.required' => 'The name field is required.',
         'name.string' => 'The name field must be a string.',
-        'name.alpha' => 'The name field must contain only alphabetic characters.',
+        'name.regex' => 'The name field must contain only alphabetic characters.',
         'email.required' => 'The email field is required.',
         'email.email' => 'Please enter a valid email address.',
         'phone.required' => 'The phone number field is required.',
         'phone.numeric' => 'The phone number must be numeric.',
         'cardname.required' => 'The cardholder name field is required.',
         'cardname.string' => 'The cardholder name must be a string.',
-        'cardname.alpha' => 'The cardholder name must contain only alphabetic characters.',
+        'cardname.regex' => 'The cardholder name field must contain only alphabetic characters.',
         'CardNum.required' => 'The card number field is required.',
         'CardNum.numeric' => 'The card number must be numeric.',
         'quantity.required' => 'The quantity field is required.',
