@@ -27,7 +27,7 @@ use App\Http\Controllers\TicketController;
 */
 
 Route::get('/', function () {
-    return view('index', [HomepageController::class, 'index']);
+    return view('welcome');
 });
 Route::resource('login', AdminLoginController::class);
 Route::resource('signup', AdminSignUpController::class);
