@@ -16,6 +16,7 @@ class ShowTimesController extends Controller
      */
     public function index()
     {
+         return view('client.clientshowlistPage');
     }
     public function show($id)
     {
