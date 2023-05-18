@@ -35,6 +35,6 @@ class ShowTimesController extends Controller
             ->select('date_schedule','time_start','location_id','id')
             ->where('movie_id', $id)
             ->get();
-        return view('client.clientshowlistPage', compact('movies', 'locationIds', 'schedules', 'locationNames','dates'));
+        return view('client.clientshowlistPage', compact(['movies', 'locationIds', 'schedules', 'locationNames','dates']));
     }
 }
