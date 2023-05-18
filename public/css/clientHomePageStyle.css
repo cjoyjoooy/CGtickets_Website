@@ -18,7 +18,7 @@
     padding: 35px 20px 20px 20px;
     font-size: 1.5em;
     font-weight: 900;
-    color: #0B132B;
+    color: #1A202C;
 }
 
 .searchfound{
@@ -49,15 +49,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #0B132B;
+    background-color: #1A202C;
     z-index: 1;
     transition: 1s linear;
-    color: #0B132B;
+    color: #1A202C;
 
 
 }
 .search-input{
-    border: 3px solid #0B132B;
+    border: 3px solid #1A202C;
     outline: none;
     height: 30px;
     width: 80%;
@@ -96,7 +96,7 @@
     transition: 0.2s linear;
 }
 .movie-title{
-    color: #0B132B;
+    color: #1A202C;
     font-size:clamp(1rem, 1.2vw, 1.6rem);
     font-weight: 600;
     margin-top: 20px;
@@ -141,14 +141,14 @@
         }
 
         .search-input{
-            border: 3px solid #0B132B;
+            border: 3px solid #1A202C;
             outline: none;
             height: 40px;
             width: 70%;
             min-width: 200px;
             padding-left: 10px;
             border-radius: 5px;
-            color: #0B132B;
+            color: #1A202C;
             font-weight: 600;
             font-size: 1.2em;
             
