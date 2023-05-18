@@ -149,7 +149,7 @@
     var subtotalElement = document.getElementById('subtotal');
   
     // Get the initial price value
-    var price = 10; // Replace with the actual price value
+    var price = {{ $scheduledatas->price }} // Replace with the actual price value
   
     // Calculate the initial subtotal
     var subtotal = price;
