@@ -20,7 +20,7 @@ class TicketController extends Controller
     // Update the seat number in the database
     $this->updateSeatNumber($schedule_id, $quantity);
 
-    return view('client.clientTicketPage', compact('transactionId', 'name', 'quantity', 
+    return view('client.clientTIcketPage', compact('transactionId', 'name', 'quantity', 
         'totalAmount', 'schedule_id', 'schedules', 'transactionNumber'));
 }
 public function generateTransactionNumber()
