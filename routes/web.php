@@ -26,7 +26,7 @@ use App\Http\Controllers\TicketController;
 |
 */
 
-Route::get('/client', function () {
+Route::get('/', function () {
     return view('client.index');
 });
 Route::resource('login', AdminLoginController::class);
