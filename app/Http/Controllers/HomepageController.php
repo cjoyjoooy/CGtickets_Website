@@ -17,7 +17,7 @@ class HomepageController extends Controller
         $movieIds = Schedule::distinct('movie_id')->pluck('movie_id');
         $movies = Movie::whereIn('id', $movieIds)->get();
 
-        return view('client.clientHomePage', compact('movies'));
+        return view('client.index', compact('movies'));
     }
 
     public function movielist(){
